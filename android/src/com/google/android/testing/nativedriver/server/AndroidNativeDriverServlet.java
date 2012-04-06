@@ -17,6 +17,18 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.openqa.selenium.remote.server.DefaultDriverSessions;
+import org.openqa.selenium.remote.server.DriverServlet;
+import org.openqa.selenium.remote.server.handler.SendKeys;
+import org.openqa.selenium.remote.server.renderer.EmptyResult;
+import org.openqa.selenium.remote.server.renderer.JsonResult;
+import org.openqa.selenium.remote.server.rest.ResultType;
+import org.openqa.selenium.remote.server.rest.UrlMapper;
+
 import com.google.android.testing.nativedriver.common.AndroidCapabilities;
 import com.google.android.testing.nativedriver.server.handler.AndroidNativeFindChildElement;
 import com.google.android.testing.nativedriver.server.handler.AndroidNativeFindChildElements;
@@ -25,17 +37,10 @@ import com.google.android.testing.nativedriver.server.handler.AndroidNativeFindE
 import com.google.android.testing.nativedriver.server.handler.AndroidNativeSendKeys;
 import com.google.android.testing.nativedriver.server.handler.Click;
 import com.google.android.testing.nativedriver.server.handler.DoubleTap;
+import com.google.android.testing.nativedriver.server.handler.SetText;
 import com.google.android.testing.nativedriver.server.handler.TouchDown;
 import com.google.android.testing.nativedriver.server.handler.TouchMove;
 import com.google.android.testing.nativedriver.server.handler.TouchUp;
-
-import org.openqa.selenium.remote.server.DefaultDriverSessions;
-import org.openqa.selenium.remote.server.DriverServlet;
-import org.openqa.selenium.remote.server.renderer.EmptyResult;
-import org.openqa.selenium.remote.server.renderer.JsonResult;
-import org.openqa.selenium.remote.server.rest.ResultType;
-
-import javax.servlet.ServletException;
 
 /**
  * Extension of the WebDriver default DriverServlet class which registers and
@@ -56,6 +61,7 @@ public class AndroidNativeDriverServlet extends DriverServlet {
    */
   @Override
   public void init() throws ServletException {
+    System.out.println("----------Init---------");
     DefaultDriverSessions driverSessions = new DefaultDriverSessions();
     driverSessions.registerDriver(AndroidCapabilities.get(),
         AndroidNativeDriver.class);
@@ -79,6 +85,10 @@ public class AndroidNativeDriverServlet extends DriverServlet {
       addNewPostMapping(SESSION_PATH + "element/:id/value",
           AndroidNativeSendKeys.class)
           .on(ResultType.SUCCESS, newEmptyResult());
+      
+      addNewPostMapping(SESSION_PATH + "element/:id/setText",
+          SetText.class)
+          .on(ResultType.SUCCESS, newEmptyResult());
 
       addNewPostMapping(SESSION_PATH + "click", Click.class)
           .on(ResultType.SUCCESS, newEmptyResult());
@@ -90,6 +100,7 @@ public class AndroidNativeDriverServlet extends DriverServlet {
           .on(ResultType.SUCCESS, newEmptyResult());
       addNewPostMapping(SESSION_PATH + "buttonup", TouchUp.class)
           .on(ResultType.SUCCESS, newEmptyResult());
+      
     } catch (Exception exception) {
       throw new ServletException(exception);
     }
@@ -102,4 +113,13 @@ public class AndroidNativeDriverServlet extends DriverServlet {
   protected EmptyResult newEmptyResult() {
     return new EmptyResult();
   }
+  
+  // test
+  @Override
+  protected void handleRequest(UrlMapper mapper, HttpServletRequest request, HttpServletResponse response) throws ServletException
+  {
+    System.out.println("======PathInfo:" +request.getPathInfo());
+    super.handleRequest(mapper, request, response);
+  }
+  
 }

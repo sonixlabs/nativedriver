@@ -67,7 +67,7 @@ public class AndroidNativeDriverBuilder {
 
   public AndroidNativeDriverBuilder withServer(URL url) {
     this.commandExecutor
-        = new HttpCommandExecutor(Preconditions.checkNotNull(url));
+        = new AndroidNativeDriverHttpCommandExecutor(Preconditions.checkNotNull(url));
     return this;
   }
 

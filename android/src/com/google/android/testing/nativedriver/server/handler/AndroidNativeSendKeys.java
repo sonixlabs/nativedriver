@@ -17,7 +17,9 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.common.collect.Lists;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.openqa.selenium.HasInputDevices;
 import org.openqa.selenium.remote.server.DriverSessions;
@@ -25,9 +27,7 @@ import org.openqa.selenium.remote.server.JsonParametersAware;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import com.google.common.collect.Lists;
 
 /**
  * A handler to send key events via Android Instrumentation to the
@@ -48,6 +48,11 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   @SuppressWarnings({"unchecked"})
   public void setJsonParameters(Map<String, Object> allParameters)
       throws Exception {
+    System.out.println("====AndroidNativeSendKeys===");
+    StackTraceElement e = new Exception().getStackTrace()[1];
+    System.out.println(e.getClassName() + "," + e.getMethodName());    
+    
+    
     List<String> rawKeys = (List<String>) allParameters.get("value");
     List<String> temp = Lists.newArrayList();
 
@@ -60,12 +65,13 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   @Override
   public ResultType call() throws Exception {
     String[] keysToSend = keys.toArray(new String[0]);
+//    ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
     ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
     return ResultType.SUCCESS;
   }
 
   @Override
   public String toString() {
-    return String.format("[send keys: %s]", keys);
+    return String.format("[setText value: %s]", keys);
   }
 }

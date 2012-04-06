@@ -17,13 +17,16 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.client;
 
-import com.google.android.testing.nativedriver.common.FindsByText;
-import com.google.common.base.Preconditions;
+import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-import java.util.List;
+import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
+import com.google.android.testing.nativedriver.common.FindsByText;
+import com.google.android.testing.nativedriver.common.HasSetText;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Represents an element on the client side. Objects of this type are identical
@@ -35,7 +38,7 @@ import java.util.List;
  * @author Matt DeVore
  */
 public class AndroidNativeElement
-    extends RemoteWebElement implements FindsByText {
+    extends RemoteWebElement implements FindsByText, HasSetText {
   /**
    * Constructs a new instance and sets the parent WebDriver object.
    *
@@ -65,8 +68,17 @@ public class AndroidNativeElement
     return findElements(USING_TEXT, using);
   }
   
-  public void setText(String text){
-    this.setText(text);
+//  public void setText(CharSequence[] keysToSend) {
+  public void setText(String value) {
+//    execute("sendKeysToElement", ImmutableMap.of("id", this.id, "value", keysToSend));
+//    execute("setText", ImmutableMap.of("id", this.id, "value", value));
+//    execute(AndroidNativeDriverCommand.SEND_KEYS_TO_SESSION,
+//        ImmutableMap.of("value", keysToSend));
+    execute(AndroidNativeDriverCommand.SET_TEXT_TO_ELEMENT,
+        ImmutableMap.of("value", value));
+//    execute("setText", ImmutableMap.of("id", this.id, "value", value));
   }
+
+  
   
 }

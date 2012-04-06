@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -36,12 +37,15 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Rotatable;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.internal.Base64Encoder;
+import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.remote.Response;
 import org.openqa.selenium.remote.internal.JsonToWebElementConverter;
 
 import com.google.android.testing.nativedriver.common.AndroidCapabilities;
@@ -356,4 +360,39 @@ public class AndroidNativeDriver
   public void setDateDialogDay(int day){
     setDateDialogEditViewValue(2, day);
   }
+  
+  
+//  
+//  
+//  protected Response execute(String driverCommand, Map<String, ?> parameters) {
+//    System.out.println("===execute===");
+//    Command command = new Command(super.getSessionId(), driverCommand, parameters);
+//    System.out.println(command.getName());
+////    System.out.println(command.toString());
+//    
+////    return super.execute(driverCommand, parameters);
+//    try
+//    {
+//      log(super.getSessionId(), command.getName(), command);
+//      Response response = super.getCommandExecutor().execute(command);
+//
+//      if (response == null) {
+//        log(super.getSessionId(), command.getName(), response);
+//        return null;
+//      }
+//
+//      Object value = super.getElementConverter().apply(response.getValue());
+//      response.setValue(value);
+//      log(super.getSessionId(), command.getName(), response);
+//    } catch (RuntimeException e) {
+//      log(super.getSessionId(), command.getName(), e);
+//      throw e;
+//    } catch (Exception e) {
+//      log(super.getSessionId(), command.getName(), e);
+//      throw new WebDriverException(e);
+//    }
+//    Response response = null;
+//    return super.getErrorHandler().throwIfResponseFailed(response);
+//  }
+
 }

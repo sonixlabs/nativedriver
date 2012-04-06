@@ -17,6 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
+import com.google.android.testing.nativedriver.common.HasSetText;
 import com.google.common.collect.ImmutableList;
 
 import org.openqa.selenium.By;
@@ -289,4 +290,5 @@ public abstract class AndroidNativeElement
   public String getValueOfCssProperty(String propertyName) {
     throw new UnsupportedOperationException();
   }
+  
 }

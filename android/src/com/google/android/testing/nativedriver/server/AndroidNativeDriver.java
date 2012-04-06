@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * @author Dezheng Xu
  */
 public class AndroidNativeDriver
-    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices {
+    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices{
   private final ElementContext context;
   private SearchContext rootSearchContext;
 

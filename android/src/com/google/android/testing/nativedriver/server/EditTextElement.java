@@ -62,6 +62,7 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
     return new Runnable() {
       @Override
       public void run() {
+        System.out.println("----doClear-----");
         getView().setText("");
       }
     };
@@ -73,26 +74,24 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
    * =======================================
    */ 
   
-//  public void setText(String text) {
-//    if (isEnabled() && (getView().getInputType() != InputType.TYPE_NULL)) {
-//      // Since we actually use EditText.setText(), we don't have to request
-//      // focus before calling that.
-//      context.getOnMainSyncRunner().run(doSetText(text));
-//    }
-//  }
-//
-//  /**
-//   * Creates a {@code Runnable} to clear the text of {@code EditText}. This
-//   * {@code Runnable} should always be run on the main application thread.
-//   */
-//  private Runnable doSetText(CharSequence text) {
-//    return new Runnable() {
-//      @Override
-//      public void run() {
-//        getView().setText("aiu");
-//      }
-//    };
-//  }
+  public void setText(final CharSequence text) {
+    if (isEnabled() && (getView().getInputType() != InputType.TYPE_NULL)) {
+      context.getOnMainSyncRunner().run(doSetText(text));
+    }
+  }
+
+  /**
+   * Creates a {@code Runnable} to clear the text of {@code EditText}. This
+   * {@code Runnable} should always be run on the main application thread.
+   */
+  private Runnable doSetText(final CharSequence text) {
+    return new Runnable() {
+      @Override
+      public void run() {
+        getView().setText(text);
+      }
+    };
+  }
   
   
   
