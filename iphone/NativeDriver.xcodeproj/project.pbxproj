@@ -1,0 +1,1127 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF17647613E684FB007045DC /* NDAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = EF17647413E684FB007045DC /* NDAttribute.h */; };
+		EF17647713E684FB007045DC /* NDAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17647513E684FB007045DC /* NDAttribute.m */; };
+		EF17647F13E68A83007045DC /* NDAttributeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF17647E13E68A83007045DC /* NDAttributeTest.m */; };
+		EF24B21B13CC0F67006E0B0C /* TouchSynthesis.h in Headers */ = {isa = PBXBuildFile; fileRef = EF24B21913CC0F67006E0B0C /* TouchSynthesis.h */; };
+		EF24B21C13CC0F67006E0B0C /* TouchSynthesis.m in Sources */ = {isa = PBXBuildFile; fileRef = EF24B21A13CC0F67006E0B0C /* TouchSynthesis.m */; };
+		EF2F20861386554600433A9B /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2F20851386554600433A9B /* GTMDefines.h */; };
+		EF2F20891386555200433A9B /* GTMSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = EF2F20871386555200433A9B /* GTMSenTestCase.h */; };
+		EF2F20931386560900433A9B /* libNativeDriver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC121BE1378D359009E3F71 /* libNativeDriver.a */; };
+		EF2F20CF1386650700433A9B /* NDSessionRootTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2F20CE1386650700433A9B /* NDSessionRootTest.m */; };
+		EF2F20D2138665AD00433A9B /* NDSessionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2F20D1138665AD00433A9B /* NDSessionTest.m */; };
+		EF2F20D413866E9C00433A9B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2F20D313866E9C00433A9B /* CFNetwork.framework */; };
+		EF3F71EE13D59644002C9BE8 /* NDMainThreadRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = EF3F71EC13D59644002C9BE8 /* NDMainThreadRunner.h */; };
+		EF3F71EF13D59644002C9BE8 /* NDMainThreadRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3F71ED13D59644002C9BE8 /* NDMainThreadRunner.m */; };
+		EF44AFDC13D6B1E200BEB840 /* NDWebElementTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = EF44AFDB13D6B1E200BEB840 /* NDWebElementTest.mm */; };
+		EF4FA70B138CFB2F00936103 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4FA70A138CFB2F00936103 /* libOCMock.a */; };
+		EF529FEE13CA91C800449820 /* NDToucher.h in Headers */ = {isa = PBXBuildFile; fileRef = EF529FEC13CA91C800449820 /* NDToucher.h */; };
+		EF529FEF13CA91C800449820 /* NDToucher.m in Sources */ = {isa = PBXBuildFile; fileRef = EF529FED13CA91C800449820 /* NDToucher.m */; };
+		EF529FF413CA930100449820 /* NDNativeElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF529FF113CA930100449820 /* NDNativeElementTest.m */; };
+		EF529FF513CA930100449820 /* NDToucherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF529FF313CA930100449820 /* NDToucherTest.m */; };
+		EF67654413E245F4000529C5 /* NDNativeButtonElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EF67654013E245F4000529C5 /* NDNativeButtonElement.h */; };
+		EF67654513E245F4000529C5 /* NDNativeButtonElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF67654113E245F4000529C5 /* NDNativeButtonElement.m */; };
+		EF6F5A1D13E183BC0010C1D9 /* NDNativeSwitchElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EF6F5A1B13E183BC0010C1D9 /* NDNativeSwitchElement.h */; };
+		EF6F5A1E13E183BC0010C1D9 /* NDNativeSwitchElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6F5A1C13E183BC0010C1D9 /* NDNativeSwitchElement.m */; };
+		EF6F5A2613E184DB0010C1D9 /* NDNativeSwitchElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6F5A2513E184DB0010C1D9 /* NDNativeSwitchElementTest.m */; };
+		EF76C61913CC5D71007AD90B /* NDElementDirectoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF76C61813CC5D71007AD90B /* NDElementDirectoryTest.m */; };
+		EF786D1413C54F0D0050B1C1 /* NDElementDirectory.h in Headers */ = {isa = PBXBuildFile; fileRef = EF786D1213C54F0D0050B1C1 /* NDElementDirectory.h */; };
+		EF786D1513C54F0D0050B1C1 /* NDElementDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF786D1313C54F0D0050B1C1 /* NDElementDirectory.m */; };
+		EF786D1813C551A40050B1C1 /* NDElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EF786D1613C551A40050B1C1 /* NDElement.h */; };
+		EF786D1913C551A40050B1C1 /* NDElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF786D1713C551A40050B1C1 /* NDElement.m */; };
+		EF786D1C13C5543E0050B1C1 /* NDNativeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EF786D1A13C5543E0050B1C1 /* NDNativeElement.h */; };
+		EF786D1D13C5543E0050B1C1 /* NDNativeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF786D1B13C5543E0050B1C1 /* NDNativeElement.m */; };
+		EF8095CA138F82B100B3D844 /* NDNativeDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8095C8138F82B100B3D844 /* NDNativeDriver.h */; };
+		EF8095CB138F82B100B3D844 /* NDNativeDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8095C9138F82B100B3D844 /* NDNativeDriver.m */; };
+		EF8095D0138F834100B3D844 /* NDSession.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8095CC138F834100B3D844 /* NDSession.h */; };
+		EF8095D1138F834100B3D844 /* NDSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8095CD138F834100B3D844 /* NDSession.m */; };
+		EF8095D2138F834100B3D844 /* NDSessionRoot.h in Headers */ = {isa = PBXBuildFile; fileRef = EF8095CE138F834100B3D844 /* NDSessionRoot.h */; };
+		EF8095D3138F834100B3D844 /* NDSessionRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8095CF138F834100B3D844 /* NDSessionRoot.m */; };
+		EF9F2D5013DFCBFF005549C3 /* NDNativeTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EF9F2D4E13DFCBFF005549C3 /* NDNativeTextElement.h */; };
+		EF9F2D5113DFCBFF005549C3 /* NDNativeTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9F2D4F13DFCBFF005549C3 /* NDNativeTextElement.m */; };
+		EFA1B7DE13DD09FA0071C947 /* GTMNSString+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = EFA1B7DC13DD09FA0071C947 /* GTMNSString+URLArguments.h */; };
+		EFA1B7DF13DD09FA0071C947 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA1B7DD13DD09FA0071C947 /* GTMNSString+URLArguments.m */; };
+		EFC121C21378D359009E3F71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC121C11378D359009E3F71 /* Foundation.framework */; };
+		EFC7276813CD3FDE00ABC106 /* errorcodes.h in Headers */ = {isa = PBXBuildFile; fileRef = EFC7276713CD3FDE00ABC106 /* errorcodes.h */; };
+		EFCDE5AE13CEAAEE0012B8D6 /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCDE5AD13CEAAEE0012B8D6 /* libCocoaHTTPServer.a */; };
+		EFD82E80138C946E00DD8203 /* NDElementStore.h in Headers */ = {isa = PBXBuildFile; fileRef = EFD82E7E138C946E00DD8203 /* NDElementStore.h */; };
+		EFD82E81138C946E00DD8203 /* NDElementStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD82E7F138C946E00DD8203 /* NDElementStore.m */; };
+		EFD82E9B138CD25A00DD8203 /* NDElementStoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD82E9A138CD25A00DD8203 /* NDElementStoreTest.m */; };
+		EFDA59CA13E3F2260022E0EF /* NDTimeouts.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDA59C813E3F2260022E0EF /* NDTimeouts.h */; };
+		EFDA59CB13E3F2260022E0EF /* NDTimeouts.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA59C913E3F2260022E0EF /* NDTimeouts.m */; };
+		EFDA59D313E3FB040022E0EF /* NDTimeoutsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDA59D213E3FB040022E0EF /* NDTimeoutsTest.m */; };
+		EFDDD30113DE8B56000366BE /* NDNativeTextFieldElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDDD2FD13DE8B56000366BE /* NDNativeTextFieldElement.h */; };
+		EFDDD30213DE8B56000366BE /* NDNativeTextFieldElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDDD2FE13DE8B56000366BE /* NDNativeTextFieldElement.m */; };
+		EFDDD30313DE8B56000366BE /* NDNativeTextViewElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDDD2FF13DE8B56000366BE /* NDNativeTextViewElement.h */; };
+		EFDDD30413DE8B56000366BE /* NDNativeTextViewElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDDD30013DE8B56000366BE /* NDNativeTextViewElement.m */; };
+		EFDDD30E13DE8CE5000366BE /* NDNativeTextFieldElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDDD30B13DE8CE5000366BE /* NDNativeTextFieldElementTest.m */; };
+		EFDDD31013DE8CE5000366BE /* NDNativeTextViewElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDDD30D13DE8CE5000366BE /* NDNativeTextViewElementTest.m */; };
+		EFE0572813D7C440008908E6 /* NDNativeWebViewElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0572613D7C440008908E6 /* NDNativeWebViewElement.m */; };
+		EFE0572913D7C440008908E6 /* NDNativeWebViewElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EFE0572713D7C440008908E6 /* NDNativeWebViewElement.h */; };
+		EFE0573213D7C846008908E6 /* NDNativeWebViewElementTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFE0573013D7C846008908E6 /* NDNativeWebViewElementTest.mm */; };
+		EFE6958E1386534D0057D1E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC121CC1378D35A009E3F71 /* UIKit.framework */; };
+		EFE6958F1386534D0057D1E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC121C11378D359009E3F71 /* Foundation.framework */; };
+		EFE695901386534D0057D1E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC121CF1378D35A009E3F71 /* CoreGraphics.framework */; };
+		EFF0EB5513D59D2000D7E0FD /* NDJavaScriptRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF0EB5113D59D2000D7E0FD /* NDJavaScriptRunner.h */; };
+		EFF0EB5613D59D2000D7E0FD /* NDJavaScriptRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFF0EB5213D59D2000D7E0FD /* NDJavaScriptRunner.mm */; };
+		EFF0EB5713D59D2000D7E0FD /* NDWebElement.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF0EB5313D59D2000D7E0FD /* NDWebElement.h */; };
+		EFF0EB5813D59D2000D7E0FD /* NDWebElement.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFF0EB5413D59D2000D7E0FD /* NDWebElement.mm */; };
+		EFF0EB6013D59D6100D7E0FD /* NDJavaScriptRunnerTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFF0EB5F13D59D6100D7E0FD /* NDJavaScriptRunnerTest.mm */; };
+		EFF0EB6313D59D8500D7E0FD /* atoms.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF0EB6213D59D8500D7E0FD /* atoms.h */; };
+		EFF8DD921384EAB4005945FC /* RESTServiceMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DD901384EAB4005945FC /* RESTServiceMapping.m */; };
+		EFF8DD931384EAB4005945FC /* WebDriverResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DD911384EAB4005945FC /* WebDriverResource.m */; };
+		EFF8DDCE1384F285005945FC /* HTTPResponse+Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDC21384F285005945FC /* HTTPResponse+Utility.h */; };
+		EFF8DDCF1384F285005945FC /* HTTPResponse+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDC31384F285005945FC /* HTTPResponse+Utility.m */; };
+		EFF8DDD01384F285005945FC /* HTTPServerController.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDC41384F285005945FC /* HTTPServerController.h */; };
+		EFF8DDD11384F285005945FC /* HTTPServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDC51384F285005945FC /* HTTPServerController.m */; };
+		EFF8DDD21384F285005945FC /* HTTPVirtualDirectory+Remove.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDC61384F285005945FC /* HTTPVirtualDirectory+Remove.h */; };
+		EFF8DDD31384F285005945FC /* HTTPVirtualDirectory+Remove.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDC71384F285005945FC /* HTTPVirtualDirectory+Remove.m */; };
+		EFF8DDD41384F285005945FC /* NSException+WebDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDC81384F285005945FC /* NSException+WebDriver.h */; };
+		EFF8DDD51384F285005945FC /* NSException+WebDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDC91384F285005945FC /* NSException+WebDriver.m */; };
+		EFF8DDD61384F285005945FC /* NSURLRequest+IgnoreSSL.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDCA1384F285005945FC /* NSURLRequest+IgnoreSSL.h */; };
+		EFF8DDD71384F285005945FC /* NSURLRequest+IgnoreSSL.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDCB1384F285005945FC /* NSURLRequest+IgnoreSSL.m */; };
+		EFF8DDD81384F285005945FC /* WebDriverPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDCC1384F285005945FC /* WebDriverPreferences.h */; };
+		EFF8DDD91384F285005945FC /* WebDriverPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDCD1384F285005945FC /* WebDriverPreferences.m */; };
+		EFF8DDE21384F2F2005945FC /* HTTPJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDDE1384F2F2005945FC /* HTTPJSONResponse.h */; };
+		EFF8DDE31384F2F2005945FC /* HTTPJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDDF1384F2F2005945FC /* HTTPJSONResponse.m */; };
+		EFF8DDE41384F2F2005945FC /* JSONRESTResource.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDE01384F2F2005945FC /* JSONRESTResource.h */; };
+		EFF8DDE51384F2F2005945FC /* JSONRESTResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDE11384F2F2005945FC /* JSONRESTResource.m */; };
+		EFF8DDE81384F300005945FC /* HTTPPNGResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDE61384F300005945FC /* HTTPPNGResponse.h */; };
+		EFF8DDE91384F300005945FC /* HTTPPNGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDE71384F300005945FC /* HTTPPNGResponse.m */; };
+		EFF8DDEE1384F314005945FC /* WebDriverHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDEA1384F314005945FC /* WebDriverHTTPConnection.h */; };
+		EFF8DDEF1384F314005945FC /* WebDriverHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDEB1384F314005945FC /* WebDriverHTTPConnection.m */; };
+		EFF8DDF01384F314005945FC /* WebDriverHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDEC1384F314005945FC /* WebDriverHTTPServer.h */; };
+		EFF8DDF11384F314005945FC /* WebDriverHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDED1384F314005945FC /* WebDriverHTTPServer.m */; };
+		EFF8DDF61384F334005945FC /* RESTServiceMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDF21384F334005945FC /* RESTServiceMapping.h */; };
+		EFF8DDF71384F334005945FC /* WebDriverResource.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDF31384F334005945FC /* WebDriverResource.h */; };
+		EFF8DDF81384F334005945FC /* WebDriverResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DDF41384F334005945FC /* WebDriverResponse.h */; };
+		EFF8DDF91384F334005945FC /* WebDriverResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DDF51384F334005945FC /* WebDriverResponse.m */; };
+		EFF8DE541384F3B6005945FC /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE471384F3B6005945FC /* JSON.h */; };
+		EFF8DE551384F3B6005945FC /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE481384F3B6005945FC /* NSObject+SBJSON.h */; };
+		EFF8DE561384F3B6005945FC /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE491384F3B6005945FC /* NSObject+SBJSON.m */; };
+		EFF8DE571384F3B6005945FC /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE4A1384F3B6005945FC /* NSString+SBJSON.h */; };
+		EFF8DE581384F3B6005945FC /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE4B1384F3B6005945FC /* NSString+SBJSON.m */; };
+		EFF8DE591384F3B6005945FC /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE4C1384F3B6005945FC /* SBJSON.h */; };
+		EFF8DE5A1384F3B6005945FC /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE4D1384F3B6005945FC /* SBJSON.m */; };
+		EFF8DE5B1384F3B6005945FC /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE4E1384F3B6005945FC /* SBJsonBase.h */; };
+		EFF8DE5C1384F3B6005945FC /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE4F1384F3B6005945FC /* SBJsonBase.m */; };
+		EFF8DE5D1384F3B6005945FC /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE501384F3B6005945FC /* SBJsonParser.h */; };
+		EFF8DE5E1384F3B6005945FC /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE511384F3B6005945FC /* SBJsonParser.m */; };
+		EFF8DE5F1384F3B6005945FC /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF8DE521384F3B6005945FC /* SBJsonWriter.h */; };
+		EFF8DE601384F3B6005945FC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF8DE531384F3B6005945FC /* SBJsonWriter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF0DF1B413CD64F5003A3877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0DF1AD13CD64F4003A3877 /* CocoaHTTPServerLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8319631B0F28464E005D1D21;
+			remoteInfo = CocoaHTTPServer;
+		};
+		EF0DF1D613CD656D003A3877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF0DF1AD13CD64F4003A3877 /* CocoaHTTPServerLibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8319631A0F28464E005D1D21;
+			remoteInfo = CocoaHTTPServer;
+		};
+		EF2F20911386560300433A9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFC121B51378D359009E3F71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFC121BD1378D359009E3F71;
+			remoteInfo = NativeDriver;
+		};
+		EF4FA6FC138CFA5800936103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = OCMock;
+		};
+		EF4FA6FE138CFA5800936103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03BF2D3708F1C69500978C59;
+			remoteInfo = OCMockTests;
+		};
+		EF4FA700138CFA5800936103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 033C84AF11F585CB0009B9CD;
+			remoteInfo = OCMockPhoneSim;
+		};
+		EF4FA702138CFA5800936103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03DAC01F11FEB771007AF17B;
+			remoteInfo = OCMockPhoneDevice;
+		};
+		EF4FA708138CFB2400936103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 033C84AE11F585CB0009B9CD;
+			remoteInfo = OCMockPhoneSim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6736FB1B13CC0E4B00DADFA7 /* GTMIPhoneUnitTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMIPhoneUnitTestDelegate.h; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMIPhoneUnitTestDelegate.h"; sourceTree = "<group>"; };
+		6736FB1C13CC0E4B00DADFA7 /* GTMIPhoneUnitTestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMIPhoneUnitTestDelegate.m; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMIPhoneUnitTestDelegate.m"; sourceTree = "<group>"; };
+		6736FB1D13CC0E4B00DADFA7 /* GTMIPhoneUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMIPhoneUnitTestMain.m; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMIPhoneUnitTestMain.m"; sourceTree = "<group>"; };
+		6736FB2513CC0EEB00DADFA7 /* GTMSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSenTestCase.m; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMSenTestCase.m"; sourceTree = "<group>"; };
+		6736FB2A13CC0F3500DADFA7 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMObjC2Runtime.h; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMObjC2Runtime.h"; sourceTree = "<group>"; };
+		6736FB2B13CC0F3500DADFA7 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMObjC2Runtime.m; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMObjC2Runtime.m"; sourceTree = "<group>"; };
+		6736FB2F13CC0F6100DADFA7 /* GTMRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMRegex.h; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMRegex.h"; sourceTree = "<group>"; };
+		6736FB3013CC0F6100DADFA7 /* GTMRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMRegex.m; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMRegex.m"; sourceTree = "<group>"; };
+		6736FB7413CC1CD200DADFA7 /* GTMUnitTestDevLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMUnitTestDevLog.h; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMUnitTestDevLog.h"; sourceTree = "<group>"; };
+		6736FB7513CC1CD200DADFA7 /* GTMUnitTestDevLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMUnitTestDevLog.m; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMUnitTestDevLog.m"; sourceTree = "<group>"; };
+		6736FBB813CC233E00DADFA7 /* TestAll-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TestAll-Info.plist"; sourceTree = "<group>"; };
+		EF0DF1AD13CD64F4003A3877 /* CocoaHTTPServerLibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaHTTPServerLibrary.xcodeproj; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/cocoahttpserver/CocoaHTTPServerLibrary.xcodeproj"; sourceTree = "<group>"; };
+		EF17647413E684FB007045DC /* NDAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDAttribute.h; path = Classes/VirtualDirectory/NDAttribute.h; sourceTree = SOURCE_ROOT; };
+		EF17647513E684FB007045DC /* NDAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDAttribute.m; path = Classes/VirtualDirectory/NDAttribute.m; sourceTree = SOURCE_ROOT; };
+		EF17647D13E68A83007045DC /* NDAttributeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDAttributeTest.h; sourceTree = "<group>"; };
+		EF17647E13E68A83007045DC /* NDAttributeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDAttributeTest.m; sourceTree = "<group>"; };
+		EF24B21913CC0F67006E0B0C /* TouchSynthesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchSynthesis.h; path = ThirdParty/TouchSynthesis/TouchSynthesis.h; sourceTree = "<group>"; };
+		EF24B21A13CC0F67006E0B0C /* TouchSynthesis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TouchSynthesis.m; path = ThirdParty/TouchSynthesis/TouchSynthesis.m; sourceTree = "<group>"; };
+		EF2F20851386554600433A9B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = "ThirdParty/google-toolbox-for-mac/GTMDefines.h"; sourceTree = "<group>"; };
+		EF2F20871386555200433A9B /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMSenTestCase.h; path = "ThirdParty/google-toolbox-for-mac/UnitTesting/GTMSenTestCase.h"; sourceTree = "<group>"; };
+		EF2F20CD1386650700433A9B /* NDSessionRootTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDSessionRootTest.h; sourceTree = "<group>"; };
+		EF2F20CE1386650700433A9B /* NDSessionRootTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDSessionRootTest.m; sourceTree = "<group>"; };
+		EF2F20D0138665AD00433A9B /* NDSessionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDSessionTest.h; sourceTree = "<group>"; };
+		EF2F20D1138665AD00433A9B /* NDSessionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDSessionTest.m; sourceTree = "<group>"; };
+		EF2F20D313866E9C00433A9B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EF3F71EC13D59644002C9BE8 /* NDMainThreadRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDMainThreadRunner.h; sourceTree = "<group>"; };
+		EF3F71ED13D59644002C9BE8 /* NDMainThreadRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDMainThreadRunner.m; sourceTree = "<group>"; };
+		EF44AFDA13D6B1E200BEB840 /* NDWebElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDWebElementTest.h; sourceTree = "<group>"; };
+		EF44AFDB13D6B1E200BEB840 /* NDWebElementTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NDWebElementTest.mm; sourceTree = "<group>"; };
+		EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = ThirdParty/OCMock/OCMock.xcodeproj; sourceTree = "<group>"; };
+		EF4FA70A138CFB2F00936103 /* libOCMock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libOCMock.a; sourceTree = SOURCE_ROOT; };
+		EF529FEC13CA91C800449820 /* NDToucher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDToucher.h; sourceTree = "<group>"; };
+		EF529FED13CA91C800449820 /* NDToucher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDToucher.m; sourceTree = "<group>"; };
+		EF529FF013CA930100449820 /* NDNativeElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeElementTest.h; sourceTree = "<group>"; };
+		EF529FF113CA930100449820 /* NDNativeElementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeElementTest.m; sourceTree = "<group>"; };
+		EF529FF213CA930100449820 /* NDToucherTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDToucherTest.h; sourceTree = "<group>"; };
+		EF529FF313CA930100449820 /* NDToucherTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDToucherTest.m; sourceTree = "<group>"; };
+		EF67654013E245F4000529C5 /* NDNativeButtonElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeButtonElement.h; sourceTree = "<group>"; };
+		EF67654113E245F4000529C5 /* NDNativeButtonElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeButtonElement.m; sourceTree = "<group>"; };
+		EF6F5A1B13E183BC0010C1D9 /* NDNativeSwitchElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeSwitchElement.h; sourceTree = "<group>"; };
+		EF6F5A1C13E183BC0010C1D9 /* NDNativeSwitchElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeSwitchElement.m; sourceTree = "<group>"; };
+		EF6F5A2413E184DB0010C1D9 /* NDNativeSwitchElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeSwitchElementTest.h; sourceTree = "<group>"; };
+		EF6F5A2513E184DB0010C1D9 /* NDNativeSwitchElementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeSwitchElementTest.m; sourceTree = "<group>"; };
+		EF76C61713CC5D71007AD90B /* NDElementDirectoryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDElementDirectoryTest.h; sourceTree = "<group>"; };
+		EF76C61813CC5D71007AD90B /* NDElementDirectoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDElementDirectoryTest.m; sourceTree = "<group>"; };
+		EF786D1213C54F0D0050B1C1 /* NDElementDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDElementDirectory.h; path = Classes/VirtualDirectory/NDElementDirectory.h; sourceTree = SOURCE_ROOT; };
+		EF786D1313C54F0D0050B1C1 /* NDElementDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDElementDirectory.m; path = Classes/VirtualDirectory/NDElementDirectory.m; sourceTree = SOURCE_ROOT; };
+		EF786D1613C551A40050B1C1 /* NDElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDElement.h; sourceTree = "<group>"; };
+		EF786D1713C551A40050B1C1 /* NDElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDElement.m; sourceTree = "<group>"; };
+		EF786D1A13C5543E0050B1C1 /* NDNativeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeElement.h; sourceTree = "<group>"; };
+		EF786D1B13C5543E0050B1C1 /* NDNativeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeElement.m; sourceTree = "<group>"; };
+		EF8095C8138F82B100B3D844 /* NDNativeDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDNativeDriver.h; path = Classes/NDNativeDriver.h; sourceTree = SOURCE_ROOT; };
+		EF8095C9138F82B100B3D844 /* NDNativeDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDNativeDriver.m; path = Classes/NDNativeDriver.m; sourceTree = SOURCE_ROOT; };
+		EF8095CC138F834100B3D844 /* NDSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDSession.h; path = Classes/VirtualDirectory/NDSession.h; sourceTree = SOURCE_ROOT; };
+		EF8095CD138F834100B3D844 /* NDSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDSession.m; path = Classes/VirtualDirectory/NDSession.m; sourceTree = SOURCE_ROOT; };
+		EF8095CE138F834100B3D844 /* NDSessionRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDSessionRoot.h; path = Classes/VirtualDirectory/NDSessionRoot.h; sourceTree = SOURCE_ROOT; };
+		EF8095CF138F834100B3D844 /* NDSessionRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDSessionRoot.m; path = Classes/VirtualDirectory/NDSessionRoot.m; sourceTree = SOURCE_ROOT; };
+		EF9F2D4E13DFCBFF005549C3 /* NDNativeTextElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeTextElement.h; sourceTree = "<group>"; };
+		EF9F2D4F13DFCBFF005549C3 /* NDNativeTextElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeTextElement.m; sourceTree = "<group>"; };
+		EFA1B7DC13DD09FA0071C947 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		EFA1B7DD13DD09FA0071C947 /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+URLArguments.m"; path = "ThirdParty/google-toolbox-for-mac/Foundation/GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
+		EFC121BE1378D359009E3F71 /* libNativeDriver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNativeDriver.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC121C11378D359009E3F71 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EFC121CC1378D35A009E3F71 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EFC121CF1378D35A009E3F71 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EFC7276713CD3FDE00ABC106 /* errorcodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = errorcodes.h; path = "ThirdParty/webdriver-interactions/errorcodes.h"; sourceTree = "<group>"; };
+		EFCDE5AD13CEAAEE0012B8D6 /* libCocoaHTTPServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocoaHTTPServer.a; sourceTree = SOURCE_ROOT; };
+		EFD82E7E138C946E00DD8203 /* NDElementStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDElementStore.h; path = Classes/VirtualDirectory/NDElementStore.h; sourceTree = SOURCE_ROOT; };
+		EFD82E7F138C946E00DD8203 /* NDElementStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDElementStore.m; path = Classes/VirtualDirectory/NDElementStore.m; sourceTree = SOURCE_ROOT; };
+		EFD82E99138CD25A00DD8203 /* NDElementStoreTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDElementStoreTest.h; sourceTree = "<group>"; };
+		EFD82E9A138CD25A00DD8203 /* NDElementStoreTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDElementStoreTest.m; sourceTree = "<group>"; };
+		EFDA59C813E3F2260022E0EF /* NDTimeouts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NDTimeouts.h; path = Classes/VirtualDirectory/NDTimeouts.h; sourceTree = SOURCE_ROOT; };
+		EFDA59C913E3F2260022E0EF /* NDTimeouts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NDTimeouts.m; path = Classes/VirtualDirectory/NDTimeouts.m; sourceTree = SOURCE_ROOT; };
+		EFDA59D113E3FB040022E0EF /* NDTimeoutsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDTimeoutsTest.h; sourceTree = "<group>"; };
+		EFDA59D213E3FB040022E0EF /* NDTimeoutsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDTimeoutsTest.m; sourceTree = "<group>"; };
+		EFDDD2FD13DE8B56000366BE /* NDNativeTextFieldElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeTextFieldElement.h; sourceTree = "<group>"; };
+		EFDDD2FE13DE8B56000366BE /* NDNativeTextFieldElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeTextFieldElement.m; sourceTree = "<group>"; };
+		EFDDD2FF13DE8B56000366BE /* NDNativeTextViewElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeTextViewElement.h; sourceTree = "<group>"; };
+		EFDDD30013DE8B56000366BE /* NDNativeTextViewElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeTextViewElement.m; sourceTree = "<group>"; };
+		EFDDD30A13DE8CE5000366BE /* NDNativeTextFieldElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeTextFieldElementTest.h; sourceTree = "<group>"; };
+		EFDDD30B13DE8CE5000366BE /* NDNativeTextFieldElementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeTextFieldElementTest.m; sourceTree = "<group>"; };
+		EFDDD30C13DE8CE5000366BE /* NDNativeTextViewElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeTextViewElementTest.h; sourceTree = "<group>"; };
+		EFDDD30D13DE8CE5000366BE /* NDNativeTextViewElementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeTextViewElementTest.m; sourceTree = "<group>"; };
+		EFE0572613D7C440008908E6 /* NDNativeWebViewElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDNativeWebViewElement.m; sourceTree = "<group>"; };
+		EFE0572713D7C440008908E6 /* NDNativeWebViewElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeWebViewElement.h; sourceTree = "<group>"; };
+		EFE0573013D7C846008908E6 /* NDNativeWebViewElementTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NDNativeWebViewElementTest.mm; sourceTree = "<group>"; };
+		EFE0573113D7C846008908E6 /* NDNativeWebViewElementTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDNativeWebViewElementTest.h; sourceTree = "<group>"; };
+		EFE6958D1386534D0057D1E5 /* NativeDriverTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeDriverTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE695A41386539F0057D1E5 /* NativeDriverTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NativeDriverTests-Prefix.pch"; sourceTree = "<group>"; };
+		EFF0EB5113D59D2000D7E0FD /* NDJavaScriptRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDJavaScriptRunner.h; sourceTree = "<group>"; };
+		EFF0EB5213D59D2000D7E0FD /* NDJavaScriptRunner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NDJavaScriptRunner.mm; sourceTree = "<group>"; };
+		EFF0EB5313D59D2000D7E0FD /* NDWebElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDWebElement.h; sourceTree = "<group>"; };
+		EFF0EB5413D59D2000D7E0FD /* NDWebElement.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NDWebElement.mm; sourceTree = "<group>"; };
+		EFF0EB5E13D59D6100D7E0FD /* NDJavaScriptRunnerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDJavaScriptRunnerTest.h; sourceTree = "<group>"; };
+		EFF0EB5F13D59D6100D7E0FD /* NDJavaScriptRunnerTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NDJavaScriptRunnerTest.mm; sourceTree = "<group>"; };
+		EFF0EB6213D59D8500D7E0FD /* atoms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = atoms.h; path = ThirdParty/iphone_webdriver/src/objc/atoms.h; sourceTree = "<group>"; };
+		EFF8DD781384E424005945FC /* NativeDriver-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NativeDriver-Prefix.pch"; path = "Classes/NativeDriver-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		EFF8DD901384EAB4005945FC /* RESTServiceMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTServiceMapping.m; sourceTree = "<group>"; };
+		EFF8DD911384EAB4005945FC /* WebDriverResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebDriverResource.m; sourceTree = "<group>"; };
+		EFF8DDC21384F285005945FC /* HTTPResponse+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HTTPResponse+Utility.h"; path = "ThirdParty/iphone_webdriver/src/objc/HTTPResponse+Utility.h"; sourceTree = "<group>"; };
+		EFF8DDC31384F285005945FC /* HTTPResponse+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "HTTPResponse+Utility.m"; path = "ThirdParty/iphone_webdriver/src/objc/HTTPResponse+Utility.m"; sourceTree = "<group>"; };
+		EFF8DDC41384F285005945FC /* HTTPServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPServerController.h; path = ThirdParty/iphone_webdriver/src/objc/HTTPServerController.h; sourceTree = "<group>"; };
+		EFF8DDC51384F285005945FC /* HTTPServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPServerController.m; path = ThirdParty/iphone_webdriver/src/objc/HTTPServerController.m; sourceTree = "<group>"; };
+		EFF8DDC61384F285005945FC /* HTTPVirtualDirectory+Remove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HTTPVirtualDirectory+Remove.h"; path = "ThirdParty/iphone_webdriver/src/objc/HTTPVirtualDirectory+Remove.h"; sourceTree = "<group>"; };
+		EFF8DDC71384F285005945FC /* HTTPVirtualDirectory+Remove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "HTTPVirtualDirectory+Remove.m"; path = "ThirdParty/iphone_webdriver/src/objc/HTTPVirtualDirectory+Remove.m"; sourceTree = "<group>"; };
+		EFF8DDC81384F285005945FC /* NSException+WebDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSException+WebDriver.h"; path = "ThirdParty/iphone_webdriver/src/objc/NSException+WebDriver.h"; sourceTree = "<group>"; };
+		EFF8DDC91384F285005945FC /* NSException+WebDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSException+WebDriver.m"; path = "ThirdParty/iphone_webdriver/src/objc/NSException+WebDriver.m"; sourceTree = "<group>"; };
+		EFF8DDCA1384F285005945FC /* NSURLRequest+IgnoreSSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+IgnoreSSL.h"; path = "ThirdParty/iphone_webdriver/src/objc/NSURLRequest+IgnoreSSL.h"; sourceTree = "<group>"; };
+		EFF8DDCB1384F285005945FC /* NSURLRequest+IgnoreSSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+IgnoreSSL.m"; path = "ThirdParty/iphone_webdriver/src/objc/NSURLRequest+IgnoreSSL.m"; sourceTree = "<group>"; };
+		EFF8DDCC1384F285005945FC /* WebDriverPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebDriverPreferences.h; path = ThirdParty/iphone_webdriver/src/objc/WebDriverPreferences.h; sourceTree = "<group>"; };
+		EFF8DDCD1384F285005945FC /* WebDriverPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebDriverPreferences.m; path = ThirdParty/iphone_webdriver/src/objc/WebDriverPreferences.m; sourceTree = "<group>"; };
+		EFF8DDDE1384F2F2005945FC /* HTTPJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPJSONResponse.h; path = ThirdParty/iphone_webdriver/src/objc/HTTPJSONResponse.h; sourceTree = "<group>"; };
+		EFF8DDDF1384F2F2005945FC /* HTTPJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPJSONResponse.m; path = ThirdParty/iphone_webdriver/src/objc/HTTPJSONResponse.m; sourceTree = "<group>"; };
+		EFF8DDE01384F2F2005945FC /* JSONRESTResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONRESTResource.h; path = ThirdParty/iphone_webdriver/src/objc/JSONRESTResource.h; sourceTree = "<group>"; };
+		EFF8DDE11384F2F2005945FC /* JSONRESTResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONRESTResource.m; path = ThirdParty/iphone_webdriver/src/objc/JSONRESTResource.m; sourceTree = "<group>"; };
+		EFF8DDE61384F300005945FC /* HTTPPNGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPPNGResponse.h; path = ThirdParty/iphone_webdriver/src/objc/HTTPPNGResponse.h; sourceTree = "<group>"; };
+		EFF8DDE71384F300005945FC /* HTTPPNGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPPNGResponse.m; path = ThirdParty/iphone_webdriver/src/objc/HTTPPNGResponse.m; sourceTree = "<group>"; };
+		EFF8DDEA1384F314005945FC /* WebDriverHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebDriverHTTPConnection.h; path = ThirdParty/iphone_webdriver/src/objc/WebDriverHTTPConnection.h; sourceTree = "<group>"; };
+		EFF8DDEB1384F314005945FC /* WebDriverHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebDriverHTTPConnection.m; path = ThirdParty/iphone_webdriver/src/objc/WebDriverHTTPConnection.m; sourceTree = "<group>"; };
+		EFF8DDEC1384F314005945FC /* WebDriverHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebDriverHTTPServer.h; path = ThirdParty/iphone_webdriver/src/objc/WebDriverHTTPServer.h; sourceTree = "<group>"; };
+		EFF8DDED1384F314005945FC /* WebDriverHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebDriverHTTPServer.m; path = ThirdParty/iphone_webdriver/src/objc/WebDriverHTTPServer.m; sourceTree = "<group>"; };
+		EFF8DDF21384F334005945FC /* RESTServiceMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESTServiceMapping.h; path = ThirdParty/iphone_webdriver/src/objc/RESTServiceMapping.h; sourceTree = "<group>"; };
+		EFF8DDF31384F334005945FC /* WebDriverResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebDriverResource.h; path = ThirdParty/iphone_webdriver/src/objc/WebDriverResource.h; sourceTree = "<group>"; };
+		EFF8DDF41384F334005945FC /* WebDriverResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebDriverResponse.h; path = ThirdParty/iphone_webdriver/src/objc/WebDriverResponse.h; sourceTree = "<group>"; };
+		EFF8DDF51384F334005945FC /* WebDriverResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebDriverResponse.m; path = ThirdParty/iphone_webdriver/src/objc/WebDriverResponse.m; sourceTree = "<group>"; };
+		EFF8DE471384F3B6005945FC /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/JSON.h"; sourceTree = "<group>"; };
+		EFF8DE481384F3B6005945FC /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		EFF8DE491384F3B6005945FC /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		EFF8DE4A1384F3B6005945FC /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/NSString+SBJSON.h"; sourceTree = "<group>"; };
+		EFF8DE4B1384F3B6005945FC /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/NSString+SBJSON.m"; sourceTree = "<group>"; };
+		EFF8DE4C1384F3B6005945FC /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJSON.h; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJSON.h"; sourceTree = "<group>"; };
+		EFF8DE4D1384F3B6005945FC /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJSON.m"; sourceTree = "<group>"; };
+		EFF8DE4E1384F3B6005945FC /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonBase.h"; sourceTree = "<group>"; };
+		EFF8DE4F1384F3B6005945FC /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonBase.m"; sourceTree = "<group>"; };
+		EFF8DE501384F3B6005945FC /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonParser.h"; sourceTree = "<group>"; };
+		EFF8DE511384F3B6005945FC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonParser.m"; sourceTree = "<group>"; };
+		EFF8DE521384F3B6005945FC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonWriter.h"; sourceTree = "<group>"; };
+		EFF8DE531384F3B6005945FC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "ThirdParty/iphone_webdriver/lib/buildtime-src/json-framework/project/Source/SBJsonWriter.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFC121BB1378D359009E3F71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC121C21378D359009E3F71 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFE695891386534D0057D1E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4FA70B138CFB2F00936103 /* libOCMock.a in Frameworks */,
+				EFCDE5AE13CEAAEE0012B8D6 /* libCocoaHTTPServer.a in Frameworks */,
+				EF2F20931386560900433A9B /* libNativeDriver.a in Frameworks */,
+				EF2F20D413866E9C00433A9B /* CFNetwork.framework in Frameworks */,
+				EFE6958E1386534D0057D1E5 /* UIKit.framework in Frameworks */,
+				EFE6958F1386534D0057D1E5 /* Foundation.framework in Frameworks */,
+				EFE695901386534D0057D1E5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF0DF1AE13CD64F4003A3877 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF0DF1B513CD64F5003A3877 /* libCocoaHTTPServer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF24B21813CC0F3B006E0B0C /* TouchSynthesis */ = {
+			isa = PBXGroup;
+			children = (
+				EF24B21913CC0F67006E0B0C /* TouchSynthesis.h */,
+				EF24B21A13CC0F67006E0B0C /* TouchSynthesis.m */,
+			);
+			name = TouchSynthesis;
+			sourceTree = "<group>";
+		};
+		EF2F20841386553400433A9B /* GTM */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F20851386554600433A9B /* GTMDefines.h */,
+				6736FB1B13CC0E4B00DADFA7 /* GTMIPhoneUnitTestDelegate.h */,
+				6736FB1C13CC0E4B00DADFA7 /* GTMIPhoneUnitTestDelegate.m */,
+				6736FB1D13CC0E4B00DADFA7 /* GTMIPhoneUnitTestMain.m */,
+				EFA1B7DC13DD09FA0071C947 /* GTMNSString+URLArguments.h */,
+				EFA1B7DD13DD09FA0071C947 /* GTMNSString+URLArguments.m */,
+				6736FB2A13CC0F3500DADFA7 /* GTMObjC2Runtime.h */,
+				6736FB2B13CC0F3500DADFA7 /* GTMObjC2Runtime.m */,
+				6736FB2F13CC0F6100DADFA7 /* GTMRegex.h */,
+				6736FB3013CC0F6100DADFA7 /* GTMRegex.m */,
+				EF2F20871386555200433A9B /* GTMSenTestCase.h */,
+				6736FB2513CC0EEB00DADFA7 /* GTMSenTestCase.m */,
+				6736FB7413CC1CD200DADFA7 /* GTMUnitTestDevLog.h */,
+				6736FB7513CC1CD200DADFA7 /* GTMUnitTestDevLog.m */,
+			);
+			name = GTM;
+			sourceTree = "<group>";
+		};
+		EF2F20CC1386650700433A9B /* VirtualDirectory */ = {
+			isa = PBXGroup;
+			children = (
+				EF17647D13E68A83007045DC /* NDAttributeTest.h */,
+				EF17647E13E68A83007045DC /* NDAttributeTest.m */,
+				EF76C61713CC5D71007AD90B /* NDElementDirectoryTest.h */,
+				EF76C61813CC5D71007AD90B /* NDElementDirectoryTest.m */,
+				EFD82E99138CD25A00DD8203 /* NDElementStoreTest.h */,
+				EFD82E9A138CD25A00DD8203 /* NDElementStoreTest.m */,
+				EF2F20D0138665AD00433A9B /* NDSessionTest.h */,
+				EF2F20D1138665AD00433A9B /* NDSessionTest.m */,
+				EF2F20CD1386650700433A9B /* NDSessionRootTest.h */,
+				EF2F20CE1386650700433A9B /* NDSessionRootTest.m */,
+				EFDA59D113E3FB040022E0EF /* NDTimeoutsTest.h */,
+				EFDA59D213E3FB040022E0EF /* NDTimeoutsTest.m */,
+			);
+			path = VirtualDirectory;
+			sourceTree = "<group>";
+		};
+		EF4FA6F2138CFA5700936103 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FA6FD138CFA5800936103 /* OCMock.framework */,
+				EF4FA6FF138CFA5800936103 /* OCMockTests.octest */,
+				EF4FA701138CFA5800936103 /* libOCMock.a */,
+				EF4FA703138CFA5800936103 /* libOCMock.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF4FA710138D021D00936103 /* Automation */ = {
+			isa = PBXGroup;
+			children = (
+				EFE0572F13D7C846008908E6 /* Elements */,
+				EFF0EB5E13D59D6100D7E0FD /* NDJavaScriptRunnerTest.h */,
+				EFF0EB5F13D59D6100D7E0FD /* NDJavaScriptRunnerTest.mm */,
+				EF529FF013CA930100449820 /* NDNativeElementTest.h */,
+				EF529FF113CA930100449820 /* NDNativeElementTest.m */,
+				EF529FF213CA930100449820 /* NDToucherTest.h */,
+				EF529FF313CA930100449820 /* NDToucherTest.m */,
+				EF44AFDA13D6B1E200BEB840 /* NDWebElementTest.h */,
+				EF44AFDB13D6B1E200BEB840 /* NDWebElementTest.mm */,
+			);
+			path = Automation;
+			sourceTree = "<group>";
+		};
+		EFC121B31378D359009E3F71 = {
+			isa = PBXGroup;
+			children = (
+				EFC121C31378D359009E3F71 /* Classes */,
+				EFF8DD551384E060005945FC /* ThirdParty */,
+				EFE695A01386539F0057D1E5 /* Tests */,
+				EFC121C01378D359009E3F71 /* Frameworks */,
+				EFC121BF1378D359009E3F71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFC121BF1378D359009E3F71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFE6958D1386534D0057D1E5 /* NativeDriverTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFC121C01378D359009E3F71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF0DF1AD13CD64F4003A3877 /* CocoaHTTPServerLibrary.xcodeproj */,
+				EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */,
+				EF2F20D313866E9C00433A9B /* CFNetwork.framework */,
+				EFC121C11378D359009E3F71 /* Foundation.framework */,
+				EFC121CC1378D35A009E3F71 /* UIKit.framework */,
+				EFC121CF1378D35A009E3F71 /* CoreGraphics.framework */,
+				EFC121BE1378D359009E3F71 /* libNativeDriver.a */,
+				EFCDE5AD13CEAAEE0012B8D6 /* libCocoaHTTPServer.a */,
+				EF4FA70A138CFB2F00936103 /* libOCMock.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFC121C31378D359009E3F71 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EFD82E8C138CC65500DD8203 /* Automation */,
+				EFF8DD7E1384E4A1005945FC /* VirtualDirectory */,
+				EFF8DD8F1384EAB4005945FC /* patched */,
+				EFF8DD611384E37A005945FC /* Other Sources */,
+			);
+			name = Classes;
+			path = NativeDriver;
+			sourceTree = "<group>";
+		};
+		EFD82E8C138CC65500DD8203 /* Automation */ = {
+			isa = PBXGroup;
+			children = (
+				EFE0572513D7C440008908E6 /* Elements */,
+				EFF0EB5113D59D2000D7E0FD /* NDJavaScriptRunner.h */,
+				EFF0EB5213D59D2000D7E0FD /* NDJavaScriptRunner.mm */,
+				EFF0EB5313D59D2000D7E0FD /* NDWebElement.h */,
+				EFF0EB5413D59D2000D7E0FD /* NDWebElement.mm */,
+				EF786D1613C551A40050B1C1 /* NDElement.h */,
+				EF786D1713C551A40050B1C1 /* NDElement.m */,
+				EF3F71EC13D59644002C9BE8 /* NDMainThreadRunner.h */,
+				EF3F71ED13D59644002C9BE8 /* NDMainThreadRunner.m */,
+				EF786D1A13C5543E0050B1C1 /* NDNativeElement.h */,
+				EF786D1B13C5543E0050B1C1 /* NDNativeElement.m */,
+				EF529FEC13CA91C800449820 /* NDToucher.h */,
+				EF529FED13CA91C800449820 /* NDToucher.m */,
+			);
+			name = Automation;
+			path = Classes/Automation;
+			sourceTree = SOURCE_ROOT;
+		};
+		EFE0572513D7C440008908E6 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				EF67654013E245F4000529C5 /* NDNativeButtonElement.h */,
+				EF67654113E245F4000529C5 /* NDNativeButtonElement.m */,
+				EF6F5A1B13E183BC0010C1D9 /* NDNativeSwitchElement.h */,
+				EF6F5A1C13E183BC0010C1D9 /* NDNativeSwitchElement.m */,
+				EF9F2D4E13DFCBFF005549C3 /* NDNativeTextElement.h */,
+				EF9F2D4F13DFCBFF005549C3 /* NDNativeTextElement.m */,
+				EFDDD2FD13DE8B56000366BE /* NDNativeTextFieldElement.h */,
+				EFDDD2FE13DE8B56000366BE /* NDNativeTextFieldElement.m */,
+				EFDDD2FF13DE8B56000366BE /* NDNativeTextViewElement.h */,
+				EFDDD30013DE8B56000366BE /* NDNativeTextViewElement.m */,
+				EFE0572713D7C440008908E6 /* NDNativeWebViewElement.h */,
+				EFE0572613D7C440008908E6 /* NDNativeWebViewElement.m */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		EFE0572F13D7C846008908E6 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				EF6F5A2413E184DB0010C1D9 /* NDNativeSwitchElementTest.h */,
+				EF6F5A2513E184DB0010C1D9 /* NDNativeSwitchElementTest.m */,
+				EFDDD30A13DE8CE5000366BE /* NDNativeTextFieldElementTest.h */,
+				EFDDD30B13DE8CE5000366BE /* NDNativeTextFieldElementTest.m */,
+				EFDDD30C13DE8CE5000366BE /* NDNativeTextViewElementTest.h */,
+				EFDDD30D13DE8CE5000366BE /* NDNativeTextViewElementTest.m */,
+				EFE0573113D7C846008908E6 /* NDNativeWebViewElementTest.h */,
+				EFE0573013D7C846008908E6 /* NDNativeWebViewElementTest.mm */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		EFE695A01386539F0057D1E5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6736FBB813CC233E00DADFA7 /* TestAll-Info.plist */,
+				EF4FA710138D021D00936103 /* Automation */,
+				EF2F20CC1386650700433A9B /* VirtualDirectory */,
+				EFE695A41386539F0057D1E5 /* NativeDriverTests-Prefix.pch */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		EFF8DD551384E060005945FC /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				EF2F20841386553400433A9B /* GTM */,
+				EFF8DDBF1384F202005945FC /* iWebDriver */,
+				EFF8DDC11384F216005945FC /* JSON Framework */,
+				EF24B21813CC0F3B006E0B0C /* TouchSynthesis */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		EFF8DD611384E37A005945FC /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DD781384E424005945FC /* NativeDriver-Prefix.pch */,
+				EF8095C8138F82B100B3D844 /* NDNativeDriver.h */,
+				EF8095C9138F82B100B3D844 /* NDNativeDriver.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		EFF8DD7E1384E4A1005945FC /* VirtualDirectory */ = {
+			isa = PBXGroup;
+			children = (
+				EF17647413E684FB007045DC /* NDAttribute.h */,
+				EF17647513E684FB007045DC /* NDAttribute.m */,
+				EF786D1213C54F0D0050B1C1 /* NDElementDirectory.h */,
+				EF786D1313C54F0D0050B1C1 /* NDElementDirectory.m */,
+				EFD82E7E138C946E00DD8203 /* NDElementStore.h */,
+				EFD82E7F138C946E00DD8203 /* NDElementStore.m */,
+				EF8095CC138F834100B3D844 /* NDSession.h */,
+				EF8095CD138F834100B3D844 /* NDSession.m */,
+				EF8095CE138F834100B3D844 /* NDSessionRoot.h */,
+				EF8095CF138F834100B3D844 /* NDSessionRoot.m */,
+				EFDA59C813E3F2260022E0EF /* NDTimeouts.h */,
+				EFDA59C913E3F2260022E0EF /* NDTimeouts.m */,
+			);
+			name = VirtualDirectory;
+			sourceTree = "<group>";
+		};
+		EFF8DD8F1384EAB4005945FC /* patched */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DD901384EAB4005945FC /* RESTServiceMapping.m */,
+				EFF8DD911384EAB4005945FC /* WebDriverResource.m */,
+			);
+			name = patched;
+			path = Classes/patched;
+			sourceTree = SOURCE_ROOT;
+		};
+		EFF8DDBF1384F202005945FC /* iWebDriver */ = {
+			isa = PBXGroup;
+			children = (
+				EFF0EB6213D59D8500D7E0FD /* atoms.h */,
+				EFC7276713CD3FDE00ABC106 /* errorcodes.h */,
+				EFF8DDC21384F285005945FC /* HTTPResponse+Utility.h */,
+				EFF8DDC31384F285005945FC /* HTTPResponse+Utility.m */,
+				EFF8DDC41384F285005945FC /* HTTPServerController.h */,
+				EFF8DDC51384F285005945FC /* HTTPServerController.m */,
+				EFF8DDC61384F285005945FC /* HTTPVirtualDirectory+Remove.h */,
+				EFF8DDC71384F285005945FC /* HTTPVirtualDirectory+Remove.m */,
+				EFF8DDC81384F285005945FC /* NSException+WebDriver.h */,
+				EFF8DDC91384F285005945FC /* NSException+WebDriver.m */,
+				EFF8DDCA1384F285005945FC /* NSURLRequest+IgnoreSSL.h */,
+				EFF8DDCB1384F285005945FC /* NSURLRequest+IgnoreSSL.m */,
+				EFF8DDCC1384F285005945FC /* WebDriverPreferences.h */,
+				EFF8DDCD1384F285005945FC /* WebDriverPreferences.m */,
+				EFF8DDDA1384F28F005945FC /* HTTP + JSON */,
+				EFF8DDDB1384F29A005945FC /* HTTP + PNG */,
+				EFF8DDDC1384F2A2005945FC /* HTTP Server configuration */,
+				EFF8DDDD1384F2B4005945FC /* REST Mapping */,
+			);
+			name = iWebDriver;
+			sourceTree = "<group>";
+		};
+		EFF8DDC11384F216005945FC /* JSON Framework */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DE471384F3B6005945FC /* JSON.h */,
+				EFF8DE481384F3B6005945FC /* NSObject+SBJSON.h */,
+				EFF8DE491384F3B6005945FC /* NSObject+SBJSON.m */,
+				EFF8DE4A1384F3B6005945FC /* NSString+SBJSON.h */,
+				EFF8DE4B1384F3B6005945FC /* NSString+SBJSON.m */,
+				EFF8DE4C1384F3B6005945FC /* SBJSON.h */,
+				EFF8DE4D1384F3B6005945FC /* SBJSON.m */,
+				EFF8DE4E1384F3B6005945FC /* SBJsonBase.h */,
+				EFF8DE4F1384F3B6005945FC /* SBJsonBase.m */,
+				EFF8DE501384F3B6005945FC /* SBJsonParser.h */,
+				EFF8DE511384F3B6005945FC /* SBJsonParser.m */,
+				EFF8DE521384F3B6005945FC /* SBJsonWriter.h */,
+				EFF8DE531384F3B6005945FC /* SBJsonWriter.m */,
+			);
+			name = "JSON Framework";
+			sourceTree = "<group>";
+		};
+		EFF8DDDA1384F28F005945FC /* HTTP + JSON */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DDDE1384F2F2005945FC /* HTTPJSONResponse.h */,
+				EFF8DDDF1384F2F2005945FC /* HTTPJSONResponse.m */,
+				EFF8DDE01384F2F2005945FC /* JSONRESTResource.h */,
+				EFF8DDE11384F2F2005945FC /* JSONRESTResource.m */,
+			);
+			name = "HTTP + JSON";
+			sourceTree = "<group>";
+		};
+		EFF8DDDB1384F29A005945FC /* HTTP + PNG */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DDE61384F300005945FC /* HTTPPNGResponse.h */,
+				EFF8DDE71384F300005945FC /* HTTPPNGResponse.m */,
+			);
+			name = "HTTP + PNG";
+			sourceTree = "<group>";
+		};
+		EFF8DDDC1384F2A2005945FC /* HTTP Server configuration */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DDEA1384F314005945FC /* WebDriverHTTPConnection.h */,
+				EFF8DDEB1384F314005945FC /* WebDriverHTTPConnection.m */,
+				EFF8DDEC1384F314005945FC /* WebDriverHTTPServer.h */,
+				EFF8DDED1384F314005945FC /* WebDriverHTTPServer.m */,
+			);
+			name = "HTTP Server configuration";
+			sourceTree = "<group>";
+		};
+		EFF8DDDD1384F2B4005945FC /* REST Mapping */ = {
+			isa = PBXGroup;
+			children = (
+				EFF8DDF21384F334005945FC /* RESTServiceMapping.h */,
+				EFF8DDF31384F334005945FC /* WebDriverResource.h */,
+				EFF8DDF41384F334005945FC /* WebDriverResponse.h */,
+				EFF8DDF51384F334005945FC /* WebDriverResponse.m */,
+			);
+			name = "REST Mapping";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EFC121BC1378D359009E3F71 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF8DDCE1384F285005945FC /* HTTPResponse+Utility.h in Headers */,
+				EFF8DDD01384F285005945FC /* HTTPServerController.h in Headers */,
+				EFF8DDD21384F285005945FC /* HTTPVirtualDirectory+Remove.h in Headers */,
+				EFF8DDD41384F285005945FC /* NSException+WebDriver.h in Headers */,
+				EFF8DDD61384F285005945FC /* NSURLRequest+IgnoreSSL.h in Headers */,
+				EFF8DDD81384F285005945FC /* WebDriverPreferences.h in Headers */,
+				EFF8DDE21384F2F2005945FC /* HTTPJSONResponse.h in Headers */,
+				EFF8DDE41384F2F2005945FC /* JSONRESTResource.h in Headers */,
+				EFF8DDE81384F300005945FC /* HTTPPNGResponse.h in Headers */,
+				EFF8DDEE1384F314005945FC /* WebDriverHTTPConnection.h in Headers */,
+				EFF8DDF01384F314005945FC /* WebDriverHTTPServer.h in Headers */,
+				EFF8DDF61384F334005945FC /* RESTServiceMapping.h in Headers */,
+				EFF8DDF71384F334005945FC /* WebDriverResource.h in Headers */,
+				EFF8DDF81384F334005945FC /* WebDriverResponse.h in Headers */,
+				EFF8DE541384F3B6005945FC /* JSON.h in Headers */,
+				EFF8DE551384F3B6005945FC /* NSObject+SBJSON.h in Headers */,
+				EFF8DE571384F3B6005945FC /* NSString+SBJSON.h in Headers */,
+				EFF8DE591384F3B6005945FC /* SBJSON.h in Headers */,
+				EFF8DE5B1384F3B6005945FC /* SBJsonBase.h in Headers */,
+				EFF8DE5D1384F3B6005945FC /* SBJsonParser.h in Headers */,
+				EFF8DE5F1384F3B6005945FC /* SBJsonWriter.h in Headers */,
+				EF2F20861386554600433A9B /* GTMDefines.h in Headers */,
+				EF2F20891386555200433A9B /* GTMSenTestCase.h in Headers */,
+				EFD82E80138C946E00DD8203 /* NDElementStore.h in Headers */,
+				EF8095CA138F82B100B3D844 /* NDNativeDriver.h in Headers */,
+				EF8095D0138F834100B3D844 /* NDSession.h in Headers */,
+				EF8095D2138F834100B3D844 /* NDSessionRoot.h in Headers */,
+				EF786D1413C54F0D0050B1C1 /* NDElementDirectory.h in Headers */,
+				EF786D1813C551A40050B1C1 /* NDElement.h in Headers */,
+				EF786D1C13C5543E0050B1C1 /* NDNativeElement.h in Headers */,
+				EF529FEE13CA91C800449820 /* NDToucher.h in Headers */,
+				EF24B21B13CC0F67006E0B0C /* TouchSynthesis.h in Headers */,
+				EFC7276813CD3FDE00ABC106 /* errorcodes.h in Headers */,
+				EF3F71EE13D59644002C9BE8 /* NDMainThreadRunner.h in Headers */,
+				EFF0EB5513D59D2000D7E0FD /* NDJavaScriptRunner.h in Headers */,
+				EFF0EB5713D59D2000D7E0FD /* NDWebElement.h in Headers */,
+				EFF0EB6313D59D8500D7E0FD /* atoms.h in Headers */,
+				EFE0572913D7C440008908E6 /* NDNativeWebViewElement.h in Headers */,
+				EFA1B7DE13DD09FA0071C947 /* GTMNSString+URLArguments.h in Headers */,
+				EFDDD30113DE8B56000366BE /* NDNativeTextFieldElement.h in Headers */,
+				EFDDD30313DE8B56000366BE /* NDNativeTextViewElement.h in Headers */,
+				EF9F2D5013DFCBFF005549C3 /* NDNativeTextElement.h in Headers */,
+				EF6F5A1D13E183BC0010C1D9 /* NDNativeSwitchElement.h in Headers */,
+				EF67654413E245F4000529C5 /* NDNativeButtonElement.h in Headers */,
+				EFDA59CA13E3F2260022E0EF /* NDTimeouts.h in Headers */,
+				EF17647613E684FB007045DC /* NDAttribute.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EFC121BD1378D359009E3F71 /* NativeDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC121E11378D35A009E3F71 /* Build configuration list for PBXNativeTarget "NativeDriver" */;
+			buildPhases = (
+				EFC121BA1378D359009E3F71 /* Sources */,
+				EFC121BB1378D359009E3F71 /* Frameworks */,
+				EFC121BC1378D359009E3F71 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF0DF1D713CD656D003A3877 /* PBXTargetDependency */,
+			);
+			name = NativeDriver;
+			productName = NativeDriver;
+			productReference = EFC121BE1378D359009E3F71 /* libNativeDriver.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EFE6958C1386534D0057D1E5 /* NativeDriverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFE6959E1386534D0057D1E5 /* Build configuration list for PBXNativeTarget "NativeDriverTests" */;
+			buildPhases = (
+				EFE695881386534D0057D1E5 /* Sources */,
+				EFE695891386534D0057D1E5 /* Frameworks */,
+				EFE6958A1386534D0057D1E5 /* Resources */,
+				EFE6958B1386534D0057D1E5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF4FA709138CFB2400936103 /* PBXTargetDependency */,
+				EF2F20921386560300433A9B /* PBXTargetDependency */,
+			);
+			name = NativeDriverTests;
+			productName = NativeDriverTests;
+			productReference = EFE6958D1386534D0057D1E5 /* NativeDriverTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFC121B51378D359009E3F71 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = EFC121B81378D359009E3F71 /* Build configuration list for PBXProject "NativeDriver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = EFC121B31378D359009E3F71;
+			productRefGroup = EFC121BF1378D359009E3F71 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EF0DF1AE13CD64F4003A3877 /* Products */;
+					ProjectRef = EF0DF1AD13CD64F4003A3877 /* CocoaHTTPServerLibrary.xcodeproj */;
+				},
+				{
+					ProductGroup = EF4FA6F2138CFA5700936103 /* Products */;
+					ProjectRef = EF4FA6F1138CFA5700936103 /* OCMock.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EFC121BD1378D359009E3F71 /* NativeDriver */,
+				EFE6958C1386534D0057D1E5 /* NativeDriverTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EF0DF1B513CD64F5003A3877 /* libCocoaHTTPServer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCocoaHTTPServer.a;
+			remoteRef = EF0DF1B413CD64F5003A3877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF4FA6FD138CFA5800936103 /* OCMock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OCMock.framework;
+			remoteRef = EF4FA6FC138CFA5800936103 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF4FA6FF138CFA5800936103 /* OCMockTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OCMockTests.octest;
+			remoteRef = EF4FA6FE138CFA5800936103 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF4FA701138CFA5800936103 /* libOCMock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOCMock.a;
+			remoteRef = EF4FA700138CFA5800936103 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF4FA703138CFA5800936103 /* libOCMock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOCMock.a;
+			remoteRef = EF4FA702138CFA5800936103 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFE6958A1386534D0057D1E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EFE6958B1386534D0057D1E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFC121BA1378D359009E3F71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF8DD921384EAB4005945FC /* RESTServiceMapping.m in Sources */,
+				EFF8DD931384EAB4005945FC /* WebDriverResource.m in Sources */,
+				EFF8DDCF1384F285005945FC /* HTTPResponse+Utility.m in Sources */,
+				EFF8DDD11384F285005945FC /* HTTPServerController.m in Sources */,
+				EFF8DDD31384F285005945FC /* HTTPVirtualDirectory+Remove.m in Sources */,
+				EFF8DDD51384F285005945FC /* NSException+WebDriver.m in Sources */,
+				EFF8DDD71384F285005945FC /* NSURLRequest+IgnoreSSL.m in Sources */,
+				EFF8DDD91384F285005945FC /* WebDriverPreferences.m in Sources */,
+				EFF8DDE31384F2F2005945FC /* HTTPJSONResponse.m in Sources */,
+				EFF8DDE51384F2F2005945FC /* JSONRESTResource.m in Sources */,
+				EFF8DDE91384F300005945FC /* HTTPPNGResponse.m in Sources */,
+				EFF8DDEF1384F314005945FC /* WebDriverHTTPConnection.m in Sources */,
+				EFF8DDF11384F314005945FC /* WebDriverHTTPServer.m in Sources */,
+				EFF8DDF91384F334005945FC /* WebDriverResponse.m in Sources */,
+				EFF8DE561384F3B6005945FC /* NSObject+SBJSON.m in Sources */,
+				EFF8DE581384F3B6005945FC /* NSString+SBJSON.m in Sources */,
+				EFF8DE5A1384F3B6005945FC /* SBJSON.m in Sources */,
+				EFF8DE5C1384F3B6005945FC /* SBJsonBase.m in Sources */,
+				EFF8DE5E1384F3B6005945FC /* SBJsonParser.m in Sources */,
+				EFF8DE601384F3B6005945FC /* SBJsonWriter.m in Sources */,
+				EFD82E81138C946E00DD8203 /* NDElementStore.m in Sources */,
+				EF8095CB138F82B100B3D844 /* NDNativeDriver.m in Sources */,
+				EF8095D1138F834100B3D844 /* NDSession.m in Sources */,
+				EF8095D3138F834100B3D844 /* NDSessionRoot.m in Sources */,
+				EF786D1513C54F0D0050B1C1 /* NDElementDirectory.m in Sources */,
+				EF786D1913C551A40050B1C1 /* NDElement.m in Sources */,
+				EF786D1D13C5543E0050B1C1 /* NDNativeElement.m in Sources */,
+				EF529FEF13CA91C800449820 /* NDToucher.m in Sources */,
+				EF24B21C13CC0F67006E0B0C /* TouchSynthesis.m in Sources */,
+				EF3F71EF13D59644002C9BE8 /* NDMainThreadRunner.m in Sources */,
+				EFF0EB5613D59D2000D7E0FD /* NDJavaScriptRunner.mm in Sources */,
+				EFF0EB5813D59D2000D7E0FD /* NDWebElement.mm in Sources */,
+				EFE0572813D7C440008908E6 /* NDNativeWebViewElement.m in Sources */,
+				EFA1B7DF13DD09FA0071C947 /* GTMNSString+URLArguments.m in Sources */,
+				EFDDD30213DE8B56000366BE /* NDNativeTextFieldElement.m in Sources */,
+				EFDDD30413DE8B56000366BE /* NDNativeTextViewElement.m in Sources */,
+				EF9F2D5113DFCBFF005549C3 /* NDNativeTextElement.m in Sources */,
+				EF6F5A1E13E183BC0010C1D9 /* NDNativeSwitchElement.m in Sources */,
+				EF67654513E245F4000529C5 /* NDNativeButtonElement.m in Sources */,
+				EFDA59CB13E3F2260022E0EF /* NDTimeouts.m in Sources */,
+				EF17647713E684FB007045DC /* NDAttribute.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFE695881386534D0057D1E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF2F20CF1386650700433A9B /* NDSessionRootTest.m in Sources */,
+				EF2F20D2138665AD00433A9B /* NDSessionTest.m in Sources */,
+				EFD82E9B138CD25A00DD8203 /* NDElementStoreTest.m in Sources */,
+				EF529FF413CA930100449820 /* NDNativeElementTest.m in Sources */,
+				EF529FF513CA930100449820 /* NDToucherTest.m in Sources */,
+				EF76C61913CC5D71007AD90B /* NDElementDirectoryTest.m in Sources */,
+				EFF0EB6013D59D6100D7E0FD /* NDJavaScriptRunnerTest.mm in Sources */,
+				EF44AFDC13D6B1E200BEB840 /* NDWebElementTest.mm in Sources */,
+				EFE0573213D7C846008908E6 /* NDNativeWebViewElementTest.mm in Sources */,
+				EFDDD30E13DE8CE5000366BE /* NDNativeTextFieldElementTest.m in Sources */,
+				EFDDD31013DE8CE5000366BE /* NDNativeTextViewElementTest.m in Sources */,
+				EF6F5A2613E184DB0010C1D9 /* NDNativeSwitchElementTest.m in Sources */,
+				EFDA59D313E3FB040022E0EF /* NDTimeoutsTest.m in Sources */,
+				EF17647F13E68A83007045DC /* NDAttributeTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF0DF1D713CD656D003A3877 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocoaHTTPServer;
+			targetProxy = EF0DF1D613CD656D003A3877 /* PBXContainerItemProxy */;
+		};
+		EF2F20921386560300433A9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFC121BD1378D359009E3F71 /* NativeDriver */;
+			targetProxy = EF2F20911386560300433A9B /* PBXContainerItemProxy */;
+		};
+		EF4FA709138CFB2400936103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OCMockPhoneSim;
+			targetProxy = EF4FA708138CFB2400936103 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EFC121DF1378D35A009E3F71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Classes/NativeDriver-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "ThirdParty/iphone_webdriver/lib/buildtime-src/cocoahttpserver/**";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EFC121E01378D35A009E3F71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Classes/NativeDriver-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "ThirdParty/iphone_webdriver/lib/buildtime-src/cocoahttpserver/**";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		EFC121E21378D35A009E3F71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Classes/NativeDriver-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EFC121E31378D35A009E3F71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Classes/NativeDriver-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EFE6959C1386534D0057D1E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/NativeDriverTests-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ThirdParty\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EFE6959D1386534D0057D1E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/NativeDriverTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ThirdParty\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFC121B81378D359009E3F71 /* Build configuration list for PBXProject "NativeDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC121DF1378D35A009E3F71 /* Debug */,
+				EFC121E01378D35A009E3F71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFC121E11378D35A009E3F71 /* Build configuration list for PBXNativeTarget "NativeDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC121E21378D35A009E3F71 /* Debug */,
+				EFC121E31378D35A009E3F71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFE6959E1386534D0057D1E5 /* Build configuration list for PBXNativeTarget "NativeDriverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFE6959C1386534D0057D1E5 /* Debug */,
+				EFE6959D1386534D0057D1E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFC121B51378D359009E3F71 /* Project object */;
+}

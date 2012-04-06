@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF8F441C13CD70280012CFC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441B13CD70280012CFC0 /* InfoPlist.strings */; };
+		EF8F441F13CD703D0012CFC0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441D13CD703D0012CFC0 /* MainWindow.xib */; };
+		EF8F442013CD703D0012CFC0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441E13CD703D0012CFC0 /* LoginViewController.xib */; };
+		EFBBA68A13CEB8740002499F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441D13CD703D0012CFC0 /* MainWindow.xib */; };
+		EFBBA68B13CEB8740002499F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441E13CD703D0012CFC0 /* LoginViewController.xib */; };
+		EFBBA68C13CEB8740002499F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF8F441B13CD70280012CFC0 /* InfoPlist.strings */; };
+		EFBEB11D13B9A7BD001A26C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB11C13B9A7BD001A26C8 /* UIKit.framework */; };
+		EFBEB11F13B9A7BD001A26C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB11E13B9A7BD001A26C8 /* Foundation.framework */; };
+		EFBEB12113B9A7BD001A26C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB12013B9A7BD001A26C8 /* CoreGraphics.framework */; };
+		EFBEB12A13B9A7BE001A26C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB12913B9A7BE001A26C8 /* main.m */; };
+		EFBEB12D13B9A7BE001A26C8 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB12C13B9A7BE001A26C8 /* SampleAppDelegate.m */; };
+		EFBEB13313B9A7BE001A26C8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB13213B9A7BE001A26C8 /* LoginViewController.m */; };
+		EFBEB14513B9ABD4001A26C8 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFBEB14413B9ABD4001A26C8 /* MainViewController.xib */; };
+		EFBEB14913B9AD7F001A26C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB14813B9AD7F001A26C8 /* MainViewController.m */; };
+		EFBEB15413B9BB3B001A26C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB12913B9A7BE001A26C8 /* main.m */; };
+		EFBEB15513B9BB3B001A26C8 /* SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB12C13B9A7BE001A26C8 /* SampleAppDelegate.m */; };
+		EFBEB15613B9BB3B001A26C8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB13213B9A7BE001A26C8 /* LoginViewController.m */; };
+		EFBEB15713B9BB3B001A26C8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBEB14813B9AD7F001A26C8 /* MainViewController.m */; };
+		EFBEB15913B9BB3B001A26C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB11C13B9A7BD001A26C8 /* UIKit.framework */; };
+		EFBEB15A13B9BB3B001A26C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB11E13B9A7BD001A26C8 /* Foundation.framework */; };
+		EFBEB15B13B9BB3B001A26C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB12013B9A7BD001A26C8 /* CoreGraphics.framework */; };
+		EFBEB16013B9BB3B001A26C8 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFBEB14413B9ABD4001A26C8 /* MainViewController.xib */; };
+		EFBEB18513B9BD47001A26C8 /* libNativeDriver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB18313B9BD47001A26C8 /* libNativeDriver.a */; };
+		EFBEB18713B9BD51001A26C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB18613B9BD51001A26C8 /* CFNetwork.framework */; };
+		EFBEB18913B9BD5E001A26C8 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBEB18813B9BD5E001A26C8 /* libstdc++.dylib */; };
+		EFC6325A13CC25800043C69E /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC6325913CC25800043C69E /* libCocoaHTTPServer.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF0DF19413CD63A4003A3877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6736FAFF13CC0D0600DADFA7;
+			remoteInfo = "Test All";
+		};
+		EF3679F813CC1E1E00108A89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EFC121BD1378D359009E3F71;
+			remoteInfo = NativeDriver;
+		};
+		EF53394D13CC1CBF0033509D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EFC121BE1378D359009E3F71;
+			remoteInfo = NativeDriver;
+		};
+		EF53394F13CC1CBF0033509D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EFE6958D1386534D0057D1E5;
+			remoteInfo = NativeDriverTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NativeDriver.xcodeproj; path = ../NativeDriver.xcodeproj; sourceTree = "<group>"; };
+		EF8F441B13CD70280012CFC0 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		EF8F441D13CD703D0012CFC0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		EF8F441E13CD703D0012CFC0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		EFBEB11813B9A7BD001A26C8 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBEB11C13B9A7BD001A26C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EFBEB11E13B9A7BD001A26C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EFBEB12013B9A7BD001A26C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EFBEB12413B9A7BE001A26C8 /* Sample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sample-Info.plist"; sourceTree = "<group>"; };
+		EFBEB12813B9A7BE001A26C8 /* Sample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sample-Prefix.pch"; sourceTree = "<group>"; };
+		EFBEB12913B9A7BE001A26C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EFBEB12B13B9A7BE001A26C8 /* SampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAppDelegate.h; sourceTree = "<group>"; };
+		EFBEB12C13B9A7BE001A26C8 /* SampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleAppDelegate.m; sourceTree = "<group>"; };
+		EFBEB13113B9A7BE001A26C8 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EFBEB13213B9A7BE001A26C8 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EFBEB14413B9ABD4001A26C8 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		EFBEB14713B9AD7F001A26C8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EFBEB14813B9AD7F001A26C8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EFBEB16413B9BB3B001A26C8 /* Automation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Automation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBEB18313B9BD47001A26C8 /* libNativeDriver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libNativeDriver.a; sourceTree = SOURCE_ROOT; };
+		EFBEB18613B9BD51001A26C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EFBEB18813B9BD5E001A26C8 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/gcc/arm-apple-darwin10/4.0.1/libstdc++.dylib"; sourceTree = SDKROOT; };
+		EFC6325913CC25800043C69E /* libCocoaHTTPServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCocoaHTTPServer.a; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFBEB11513B9A7BD001A26C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBEB11D13B9A7BD001A26C8 /* UIKit.framework in Frameworks */,
+				EFBEB11F13B9A7BD001A26C8 /* Foundation.framework in Frameworks */,
+				EFBEB12113B9A7BD001A26C8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBEB15813B9BB3B001A26C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBEB15913B9BB3B001A26C8 /* UIKit.framework in Frameworks */,
+				EFBEB15A13B9BB3B001A26C8 /* Foundation.framework in Frameworks */,
+				EFBEB15B13B9BB3B001A26C8 /* CoreGraphics.framework in Frameworks */,
+				EFBEB18713B9BD51001A26C8 /* CFNetwork.framework in Frameworks */,
+				EFBEB18913B9BD5E001A26C8 /* libstdc++.dylib in Frameworks */,
+				EFC6325A13CC25800043C69E /* libCocoaHTTPServer.a in Frameworks */,
+				EFBEB18513B9BD47001A26C8 /* libNativeDriver.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF53394213CC1CBD0033509D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF53394E13CC1CBF0033509D /* libNativeDriver.a */,
+				EF53395013CC1CBF0033509D /* NativeDriverTests.octest */,
+				EF0DF19513CD63A4003A3877 /* Test All.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFBEB10D13B9A7BD001A26C8 = {
+			isa = PBXGroup;
+			children = (
+				EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */,
+				EFBEB12213B9A7BD001A26C8 /* SampleApp */,
+				EFBEB11B13B9A7BD001A26C8 /* Frameworks */,
+				EFBEB11913B9A7BD001A26C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFBEB11913B9A7BD001A26C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFBEB11813B9A7BD001A26C8 /* SampleApp.app */,
+				EFBEB16413B9BB3B001A26C8 /* Automation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFBEB11B13B9A7BD001A26C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFBEB11C13B9A7BD001A26C8 /* UIKit.framework */,
+				EFBEB11E13B9A7BD001A26C8 /* Foundation.framework */,
+				EFBEB12013B9A7BD001A26C8 /* CoreGraphics.framework */,
+				EFBEB18613B9BD51001A26C8 /* CFNetwork.framework */,
+				EFBEB18813B9BD5E001A26C8 /* libstdc++.dylib */,
+				EFC6325913CC25800043C69E /* libCocoaHTTPServer.a */,
+				EFBEB18313B9BD47001A26C8 /* libNativeDriver.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFBEB12213B9A7BD001A26C8 /* SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				EF8F441D13CD703D0012CFC0 /* MainWindow.xib */,
+				EFBEB13113B9A7BE001A26C8 /* LoginViewController.h */,
+				EFBEB13213B9A7BE001A26C8 /* LoginViewController.m */,
+				EF8F441E13CD703D0012CFC0 /* LoginViewController.xib */,
+				EFBEB12B13B9A7BE001A26C8 /* SampleAppDelegate.h */,
+				EFBEB12C13B9A7BE001A26C8 /* SampleAppDelegate.m */,
+				EFBEB14713B9AD7F001A26C8 /* MainViewController.h */,
+				EFBEB14813B9AD7F001A26C8 /* MainViewController.m */,
+				EFBEB14413B9ABD4001A26C8 /* MainViewController.xib */,
+				EFBEB12313B9A7BE001A26C8 /* Supporting Files */,
+			);
+			name = SampleApp;
+			sourceTree = "<group>";
+		};
+		EFBEB12313B9A7BE001A26C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFBEB12413B9A7BE001A26C8 /* Sample-Info.plist */,
+				EF8F441B13CD70280012CFC0 /* InfoPlist.strings */,
+				EFBEB12813B9A7BE001A26C8 /* Sample-Prefix.pch */,
+				EFBEB12913B9A7BE001A26C8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFBEB11713B9A7BD001A26C8 /* SampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFBEB13913B9A7BE001A26C8 /* Build configuration list for PBXNativeTarget "SampleApp" */;
+			buildPhases = (
+				EFBEB11413B9A7BD001A26C8 /* Sources */,
+				EFBEB11513B9A7BD001A26C8 /* Frameworks */,
+				EFBEB11613B9A7BD001A26C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleApp;
+			productName = NativeDriverSample;
+			productReference = EFBEB11813B9A7BD001A26C8 /* SampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFBEB15213B9BB3B001A26C8 /* Automation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFBEB16113B9BB3B001A26C8 /* Build configuration list for PBXNativeTarget "Automation" */;
+			buildPhases = (
+				EFBEB15313B9BB3B001A26C8 /* Sources */,
+				EFBEB15813B9BB3B001A26C8 /* Frameworks */,
+				EFBEB15C13B9BB3B001A26C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF3679F913CC1E1E00108A89 /* PBXTargetDependency */,
+			);
+			name = Automation;
+			productName = NativeDriverSample;
+			productReference = EFBEB16413B9BB3B001A26C8 /* Automation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFBEB10F13B9A7BD001A26C8 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = EFBEB11213B9A7BD001A26C8 /* Build configuration list for PBXProject "SampleApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EFBEB10D13B9A7BD001A26C8;
+			productRefGroup = EFBEB11913B9A7BD001A26C8 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EF53394213CC1CBD0033509D /* Products */;
+					ProjectRef = EF53394113CC1CBD0033509D /* NativeDriver.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EFBEB11713B9A7BD001A26C8 /* SampleApp */,
+				EFBEB15213B9BB3B001A26C8 /* Automation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EF0DF19513CD63A4003A3877 /* Test All.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Test All.app";
+			remoteRef = EF0DF19413CD63A4003A3877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF53394E13CC1CBF0033509D /* libNativeDriver.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNativeDriver.a;
+			remoteRef = EF53394D13CC1CBF0033509D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EF53395013CC1CBF0033509D /* NativeDriverTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NativeDriverTests.octest;
+			remoteRef = EF53394F13CC1CBF0033509D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFBEB11613B9A7BD001A26C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBEB14513B9ABD4001A26C8 /* MainViewController.xib in Resources */,
+				EF8F441C13CD70280012CFC0 /* InfoPlist.strings in Resources */,
+				EF8F441F13CD703D0012CFC0 /* MainWindow.xib in Resources */,
+				EF8F442013CD703D0012CFC0 /* LoginViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBEB15C13B9BB3B001A26C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBBA68A13CEB8740002499F /* MainWindow.xib in Resources */,
+				EFBBA68B13CEB8740002499F /* LoginViewController.xib in Resources */,
+				EFBBA68C13CEB8740002499F /* InfoPlist.strings in Resources */,
+				EFBEB16013B9BB3B001A26C8 /* MainViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFBEB11413B9A7BD001A26C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBEB12A13B9A7BE001A26C8 /* main.m in Sources */,
+				EFBEB12D13B9A7BE001A26C8 /* SampleAppDelegate.m in Sources */,
+				EFBEB13313B9A7BE001A26C8 /* LoginViewController.m in Sources */,
+				EFBEB14913B9AD7F001A26C8 /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFBEB15313B9BB3B001A26C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBEB15413B9BB3B001A26C8 /* main.m in Sources */,
+				EFBEB15513B9BB3B001A26C8 /* SampleAppDelegate.m in Sources */,
+				EFBEB15613B9BB3B001A26C8 /* LoginViewController.m in Sources */,
+				EFBEB15713B9BB3B001A26C8 /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF3679F913CC1E1E00108A89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NativeDriver;
+			targetProxy = EF3679F813CC1E1E00108A89 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EFBEB13713B9A7BE001A26C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EFBEB13813B9A7BE001A26C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		EFBEB13A13B9A7BE001A26C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sample-Prefix.pch";
+				INFOPLIST_FILE = "Sample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EFBEB13B13B9A7BE001A26C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sample-Prefix.pch";
+				INFOPLIST_FILE = "Sample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EFBEB16213B9BB3B001A26C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NATIVEDRIVER,
+					DEBUG,
+				);
+				HEADER_SEARCH_PATHS = ../Classes;
+				INFOPLIST_FILE = "Sample-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Automation;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EFBEB16313B9BB3B001A26C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = NATIVEDRIVER;
+				HEADER_SEARCH_PATHS = ../Classes;
+				INFOPLIST_FILE = "Sample-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Automation;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFBEB11213B9A7BD001A26C8 /* Build configuration list for PBXProject "SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBEB13713B9A7BE001A26C8 /* Debug */,
+				EFBEB13813B9A7BE001A26C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFBEB13913B9A7BE001A26C8 /* Build configuration list for PBXNativeTarget "SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBEB13A13B9A7BE001A26C8 /* Debug */,
+				EFBEB13B13B9A7BE001A26C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFBEB16113B9BB3B001A26C8 /* Build configuration list for PBXNativeTarget "Automation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBEB16213B9BB3B001A26C8 /* Debug */,
+				EFBEB16313B9BB3B001A26C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFBEB10F13B9A7BD001A26C8 /* Project object */;
+}

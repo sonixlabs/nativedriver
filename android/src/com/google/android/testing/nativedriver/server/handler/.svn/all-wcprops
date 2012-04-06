@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/40/trunk/android/src/com/google/android/testing/nativedriver/server/handler
+END
+DoubleTap.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/16/trunk/android/src/com/google/android/testing/nativedriver/server/handler/DoubleTap.java
+END
+AndroidNativeFindElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/2/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeFindElement.java
+END
+AndroidNativeBySelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/2/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeBySelector.java
+END
+Click.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/16/trunk/android/src/com/google/android/testing/nativedriver/server/handler/Click.java
+END
+AndroidNativeFindElements.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/2/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeFindElements.java
+END
+AndroidNativeFindChildElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/2/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeFindChildElement.java
+END
+TouchUp.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/16/trunk/android/src/com/google/android/testing/nativedriver/server/handler/TouchUp.java
+END
+AndroidNativeFindChildElements.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/2/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeFindChildElements.java
+END
+TouchMove.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/16/trunk/android/src/com/google/android/testing/nativedriver/server/handler/TouchMove.java
+END
+TouchDown.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/16/trunk/android/src/com/google/android/testing/nativedriver/server/handler/TouchDown.java
+END
+AndroidNativeSendKeys.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/40/trunk/android/src/com/google/android/testing/nativedriver/server/handler/AndroidNativeSendKeys.java
+END

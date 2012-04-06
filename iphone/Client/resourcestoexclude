@@ -1,0 +1,5 @@
+amd64/**
+com/thoughtworks/**
+org/openqa/selenium/firefox/**
+META-INF/**
+x86/**

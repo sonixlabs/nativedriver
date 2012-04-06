@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2011 NativeDriver committers
+Copyright 2011 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<project name="android-nativedriver" default="compile" basedir=".">
+  <property file="build.properties" />
+
+  <target name="directory">
+    <mkdir dir="${class.dir}" />
+    <mkdir dir="${build.dir}" />
+  </target>
+  <target name="classes-common" depends="directory">
+    <javac destdir="${class.dir}"
+	   srcdir="${src.dir}"
+	   includes="${common.package}/**">
+      <classpath>
+	<pathelement path="${third_party.guava}" />
+	<pathelement path="${third_party.selenium.server}" />
+        <pathelement path="${third_party.jsr305}" />
+        <pathelement path="${third_party.android}" />
+      </classpath>
+    </javac>
+  </target>
+  <target name="classes-client" depends="directory,classes-common">
+    <javac destdir="${class.dir}"
+	   srcdir="${src.dir}"
+	   includes="${client.package}/**">
+      <classpath>
+	<pathelement path="${third_party.guava}" />
+	<pathelement path="${third_party.selenium.server}" />
+        <pathelement path="${third_party.jsr305}" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="clean">
+    <delete dir="${class.dir}"/>
+    <delete dir="${build.dir}" />
+  </target>
+
+  <target name="classes-server" depends="directory,classes-common">
+    <javac destdir="${class.dir}"
+	   srcdir="${src.dir}"
+	   includes="${server.package}/**">
+      <classpath>
+	<pathelement path="${third_party.guava}" />
+	<pathelement path="${third_party.selenium.server}" />
+        <pathelement path="${third_party.jsr305}" />
+	<pathelement path="${third_party.jetty}" />
+	<pathelement path="${third_party.android}" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="jar-common" depends="classes-common">
+    <jar destfile="${build.dir}/common.jar"
+	 basedir="${class.dir}"
+	 includes="${common.package}/**" />
+  </target>
+
+  <target name="jar-client" depends="classes-client">
+    <jar destfile="${build.dir}/client.jar"
+	 basedir="${class.dir}"
+	 includes="${client.package}/**" />
+  </target>
+
+  <target name="jar-server" depends="classes-server">
+    <jar destfile="${build.dir}/server.jar"
+	 basedir="${class.dir}"
+	 includes="${server.package}/**" />
+  </target>
+
+  <target name="prejarjar-server" depends="jar-server,jar-common">
+    <zip destfile="${build.dir}/server-prejarjar.jar">
+      <zipfileset src="${build.dir}/server.jar"
+		  excludesfile="${server.resourcestoexclude}" />
+      <zipfileset src="${build.dir}/common.jar"
+		  excludesfile="${server.resourcestoexclude}" />
+      <zipfileset src="${third_party.guava}"
+		  excludesfile="${server.resourcestoexclude}" />
+      <zipfileset src="${third_party.selenium.server}">
+	<exclude name="${exclude_from_selenium}" />
+	<excludesfile name="${server.resourcestoexclude}" />
+      </zipfileset>
+      <zipfileset src="${third_party.jsr305}"
+		  excludesfile="${server.resourcestoexclude}" />
+      <zipfileset src="${third_party.jetty.core}"
+		  excludesfile="${server.resourcestoexclude}" />
+      <zipfileset src="${third_party.jetty.util}"
+		  excludesfile="${server.resourcestoexclude}" />
+    </zip>
+  </target>
+
+  <target name="standalone-server" depends="prejarjar-server">
+    <java jar="${third_party.jarjar}" fork="true">
+      <arg value="process" />
+      <arg path="${server.jarjarrules}" />
+      <arg path="${build.dir}/server-prejarjar.jar" />
+      <arg path="${server.standalonejar}" />
+    </java>
+  </target>
+
+  <target name="prejarjar-client" depends="jar-client,jar-common">
+    <zip destfile="${build.dir}/client-prejarjar.jar">
+      <zipfileset src="${build.dir}/client.jar"
+		  excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${build.dir}/common.jar"
+  		  excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.guava}"
+		  excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.selenium.server}">
+	<exclude name="${exclude_from_selenium}" />
+	<excludesfile name="${client.resourcestoexclude}" />
+      </zipfileset>
+      <zipfileset src="${third_party.jsr305}"
+		  excludesfile="${client.resourcestoexclude}" />
+    </zip>
+  </target>
+
+  <target name="standalone-client" depends="prejarjar-client">
+    <java jar="${third_party.jarjar}" fork="true">
+      <arg value="process" />
+      <arg path="${client.jarjarrules}" />
+      <arg path="${build.dir}/client-prejarjar.jar" />
+      <arg path="${client.standalonejar}" />
+    </java>
+  </target>
+
+  <target name="eclipse-references"
+	  depends="standalone-server,standalone-client">
+    <copy file="${client.standalonejar}" todir="test/" />
+    <copy file="${server.standalonejar}" todir="sample-aut/simplelayouts/" />
+  </target>
+
+  <target name="compile"
+	  depends="standalone-server,standalone-client,eclipse-references" />
+</project>

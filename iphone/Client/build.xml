@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright 2011 NativeDriver committers
+Copyright 2011 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<project name="ios-nativedriver" default="compile" basedir=".">
+  <property file="build.properties" />
+
+  <target name="directory">
+    <mkdir dir="${class.dir}" />
+    <mkdir dir="${build.dir}" />
+  </target>
+
+  <target name="classes-client" depends="directory">
+    <javac destdir="${class.dir}"
+	   srcdir="${src.dir}"
+	   includes="${client.package}/**">
+      <classpath>
+        <pathelement path="${third_party.logging}" />
+        <pathelement path="${third_party.guava}" />
+        <pathelement path="${third_party.httpcomponents.client}" />
+        <pathelement path="${third_party.httpcomponents.core}" />
+        <pathelement path="${third_party.json}" />
+        <pathelement path="${third_party.selenium.java}" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="clean">
+    <delete dir="${class.dir}"/>
+    <delete dir="${build.dir}" />
+  </target>
+
+  <target name="jar-client" depends="classes-client">
+    <jar destfile="${build.dir}/ios-client.jar"
+         basedir="${class.dir}"
+         includes="${client.package}/**" />
+  </target>
+
+  <target name="standalone-client" depends="jar-client">
+    <zip destfile="${build.dir}/ios-client-standalone.jar">
+      <zipfileset src="${build.dir}/ios-client.jar"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.logging}"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.guava}"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.httpcomponents.client}"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.httpcomponents.core}"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.json}"
+          excludesfile="${client.resourcestoexclude}" />
+      <zipfileset src="${third_party.selenium.java}"
+          excludesfile="${client.resourcestoexclude}" />
+    </zip>
+  </target>
+
+  <target name="eclipse-references" depends="standalone-client">
+    <copy file="${build.dir}/ios-client-standalone.jar" todir="test/" />
+  </target>
+
+  <target name="compile" depends="standalone-client,eclipse-references" />
+</project>
