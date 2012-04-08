@@ -17,6 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
+import com.google.android.testing.nativedriver.common.HasSetText;
 import com.google.android.testing.nativedriver.common.HasTouchScreen;
 import com.google.android.testing.nativedriver.common.Touch;
 import com.google.common.base.Function;
@@ -64,7 +65,7 @@ import javax.annotation.Nullable;
  * @author Dezheng Xu
  */
 public class AndroidNativeDriver
-    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices{
+    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices, HasSetText{
   private final ElementContext context;
   private SearchContext rootSearchContext;
 
@@ -194,7 +195,8 @@ public class AndroidNativeDriver
     return context.getElementFinder().getWait();
   }
 
-  protected SearchContext getRootSearchContext() {
+//  protected SearchContext getRootSearchContext() {
+  public SearchContext getRootSearchContext() {
     if (rootSearchContext == null) {
       rootSearchContext = context.getElementFinder()
           .getSearchContext(new RootSearchScope(context));
@@ -436,5 +438,20 @@ public class AndroidNativeDriver
   @Override
   public ActionChainsGenerator actionsBuilder() {
     return new DefaultActionChainsGenerator(this);
+  }
+  
+  public ElementContext getContext() {
+	  return this.context;
+  }
+  
+  @Override
+  public void setText(String elementId, String value) {
+		System.out.println("elementId:" + elementId);
+		System.out.println("value    :" + value);
+		System.out.println("cp0");
+	    RootSearchScope scope = new RootSearchScope(this.context);
+		System.out.println("cp1");
+	    scope.findElementByAndroidId(Integer.parseInt(elementId)).setText(value);
+//	    scope.findElementByAndroidId(1).setText("test");
   }
 }

@@ -86,8 +86,7 @@ public class AndroidNativeDriverServlet extends DriverServlet {
           AndroidNativeSendKeys.class)
           .on(ResultType.SUCCESS, newEmptyResult());
       
-      addNewPostMapping(SESSION_PATH + "element/:id/setText",
-          SetText.class)
+      addNewPostMapping(SESSION_PATH + "element/:id/setText", SetText.class)
           .on(ResultType.SUCCESS, newEmptyResult());
 
       addNewPostMapping(SESSION_PATH + "click", Click.class)

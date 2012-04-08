@@ -291,4 +291,7 @@ public abstract class AndroidNativeElement
     throw new UnsupportedOperationException();
   }
   
+  public void setText(final CharSequence text) {
+	 // no-op
+  }
 }

@@ -25,6 +25,8 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -361,6 +363,19 @@ public class AndroidNativeDriver
     setDateDialogEditViewValue(2, day);
   }
   
+  private static String extractMatchString(String regex, String target) {
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(target);
+    if (matcher.find()) {
+      return matcher.group(1);
+    } else {
+      throw new IllegalStateException("No match found.");
+    }
+  }
+  
+  public String getCurrentActivityName() {
+    return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
+  }
   
 //  
 //  

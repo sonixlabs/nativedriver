@@ -25,6 +25,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.FindsByText;
 import com.google.android.testing.nativedriver.common.HasSetText;
+import com.google.android.testing.nativedriver.server.ElementContext;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 
@@ -38,7 +39,7 @@ import com.google.common.collect.ImmutableMap;
  * @author Matt DeVore
  */
 public class AndroidNativeElement
-    extends RemoteWebElement implements FindsByText, HasSetText {
+    extends RemoteWebElement implements FindsByText {
   /**
    * Constructs a new instance and sets the parent WebDriver object.
    *
@@ -75,10 +76,9 @@ public class AndroidNativeElement
 //    execute(AndroidNativeDriverCommand.SEND_KEYS_TO_SESSION,
 //        ImmutableMap.of("value", keysToSend));
     execute(AndroidNativeDriverCommand.SET_TEXT_TO_ELEMENT,
-        ImmutableMap.of("value", value));
-//    execute("setText", ImmutableMap.of("id", this.id, "value", value));
+//        ImmutableMap.of("value", value));
+        ImmutableMap.of("id", this.id, "value", value));
   }
 
-  
   
 }

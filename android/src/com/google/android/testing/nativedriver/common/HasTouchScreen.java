@@ -28,4 +28,5 @@ public interface HasTouchScreen {
    * screen.
    */
   Touch getTouch();
+  
 }
