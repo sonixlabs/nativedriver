@@ -20,10 +20,13 @@ package com.google.android.testing.nativedriver.server;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+import java.util.List;
+
 import com.google.common.base.Function;
 
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Clock;
 import org.openqa.selenium.support.ui.TimeoutException;
 import org.openqa.selenium.support.ui.Wait;
@@ -34,7 +37,7 @@ import org.openqa.selenium.support.ui.Wait;
  *
  * @author Tomohiro Kaizu
  */
-public class AndroidWait implements Wait<Void> {
+public class AndroidWait { //implements Wait<Void> {
   private static final long DEFAULT_SLEEP_INTERVAL = 100;
   private static final long DEFAULT_TIMEOUT = 1000;
 
@@ -64,7 +67,7 @@ public class AndroidWait implements Wait<Void> {
     this.timeoutInMillis = timeoutInMillis;
   }
 
-  @Override
+  
   public <T> T until(Function<Void, T> isTrue) {
     long end = clock.laterBy(timeoutInMillis);
     NotFoundException lastException = null;
@@ -87,6 +90,31 @@ public class AndroidWait implements Wait<Void> {
     throw new TimeoutException(String.format("Timed out after %d seconds",
         SECONDS.convert(timeoutInMillis, MILLISECONDS)), lastException);
   }
+
+  
+//  @Override
+//  public <T> T until(Function<Void, T> isTrue) {
+//    long end = clock.laterBy(timeoutInMillis);
+//    NotFoundException lastException = null;
+//
+//    while (clock.isNowBefore(end)) {
+//      try {
+//        T value = isTrue.apply(null);
+//
+//        if (value != null && !Boolean.FALSE.equals(value)) {
+//          return value;
+//        }
+//      } catch (NotFoundException exception) {
+//        // Common case in many conditions, so swallow here, but be ready to
+//        // rethrow if it the element never appears.
+//        lastException = exception;
+//      }
+//      sleep();
+//    }
+//
+//    throw new TimeoutException(String.format("Timed out after %d seconds",
+//        SECONDS.convert(timeoutInMillis, MILLISECONDS)), lastException);
+//  }
 
   /**
    * Sleeps for a few milliseconds.
@@ -117,4 +145,6 @@ public class AndroidWait implements Wait<Void> {
   public long getTimeoutInMillis() {
     return timeoutInMillis;
   }
+
+
 }

@@ -358,4 +358,10 @@ public class ViewElement<V extends View>
     return (focusedActivity != null)
         ? focusedActivity.getWindow().getDecorView() : null;
   }
+
+//  @Override
+  public String getCssValue(String arg0) {
+    // TODO Auto-generated method stub
+    return null;
+  }
 }

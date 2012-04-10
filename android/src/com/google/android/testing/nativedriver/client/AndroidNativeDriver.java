@@ -54,6 +54,7 @@ import com.google.android.testing.nativedriver.common.AndroidCapabilities;
 import com.google.android.testing.nativedriver.common.AndroidNativeBy;
 import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.FindsByText;
+import com.google.android.testing.nativedriver.common.HasSetText;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableMap;
@@ -68,8 +69,7 @@ import com.google.common.io.Closeables;
  * @author Tomohiro Kaizu
  */
 public class AndroidNativeDriver
-    extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices,
-    TakesScreenshot {
+    extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices, TakesScreenshot, HasSetText {
   private class AndroidKeyboard implements Keyboard {
     @Override
     public void sendKeys(CharSequence... keysToSend) {
@@ -375,6 +375,14 @@ public class AndroidNativeDriver
   
   public String getCurrentActivityName() {
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
+  }
+
+  public void test() {
+    System.out.println("test");
+  }
+  
+  public void setText(String elementId, String value){
+    
   }
   
 //  

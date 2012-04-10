@@ -435,7 +435,7 @@ public class AndroidNativeDriver
   /* (non-Javadoc)
    * @see org.openqa.selenium.HasInputDevices#actionsBuilder()
    */
-  @Override
+//  @Override sonix
   public ActionChainsGenerator actionsBuilder() {
     return new DefaultActionChainsGenerator(this);
   }

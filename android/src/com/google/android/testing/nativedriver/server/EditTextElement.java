@@ -64,6 +64,7 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
       public void run() {
         System.out.println("----doClear-----");
         getView().setText("");
+//        getView().setText();
       }
     };
   }

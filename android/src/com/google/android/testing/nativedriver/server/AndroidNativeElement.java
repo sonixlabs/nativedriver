@@ -186,7 +186,7 @@ public abstract class AndroidNativeElement
    */
   @Deprecated
   @Nullable
-  @Override
+//  @Override sonix
   public String getValue() {
     return getAttribute("value");
   }
@@ -226,7 +226,7 @@ public abstract class AndroidNativeElement
    *
    * This default implementation is a no-op.
    */
-  @Override
+//  @Override sonix
   public void setSelected() {
     // no-op
   }
@@ -250,7 +250,7 @@ public abstract class AndroidNativeElement
    * This default implementation is a no-op that returns the value returned by
    * {@code isSelected}.
    */
-  @Override
+//  @Override sonix
   public boolean toggle() {
     // no-op
     return isSelected();

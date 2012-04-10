@@ -27,6 +27,7 @@ import org.openqa.selenium.remote.server.JsonParametersAware;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
+import com.google.android.testing.nativedriver.common.HasSetText;
 import com.google.android.testing.nativedriver.common.HasTouchScreen;
 import com.google.common.collect.Lists;
 
@@ -66,8 +67,8 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   @Override
   public ResultType call() throws Exception {
     String[] keysToSend = keys.toArray(new String[0]);
-    ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
-//    ((HasTouchScreen) getDriver()).setText("1", "test");
+//    ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
+    ((HasSetText) getDriver()).setText("1", "test");
     return ResultType.SUCCESS;
   }
 

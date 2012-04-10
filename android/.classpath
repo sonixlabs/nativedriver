@@ -2,18 +2,18 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="third_party/android/android-9.jar"/>
-	<classpathentry kind="lib" path="third_party/commons-logging/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="third_party/guava/guava-r438.jar"/>
-	<classpathentry kind="lib" path="third_party/httpcomponents/httpclient-4.0.2.jar"/>
-	<classpathentry kind="lib" path="third_party/httpcomponents/httpcore-4.0.1.jar"/>
-	<classpathentry kind="lib" path="third_party/jarjar/jarjar-1.1.jar"/>
-	<classpathentry kind="lib" path="third_party/jetty/jetty-6.1.22.jar"/>
-	<classpathentry kind="lib" path="third_party/jetty/jetty-util-6.1.22.jar"/>
-	<classpathentry kind="lib" path="third_party/json/json-20080701.jar"/>
-	<classpathentry kind="lib" path="third_party/jsr305/jsr305.jar"/>
-	<classpathentry kind="lib" path="third_party/selenium/selenium-java-2.3.0.jar"/>
-	<classpathentry kind="lib" path="third_party/selenium/server-standalone-r11843.jar"/>
-	<classpathentry kind="lib" path="third_party/servlet-api/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/android/android-9.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/commons-logging/commons-logging-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/guava/guava-r438.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/httpcomponents/httpclient-4.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/httpcomponents/httpcore-4.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/jarjar/jarjar-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/jetty/jetty-6.1.22.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/jetty/jetty-util-6.1.22.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/json/json-20080701.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/jsr305/jsr305.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/selenium/selenium-java-2.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/selenium/server-standalone-r11843.jar"/>
+	<classpathentry exported="true" kind="lib" path="third_party/servlet-api/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

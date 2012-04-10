@@ -50,7 +50,7 @@ public class SetText extends WebDriverHandler
 //    EditTextElement<EditText> ed = (EditTextElement<EditText>)(getKnownElements().get(this.elementId));
 //    System.out.println("EditTextElement:" + ed);
 //    ed.setText(value);
-	System.out.println("ver:5");
+	System.out.println("ver:6");
 //    ((AndroidNativeElement)getKnownElements().get(this.elementId)).setText(value);
 //    getRootSearchContext
 //    ((AndroidNativeDriver)this.getDriver()).getRootSearchContext().
@@ -64,7 +64,7 @@ public class SetText extends WebDriverHandler
 //    scope.findElementByAndroidId(1).setText(value);
 	
 //	 ((HasTouchScreen) getDriver()).setText(elementId, "test");
-    ((HasSetText) getDriver()).setText(elementId, "test");
+    ((HasSetText) getDriver()).setText(elementId, "SetText");
     
 //    ((EditTextElement<EditText>)(getKnownElements().get(this.elementId))).setText(value);
 //    getDriver().findElement(By.id(this.elementId))
