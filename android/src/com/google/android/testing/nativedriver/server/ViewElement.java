@@ -170,7 +170,7 @@ public class ViewElement<V extends View>
    */
   @Nullable
   @Override
-  protected Integer getAndroidId() {
+  public Integer getAndroidId() {
     int viewId = view.getId();
     return (viewId == View.NO_ID) ? null : viewId;
   }

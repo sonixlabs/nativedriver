@@ -17,19 +17,17 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.android.testing.nativedriver.common.HasSetText;
-import com.google.android.testing.nativedriver.common.HasTouchScreen;
-import com.google.android.testing.nativedriver.common.Touch;
-import com.google.common.base.Function;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Strings;
+import java.io.UnsupportedEncodingException;
+import java.net.IDN;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.view.Display;
-import android.view.KeyEvent;
-import android.view.Surface;
+import javax.annotation.Nullable;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
@@ -46,15 +44,20 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.ActionChainsGenerator;
 import org.openqa.selenium.interactions.DefaultActionChainsGenerator;
+import org.openqa.selenium.internal.Base64Encoder;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.view.Display;
+import android.view.KeyEvent;
+import android.view.Surface;
 
-import javax.annotation.Nullable;
+import com.google.android.testing.nativedriver.common.HasTouchScreen;
+import com.google.android.testing.nativedriver.common.Touch;
+import com.google.common.base.Function;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 
 /**
  * Represents an Android NativeDriver for driving native Android
@@ -65,7 +68,7 @@ import javax.annotation.Nullable;
  * @author Dezheng Xu
  */
 public class AndroidNativeDriver
-    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices, HasSetText{
+    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices {
   private final ElementContext context;
   private SearchContext rootSearchContext;
 
@@ -195,8 +198,7 @@ public class AndroidNativeDriver
     return context.getElementFinder().getWait();
   }
 
-//  protected SearchContext getRootSearchContext() {
-  public SearchContext getRootSearchContext() {
+  protected SearchContext getRootSearchContext() {
     if (rootSearchContext == null) {
       rootSearchContext = context.getElementFinder()
           .getSearchContext(new RootSearchScope(context));
@@ -243,20 +245,31 @@ public class AndroidNativeDriver
   @Override
   public void get(String url) {
     URI dest;
+    
+    System.out.println("URI:" + url);
     try {
       dest = new URI(url);
     } catch (URISyntaxException exception) {
       throw new IllegalArgumentException(exception);
     }
+    System.out.println("Scheme:" + dest.getScheme());
+    System.out.println("HOST  :" + dest.getHost());
+    System.out.println("USER  :" + dest.getUserInfo());
 
-    if (!"and-activity".equals(dest.getScheme())) {
-      throw new WebDriverException("Unrecognized scheme in URI: "
-          + dest.toString());
+    if ("and-activity".equals(dest.getScheme())) {
+      andActivity(dest);
+//      throw new WebDriverException("Unrecognized scheme in URI: "
+//          + dest.toString());
+    } else if ("setText".equals(dest.getScheme())) {
+      System.out.println("SetText");
+      setText(dest);
     } else if (!Strings.isNullOrEmpty(dest.getPath())) {
       throw new WebDriverException("Unrecognized path in URI: "
           + dest.toString());
     }
-
+  }
+  
+  private void andActivity(URI dest) {
     Class<?> clazz;
     try {
       clazz = Class.forName(dest.getAuthority());
@@ -277,6 +290,41 @@ public class AndroidNativeDriver
       }
     }
     startActivity(clazz);
+  }
+  
+  private void setText(URI uri) {
+    System.out.println("view_id:" + uri.getUserInfo());
+    System.out.println("value    :" + uri.getHost());
+    System.out.println("value    :" + new Base64Encoder().decode(uri.getHost()));
+    AndroidNativeElement el = null;
+//    ServerInstrumentation si = ServerInstrumentation.getInstance();
+//    RootSearchScope scope = new RootSearchScope(this.context);
+//    el = scope.findElementByAndroidId(0);
+//    if (el != null) {
+//      el.setText("test0");
+//    }
+//    el = scope.findElementByAndroidId(Integer.parseInt(uri.getUserInfo()));
+//    if (el != null) {
+//      el.setText("test1");
+//    }
+//    System.out.println("==== iterate ====");
+//    showElements(scope.getChildren());
+//    System.out.println("==== ===== ====");
+//    if (el != null) {
+//      el.setText("test1");
+//    }
+    el = (AndroidNativeElement)getRootSearchContext().findElement(By.id(uri.getUserInfo()));
+//    System.out.println("value    :" + new Base64Encoder().decode(uri.getHost()));
+//    el.setText(new String(new Base64Encoder().decode(uri.getHost())));
+    el.setText(IDN.toUnicode(uri.getHost()));
+  }
+
+  // for debug
+  private void showElements(Iterable<? extends AndroidNativeElement> iterable) {
+    for(AndroidNativeElement e :iterable){
+      showElements(e.getChildren());
+      System.out.println(e.getAndroidId() + ":" + e.getTagName());
+    }
   }
 
   /**
@@ -444,14 +492,4 @@ public class AndroidNativeDriver
 	  return this.context;
   }
   
-  @Override
-  public void setText(String elementId, String value) {
-		System.out.println("elementId:" + elementId);
-		System.out.println("value    :" + value);
-		System.out.println("cp0");
-	    RootSearchScope scope = new RootSearchScope(this.context);
-		System.out.println("cp1");
-	    scope.findElementByAndroidId(Integer.parseInt(elementId)).setText(value);
-//	    scope.findElementByAndroidId(1).setText("test");
-  }
 }

@@ -26,7 +26,8 @@ limitations under the License.
   <target name="classes-common" depends="directory">
     <javac destdir="${class.dir}"
 	   srcdir="${src.dir}"
-	   includes="${common.package}/**">
+	   includes="${common.package}/**"
+		 encoding="utf-8">
       <classpath>
 	<pathelement path="${third_party.guava}" />
 	<pathelement path="${third_party.selenium.server}" />
@@ -38,7 +39,8 @@ limitations under the License.
   <target name="classes-client" depends="directory,classes-common">
     <javac destdir="${class.dir}"
 	   srcdir="${src.dir}"
-	   includes="${client.package}/**">
+	   includes="${client.package}/**"
+		 encoding="utf-8">
       <classpath>
 	<pathelement path="${third_party.guava}" />
 	<pathelement path="${third_party.selenium.server}" />
@@ -55,7 +57,8 @@ limitations under the License.
   <target name="classes-server" depends="directory,classes-common">
     <javac destdir="${class.dir}"
 	   srcdir="${src.dir}"
-	   includes="${server.package}/**">
+	   includes="${server.package}/**"
+		 encoding="utf-8">
       <classpath>
 	<pathelement path="${third_party.guava}" />
 	<pathelement path="${third_party.selenium.server}" />

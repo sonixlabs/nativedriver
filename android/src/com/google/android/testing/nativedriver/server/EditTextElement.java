@@ -63,7 +63,7 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
       @Override
       public void run() {
         System.out.println("----doClear-----");
-        getView().setText("");
+        getView().setText("やまだ");
 //        getView().setText();
       }
     };

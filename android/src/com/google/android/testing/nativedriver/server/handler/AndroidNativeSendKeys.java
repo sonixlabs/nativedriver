@@ -50,14 +50,8 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   @SuppressWarnings({"unchecked"})
   public void setJsonParameters(Map<String, Object> allParameters)
       throws Exception {
-    System.out.println("====AndroidNativeSendKeys===");
-    StackTraceElement e = new Exception().getStackTrace()[1];
-    System.out.println(e.getClassName() + "," + e.getMethodName());    
-    
-    
     List<String> rawKeys = (List<String>) allParameters.get("value");
     List<String> temp = Lists.newArrayList();
-
     for (String key : rawKeys) {
       temp.add(key);
     }
@@ -67,8 +61,7 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   @Override
   public ResultType call() throws Exception {
     String[] keysToSend = keys.toArray(new String[0]);
-//    ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
-    ((HasSetText) getDriver()).setText("1", "test");
+    ((HasInputDevices) getDriver()).getKeyboard().sendKeys(keysToSend);
     return ResultType.SUCCESS;
   }
 

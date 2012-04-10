@@ -22,7 +22,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.IDN;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -69,7 +72,7 @@ import com.google.common.io.Closeables;
  * @author Tomohiro Kaizu
  */
 public class AndroidNativeDriver
-    extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices, TakesScreenshot, HasSetText {
+    extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices, TakesScreenshot {
   private class AndroidKeyboard implements Keyboard {
     @Override
     public void sendKeys(CharSequence... keysToSend) {
@@ -381,8 +384,11 @@ public class AndroidNativeDriver
     System.out.println("test");
   }
   
-  public void setText(String elementId, String value){
-    
+  public void setText(String view_id, String value){
+//      String encValue = URLEncoder.encode(value, "UTF-8");
+//      String base64value = new Base64Encoder().encode(value.getBytes());
+      get("setText://" + view_id + "@" + IDN.toASCII(value)); 
+//      get("setText://id/" + view_id + "/value/" + base64value); 
   }
   
 //  

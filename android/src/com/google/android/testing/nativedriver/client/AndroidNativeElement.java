@@ -70,15 +70,13 @@ public class AndroidNativeElement
   }
   
 //  public void setText(CharSequence[] keysToSend) {
-  public void setText(String value) {
-//    execute("sendKeysToElement", ImmutableMap.of("id", this.id, "value", keysToSend));
-//    execute("setText", ImmutableMap.of("id", this.id, "value", value));
-//    execute(AndroidNativeDriverCommand.SEND_KEYS_TO_SESSION,
-//        ImmutableMap.of("value", keysToSend));
-    execute(AndroidNativeDriverCommand.SET_TEXT_TO_ELEMENT,
-//        ImmutableMap.of("value", value));
-        ImmutableMap.of("id", this.id, "value", value));
-  }
+//  public void setText(String value) {
+//    System.out.println(this.id);
+//    System.out.println(this.getAttribute("id"));
+//    System.out.println(this.getId());
+//    System.out.println(this.getTagName());
+//    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + value));
+//  }
 
   
 }

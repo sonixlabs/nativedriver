@@ -108,7 +108,7 @@ public abstract class AndroidNativeElement
    *         {@code null} if this element has no Android ID
    */
   @Nullable
-  protected Integer getAndroidId() {
+  public Integer getAndroidId() {
     return null;
   }
 
