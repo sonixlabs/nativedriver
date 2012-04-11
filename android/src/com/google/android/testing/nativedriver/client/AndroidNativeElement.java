@@ -17,6 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.client;
 
+import java.net.IDN;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -70,13 +71,13 @@ public class AndroidNativeElement
   }
   
 //  public void setText(CharSequence[] keysToSend) {
-//  public void setText(String value) {
-//    System.out.println(this.id);
-//    System.out.println(this.getAttribute("id"));
-//    System.out.println(this.getId());
-//    System.out.println(this.getTagName());
-//    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + value));
-//  }
+  public void setText(String value) {
+    System.out.println(this.id);
+    System.out.println(this.getAttribute("id"));
+    System.out.println(this.getId());
+    System.out.println(this.getTagName());
+    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + IDN.toASCII(value))); 
+  }
 
   
 }

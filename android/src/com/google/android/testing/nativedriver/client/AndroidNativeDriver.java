@@ -347,11 +347,12 @@ public class AndroidNativeDriver
   
   // If it is not an alphanumeric keyboard mode, you will not be able to enter successfully
   private void setDateDialogEditViewValue(int editViewIndex, int value){
-    List<WebElement> textEditViews = findElements(AndroidNativeBy.className(ClassNames.EDIT_TEXT));
-    textEditViews.get(editViewIndex).click();
-    textEditViews.get(editViewIndex).clear();
-    textEditViews.get(editViewIndex).sendKeys(String.valueOf(value));
-    navigate().back();
+    List<AndroidNativeElement> textEditViews = findAndroidNativeElements(AndroidNativeBy.className(ClassNames.EDIT_TEXT));
+//    textEditViews.get(editViewIndex).click();
+//    textEditViews.get(editViewIndex).clear();
+//    textEditViews.get(editViewIndex).sendKeys(String.valueOf(value));
+    textEditViews.get(editViewIndex).setText(String.valueOf(value));
+//    navigate().back();
   }
   
   public void setDateDialogYear(int year){
@@ -380,16 +381,6 @@ public class AndroidNativeDriver
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
-  public void test() {
-    System.out.println("test");
-  }
-  
-  public void setText(String view_id, String value){
-//      String encValue = URLEncoder.encode(value, "UTF-8");
-//      String base64value = new Base64Encoder().encode(value.getBytes());
-      get("setText://" + view_id + "@" + IDN.toASCII(value)); 
-//      get("setText://id/" + view_id + "/value/" + base64value); 
-  }
   
 //  
 //  

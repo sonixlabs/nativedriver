@@ -17,6 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
+import com.google.android.testing.nativedriver.server.AndroidKnownElements;
 import com.google.android.testing.nativedriver.server.AndroidNativeElement;
 import com.google.android.testing.nativedriver.server.ViewElement;
 import com.google.common.collect.ImmutableMap;
@@ -58,6 +59,7 @@ public class AndroidNativeFindElement
 
     WebElement element = getDriver().findElement(by);
     String elementId = getKnownElements().add(element);
+    AndroidKnownElements.add(elementId, by, 0);
     response.setValue(ImmutableMap.of("ELEMENT", elementId));
     return ResultType.SUCCESS;
   }

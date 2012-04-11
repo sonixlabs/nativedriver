@@ -295,25 +295,15 @@ public class AndroidNativeDriver
   private void setText(URI uri) {
     System.out.println("view_id:" + uri.getUserInfo());
     System.out.println("value    :" + uri.getHost());
-    System.out.println("value    :" + new Base64Encoder().decode(uri.getHost()));
     AndroidNativeElement el = null;
-//    ServerInstrumentation si = ServerInstrumentation.getInstance();
-//    RootSearchScope scope = new RootSearchScope(this.context);
-//    el = scope.findElementByAndroidId(0);
-//    if (el != null) {
-//      el.setText("test0");
-//    }
-//    el = scope.findElementByAndroidId(Integer.parseInt(uri.getUserInfo()));
-//    if (el != null) {
-//      el.setText("test1");
-//    }
-//    System.out.println("==== iterate ====");
-//    showElements(scope.getChildren());
-//    System.out.println("==== ===== ====");
-//    if (el != null) {
-//      el.setText("test1");
-//    }
-    el = (AndroidNativeElement)getRootSearchContext().findElement(By.id(uri.getUserInfo()));
+//    el = (AndroidNativeElement)getRootSearchContext().findElement(By.id(uri.getUserInfo()));
+    
+    System.out.println("=== showKnownElements ===");
+    
+    ByAndIndex byAndIdx = AndroidKnownElements.get(uri.getUserInfo());
+    System.out.println(byAndIdx);
+    el = (AndroidNativeElement)getRootSearchContext().findElements(byAndIdx.by).get(byAndIdx.index);
+    
 //    System.out.println("value    :" + new Base64Encoder().decode(uri.getHost()));
 //    el.setText(new String(new Base64Encoder().decode(uri.getHost())));
     el.setText(IDN.toUnicode(uri.getHost()));

@@ -17,6 +17,8 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
+import com.google.android.testing.nativedriver.server.AndroidKnownElements;
+import com.google.android.testing.nativedriver.server.ByAndIndex;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
@@ -71,6 +73,10 @@ public class AndroidNativeFindElements
     Function<WebElement, Map<String, String>> transform
         = new Function<WebElement, Map<String, String>>() {
       public Map<String, String> apply(WebElement element) {
+//        System.out.println("Apply: ele");
+//        String elementId = getKnownElements().add(element);
+//        return ImmutableMap.of("ELEMENT", elementId);
+        
         return ImmutableMap.of("ELEMENT", getKnownElements().add(element));
       }
     };
@@ -78,6 +84,16 @@ public class AndroidNativeFindElements
     List<WebElement> elements = getDriver().findElements(by);
     Set<Map<String, String>> elementIds
         = Sets.newLinkedHashSet(Iterables.transform(elements, transform));
+    
+    System.out.println(">>>> FindElements >>>>>"); 
+    System.out.println("size: " + elementIds.size());
+    int i = 0;
+    for (Map<String, String> map: elementIds) {
+      System.out.println("ELEMENT:" + map.get("ELEMENT"));
+      AndroidKnownElements.add(map.get("ELEMENT"), by, i);
+      i++;
+    }
+    
 
     response.setValue(elementIds);
     return ResultType.SUCCESS;

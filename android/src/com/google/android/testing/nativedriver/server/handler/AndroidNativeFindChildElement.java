@@ -17,7 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,7 +27,8 @@ import org.openqa.selenium.remote.server.JsonParametersAware;
 import org.openqa.selenium.remote.server.handler.WebElementHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import java.util.Map;
+import com.google.android.testing.nativedriver.server.AndroidKnownElements;
+import com.google.common.collect.ImmutableMap;
 
 // TODO(matvore): Rewrite this class to extend the corresponding handler in
 // WebDriver, and simply override the newBySelector() method and delete all the
@@ -61,12 +62,10 @@ public class AndroidNativeFindChildElement extends WebElementHandler
   @Override
   public ResultType call() throws Exception {
     response = newResponse();
-
     WebElement element = getElement().findElement(by);
     String elementId = getKnownElements().add(element);
-
+    AndroidKnownElements.add(elementId, by, 0);
     response.setValue(ImmutableMap.of("ELEMENT", elementId));
-
     return ResultType.SUCCESS;
   }
 
