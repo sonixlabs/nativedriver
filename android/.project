@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>third_party</name>
-			<type>2</type>
-			<location>/Users/sonixasia/git/nativedriver/third_party</location>
-		</link>
-	</linkedResources>
 </projectDescription>
