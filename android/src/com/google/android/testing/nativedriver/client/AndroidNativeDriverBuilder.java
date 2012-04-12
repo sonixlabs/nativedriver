@@ -44,6 +44,20 @@ public class AndroidNativeDriverBuilder {
   private static final String DEFAULT_SERVER_URL
       = "http://localhost:" + DEFAULT_SERVER_PORT + "/hub";
 
+  private AdbService adbService;
+  
+  public AndroidNativeDriverBuilder() {
+      this(null, null);
+  };
+  
+  public AndroidNativeDriverBuilder(String adbPath, String packageInfo) {
+      if (adbPath != null && packageInfo != null) {
+          adbService = new AdbService(adbPath, packageInfo);
+          adbService.instrument();
+          adbService.forward();
+      }
+  };
+  
   private static URL defaultServerUrl() {
     try {
       return new URL(DEFAULT_SERVER_URL);
@@ -78,7 +92,11 @@ public class AndroidNativeDriverBuilder {
   }
 
   public AndroidNativeDriver build() {
-    return new AndroidNativeDriver(
-        Preconditions.checkNotNull(commandExecutor), adbConnection);
+      if (adbService == null) {
+          return new AndroidNativeDriver(Preconditions.checkNotNull(commandExecutor), adbConnection);
+      } else {
+          return new AndroidNativeDriver(Preconditions.checkNotNull(commandExecutor), adbConnection, adbService);
+      }
+
   }
 }

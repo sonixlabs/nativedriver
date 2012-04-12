@@ -96,6 +96,7 @@ public class AndroidNativeDriver
   @Nullable
   private final AdbConnection adbConnection;
   private final AndroidKeyboard androidKeyboard = new AndroidKeyboard();
+  private AdbService adbService;
 
   /**
    * A {@code Navigation} class for native Android applications. Provides
@@ -173,6 +174,19 @@ public class AndroidNativeDriver
     });
     this.adbConnection = adbConnection;
   }
+  
+  protected AndroidNativeDriver(
+          CommandExecutor executor, @Nullable AdbConnection adbConnection, AdbService adbService) {
+        super(Preconditions.checkNotNull(executor), AndroidCapabilities.get());
+        this.adbService = adbService;
+        setElementConverter(new JsonToWebElementConverter(this) {
+            @Override
+            protected RemoteWebElement newRemoteWebElement() {
+              return new AndroidNativeElement(AndroidNativeDriver.this);
+            }
+        });
+        this.adbConnection = adbConnection;
+      }
 
   /**
    * @deprecated use {@link AndroidNativeDriverBuilder}
@@ -381,6 +395,17 @@ public class AndroidNativeDriver
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
+//  public void initAppData() {
+//    AdbService adbService = new AdbService(adbPath, packageInfo);
+//    adbService.dropData();
+//  }
+  
+  public void quitWithInit() {
+    super.quit();
+    if (adbService != null) {
+        adbService.dropData();    
+    }
+  }
   
 //  
 //  
