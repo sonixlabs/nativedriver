@@ -93,8 +93,4 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
       }
     };
   }
-  
-  
-  
-  
 }

@@ -17,13 +17,12 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +43,6 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.ActionChainsGenerator;
 import org.openqa.selenium.interactions.DefaultActionChainsGenerator;
-import org.openqa.selenium.internal.Base64Encoder;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -53,8 +51,10 @@ import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Surface;
 
+import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.HasTouchScreen;
 import com.google.android.testing.nativedriver.common.Touch;
+import com.google.android.testing.nativedriver.common.util.URIUtil;
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -66,9 +66,10 @@ import com.google.common.base.Strings;
  * @author Matt DeVore
  * @author Tomohiro Kaizu
  * @author Dezheng Xu
+ * @author Kazuhiro Yamada
  */
 public class AndroidNativeDriver
-    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices {
+    implements WebDriver, Rotatable, HasTouchScreen, HasInputDevices, AndroidNativeDriverCommand {
   private final ElementContext context;
   private SearchContext rootSearchContext;
 
@@ -203,7 +204,6 @@ public class AndroidNativeDriver
       rootSearchContext = context.getElementFinder()
           .getSearchContext(new RootSearchScope(context));
     }
-
     return rootSearchContext;
   }
 
@@ -253,18 +253,19 @@ public class AndroidNativeDriver
       throw new IllegalArgumentException(exception);
     }
     System.out.println("Scheme:" + dest.getScheme());
-    System.out.println("HOST  :" + dest.getHost());
     System.out.println("USER  :" + dest.getUserInfo());
+    System.out.println("HOST  :" + dest.getHost());
+    System.out.println("Query :" + dest.getQuery());
 
+//    Map<String, String> params = URIUtil.getQueryMap(dest.getQuery());
     if ("and-activity".equals(dest.getScheme())) {
       andActivity(dest);
-//      throw new WebDriverException("Unrecognized scheme in URI: "
-//          + dest.toString());
     } else if ("setText".equals(dest.getScheme())) {
-      System.out.println("SetText");
-      setText(dest);
+//      setText(params);
+    } else if (DUMP_CURRENT_ACTIVITY.equals(dest.getScheme())) {
+      dumpCurrentActivity();
     } else if (!Strings.isNullOrEmpty(dest.getPath())) {
-      throw new WebDriverException("Unrecognized path in URI: "
+      throw new WebDriverException("Unrecognized scheme in URI: "
           + dest.toString());
     }
   }
@@ -292,29 +293,46 @@ public class AndroidNativeDriver
     startActivity(clazz);
   }
   
-  private void setText(URI uri) {
-    System.out.println("view_id:" + uri.getUserInfo());
-    System.out.println("value    :" + uri.getHost());
-    AndroidNativeElement el = null;
-//    el = (AndroidNativeElement)getRootSearchContext().findElement(By.id(uri.getUserInfo()));
-    
-    System.out.println("=== showKnownElements ===");
-    
-    ByAndIndex byAndIdx = AndroidKnownElements.get(uri.getUserInfo());
-    System.out.println(byAndIdx);
-    el = (AndroidNativeElement)getRootSearchContext().findElements(byAndIdx.by).get(byAndIdx.index);
-    
-//    System.out.println("value    :" + new Base64Encoder().decode(uri.getHost()));
-//    el.setText(new String(new Base64Encoder().decode(uri.getHost())));
-    el.setText(IDN.toUnicode(uri.getHost()));
+  private void setText(Map<String, String> params) {
+    System.out.println("==SetText==");
+    ByAndIndex byAndIdx = AndroidKnownElements.get(params.get("elementId"));
+    System.out.println("byAndIdx: " + byAndIdx);
+    AndroidNativeElement el = (AndroidNativeElement)getRootSearchContext().findElements(byAndIdx.by).get(byAndIdx.index);
+    el.setText(IDN.toUnicode(params.get("value")));
+  }
+  
+  private void dump(Map<String, String> params) {
+    System.out.println("==Dump==");
+    ByAndIndex byAndIdx = AndroidKnownElements.get(params.get("elementId"));
+    System.out.println("byAndIdx: " + byAndIdx);
+    AndroidNativeElement el = (AndroidNativeElement)getRootSearchContext().findElements(byAndIdx.by).get(byAndIdx.index);
+    dumpAllElements("", el.getChildren()); 
+    el.setText(IDN.toUnicode(params.get("value")));
+  }
+  
+  private void dumpCurrentActivity() {
+    RootSearchScope scope = new RootSearchScope(context);
+    System.out.println("==DumpCurrentActivity==");
+    dumpAllElements("", scope.getChildren()); 
   }
 
   // for debug
-  private void showElements(Iterable<? extends AndroidNativeElement> iterable) {
-    for(AndroidNativeElement e :iterable){
-      showElements(e.getChildren());
-      System.out.println(e.getAndroidId() + ":" + e.getTagName());
+  private void dumpAllElements(String prefix, Iterable<? extends AndroidNativeElement> iterable) {
+    if (iterable == null) {
+      return;
     }
+    for(AndroidNativeElement el :iterable){
+      dumpElement(prefix, el);
+      dumpAllElements(prefix + "  ", el.getChildren());
+      System.out.println();
+    }
+  }
+  
+  private void dumpElement(String prefix, AndroidNativeElement el) {
+      System.out.println(prefix + "id       :" + el.getResourceEntryName());
+      System.out.println(prefix + "TagName  :" + el.getTagName());
+      System.out.println(prefix + "text     :" + el.getText());
+      System.out.println(prefix + "x,y      :" + el.getLocation().x + "," + el.getLocation().y);
   }
 
   /**

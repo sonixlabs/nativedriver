@@ -17,10 +17,7 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.android.testing.nativedriver.server.AndroidKnownElements;
-import com.google.android.testing.nativedriver.server.AndroidNativeElement;
-import com.google.android.testing.nativedriver.server.ViewElement;
-import com.google.common.collect.ImmutableMap;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,7 +27,8 @@ import org.openqa.selenium.remote.server.JsonParametersAware;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import java.util.Map;
+import com.google.android.testing.nativedriver.server.AndroidKnownElements;
+import com.google.common.collect.ImmutableMap;
 
 // TODO(matvore): Rewrite this class to extend the corresponding handler in
 // WebDriver, and simply override the newBySelector() method and delete all the

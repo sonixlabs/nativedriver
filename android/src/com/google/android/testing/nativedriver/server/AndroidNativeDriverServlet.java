@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.openqa.selenium.remote.server.DefaultDriverSessions;
 import org.openqa.selenium.remote.server.DriverServlet;
-import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.openqa.selenium.remote.server.renderer.EmptyResult;
 import org.openqa.selenium.remote.server.renderer.JsonResult;
 import org.openqa.selenium.remote.server.rest.ResultType;
@@ -37,7 +36,6 @@ import com.google.android.testing.nativedriver.server.handler.AndroidNativeFindE
 import com.google.android.testing.nativedriver.server.handler.AndroidNativeSendKeys;
 import com.google.android.testing.nativedriver.server.handler.Click;
 import com.google.android.testing.nativedriver.server.handler.DoubleTap;
-import com.google.android.testing.nativedriver.server.handler.SetText;
 import com.google.android.testing.nativedriver.server.handler.TouchDown;
 import com.google.android.testing.nativedriver.server.handler.TouchMove;
 import com.google.android.testing.nativedriver.server.handler.TouchUp;
@@ -86,9 +84,6 @@ public class AndroidNativeDriverServlet extends DriverServlet {
           AndroidNativeSendKeys.class)
           .on(ResultType.SUCCESS, newEmptyResult());
       
-      addNewPostMapping(SESSION_PATH + "element/:id/setText", SetText.class)
-          .on(ResultType.SUCCESS, newEmptyResult());
-
       addNewPostMapping(SESSION_PATH + "click", Click.class)
           .on(ResultType.SUCCESS, newEmptyResult());
       addNewPostMapping(SESSION_PATH + "doubleclick", DoubleTap.class)

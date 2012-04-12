@@ -17,8 +17,9 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.android.testing.nativedriver.common.HasSetText;
-import com.google.common.collect.ImmutableList;
+import java.util.List;
+
+import javax.annotation.Nullable;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -26,9 +27,7 @@ import org.openqa.selenium.RenderedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
+import com.google.common.collect.ImmutableList;
 
 /**
  * Superclass of all {@code WebElement} implementations in the Android
@@ -293,5 +292,9 @@ public abstract class AndroidNativeElement
   
   public void setText(final CharSequence text) {
 	 // no-op
+  }
+
+  public String getResourceEntryName() {
+    return null;
   }
 }

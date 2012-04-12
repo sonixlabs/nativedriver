@@ -5,6 +5,11 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 
+/**
+ * 
+ * @author Kazuhiro Yamada
+ *
+ */
 public class AndroidKnownElements{
   private static final Map<String, ByAndIndex> elements = new HashMap<String, ByAndIndex>();
 

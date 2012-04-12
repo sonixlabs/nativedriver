@@ -79,10 +79,8 @@ public class AndroidNativeFindChildElements extends WebElementHandler
     Set<Map<String, String>> elementIds
         = Sets.newLinkedHashSet(Iterables.transform(elements, transform));
     
-    System.out.println("==== FindChildElements ====");
     int i = 0;
     for (Map<String, String> map: elementIds) {
-      System.out.println("ELEMENT:" + map.get("ELEMENT"));
       AndroidKnownElements.add(map.get("ELEMENT"), by, i);
       i++;
     }

@@ -22,12 +22,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.IDN;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,22 +38,18 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Rotatable;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.internal.Base64Encoder;
-import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.remote.Response;
 import org.openqa.selenium.remote.internal.JsonToWebElementConverter;
 
 import com.google.android.testing.nativedriver.common.AndroidCapabilities;
 import com.google.android.testing.nativedriver.common.AndroidNativeBy;
 import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.FindsByText;
-import com.google.android.testing.nativedriver.common.HasSetText;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableMap;
@@ -70,6 +62,7 @@ import com.google.common.io.Closeables;
  * @author Matt DeVore
  * @author Dezheng Xu
  * @author Tomohiro Kaizu
+ * @author Kazuhiro Yamada
  */
 public class AndroidNativeDriver
     extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices, TakesScreenshot {
@@ -381,38 +374,9 @@ public class AndroidNativeDriver
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
-  
-//  
-//  
-//  protected Response execute(String driverCommand, Map<String, ?> parameters) {
-//    System.out.println("===execute===");
-//    Command command = new Command(super.getSessionId(), driverCommand, parameters);
-//    System.out.println(command.getName());
-////    System.out.println(command.toString());
-//    
-////    return super.execute(driverCommand, parameters);
-//    try
-//    {
-//      log(super.getSessionId(), command.getName(), command);
-//      Response response = super.getCommandExecutor().execute(command);
-//
-//      if (response == null) {
-//        log(super.getSessionId(), command.getName(), response);
-//        return null;
-//      }
-//
-//      Object value = super.getElementConverter().apply(response.getValue());
-//      response.setValue(value);
-//      log(super.getSessionId(), command.getName(), response);
-//    } catch (RuntimeException e) {
-//      log(super.getSessionId(), command.getName(), e);
-//      throw e;
-//    } catch (Exception e) {
-//      log(super.getSessionId(), command.getName(), e);
-//      throw new WebDriverException(e);
-//    }
-//    Response response = null;
-//    return super.getErrorHandler().throwIfResponseFailed(response);
-//  }
+  public void dump() {
+    execute("get", ImmutableMap.of("url", AndroidNativeDriverCommand.DUMP_CURRENT_ACTIVITY + "://-")); 
+
+  }
 
 }

@@ -25,8 +25,6 @@ import org.openqa.selenium.remote.RemoteWebElement;
 
 import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.FindsByText;
-import com.google.android.testing.nativedriver.common.HasSetText;
-import com.google.android.testing.nativedriver.server.ElementContext;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 
@@ -38,9 +36,10 @@ import com.google.common.collect.ImmutableMap;
  * remote session.
  *
  * @author Matt DeVore
+ * @author Kazuhiro Yamada
  */
 public class AndroidNativeElement
-    extends RemoteWebElement implements FindsByText {
+    extends RemoteWebElement implements FindsByText, AndroidNativeDriverCommand {
   /**
    * Constructs a new instance and sets the parent WebDriver object.
    *
@@ -70,13 +69,17 @@ public class AndroidNativeElement
     return findElements(USING_TEXT, using);
   }
   
-//  public void setText(CharSequence[] keysToSend) {
   public void setText(String value) {
     System.out.println(this.id);
     System.out.println(this.getAttribute("id"));
     System.out.println(this.getId());
     System.out.println(this.getTagName());
-    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + IDN.toASCII(value))); 
+//    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + IDN.toASCII(value))); 
+    execute("get", ImmutableMap.of("url", "setText://?elementId=" + this.getId() + "&value=" + IDN.toASCII(value))); 
+  }
+  
+  public void dump() {
+    execute("get", ImmutableMap.of("url", DUMP + "://?elementId=" + this.getId())); 
   }
 
   

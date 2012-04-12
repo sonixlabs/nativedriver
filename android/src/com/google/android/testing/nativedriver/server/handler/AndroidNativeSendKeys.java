@@ -27,8 +27,6 @@ import org.openqa.selenium.remote.server.JsonParametersAware;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import com.google.android.testing.nativedriver.common.HasSetText;
-import com.google.android.testing.nativedriver.common.HasTouchScreen;
 import com.google.common.collect.Lists;
 
 /**

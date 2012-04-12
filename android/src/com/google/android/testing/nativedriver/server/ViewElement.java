@@ -175,6 +175,11 @@ public class ViewElement<V extends View>
     return (viewId == View.NO_ID) ? null : viewId;
   }
 
+  public String getResourceEntryName() {
+    int viewId = view.getId();
+    return (viewId == View.NO_ID) ? null : context.getActivities().current().getResources().getResourceEntryName(view.getId());
+  }
+  
   /**
    * {@inheritDoc}
    *
@@ -364,4 +369,5 @@ public class ViewElement<V extends View>
     // TODO Auto-generated method stub
     return null;
   }
+
 }
