@@ -70,17 +70,16 @@ public class AndroidNativeElement
   }
   
   public void setText(String value) {
-    System.out.println(this.id);
-    System.out.println(this.getAttribute("id"));
-    System.out.println(this.getId());
-    System.out.println(this.getTagName());
-//    execute("get", ImmutableMap.of("url", "setText://" + this.getId() + "@" + IDN.toASCII(value))); 
     execute("get", ImmutableMap.of("url", "setText://?elementId=" + this.getId() + "&value=" + IDN.toASCII(value))); 
   }
   
-  public void dump() {
-    execute("get", ImmutableMap.of("url", DUMP + "://?elementId=" + this.getId())); 
+  public void drag(int x, int y) {
+    execute(DRAG_ELEMENT, ImmutableMap.of("id", this.getId(), "x", x, "y", y)); 
   }
-
+  
+  public void flick(int x1, int y1, int x2, int y2) {
+    execute(FLICK_ELEMENT, ImmutableMap.of("id", this.getId(), "x1", x1, "y1", y1, "x2", x2, "y2", y2)); 
+  }
+  
   
 }

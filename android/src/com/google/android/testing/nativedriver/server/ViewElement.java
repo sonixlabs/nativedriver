@@ -17,21 +17,22 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.android.testing.nativedriver.common.Touch;
-import com.google.common.base.Function;
+import javax.annotation.Nullable;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.interactions.internal.Coordinates;
+import org.openqa.selenium.internal.HasAndroidNativeCommand;
+import org.openqa.selenium.internal.Locatable;
 
 import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.ElementNotVisibleException;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.internal.Coordinates;
-import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.support.ui.TimeoutException;
-
-import javax.annotation.Nullable;
+import com.google.android.testing.nativedriver.common.Touch;
+import com.google.common.base.Function;
 
 /**
  * The default wrapper for Android views. This is extended by all other
@@ -56,7 +57,7 @@ import javax.annotation.Nullable;
  * @author Dezheng Xu
  */
 public class ViewElement<V extends View>
-    extends AndroidNativeElement implements Locatable {
+    extends AndroidNativeElement implements Locatable, HasAndroidNativeCommand {
   /**
    * The literal ID used to refer to the decor view of the currently focused
    * {@code Activity}. It is equal to {@code $focusedActivity}.
@@ -204,6 +205,27 @@ public class ViewElement<V extends View>
     Touch touch = context.getTouch();
     touch.tap(getCoordinates());
   }
+  
+  @Override
+  public void drag(int x, int y) {
+    waitUntilIsDisplayed();
+    scrollIntoScreenIfNeeded();
+    AndroidNativeTouch touch = (AndroidNativeTouch)context.getTouch();
+    Point p = getCoordinates().getLocationOnScreen();
+    ((AndroidNativeTouch)touch).drag(p.x, p.y, p.x + x, p.y + y);
+    System.out.println("drag x:" + p.x);
+    System.out.println("drag y:" + p.y);
+  }
+
+  @Override
+  public void flick(int x1, int y1, int x2, int y2) {
+    waitUntilIsDisplayed();
+    scrollIntoScreenIfNeeded();
+    AndroidNativeTouch touch = (AndroidNativeTouch)context.getTouch();
+    ((AndroidNativeTouch)touch).drag(x1, y1, x2, y2);
+  }
+
+
 
   @Nullable
   @Override
@@ -369,5 +391,16 @@ public class ViewElement<V extends View>
     // TODO Auto-generated method stub
     return null;
   }
+
+//  int TAG_UID = 0;
+//  @Override
+//  public String getUID() {
+//    return view.getTag(TAG_UID).toString();
+//  }
+//  
+//  @Override
+//  public void setUID(final String uid) {
+//    view.setTag(TAG_UID, uid);
+//  }
 
 }

@@ -44,12 +44,15 @@ import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.remote.Response;
 import org.openqa.selenium.remote.internal.JsonToWebElementConverter;
 
+import com.google.android.testing.nativedriver.client.util.JSONUtil;
 import com.google.android.testing.nativedriver.common.AndroidCapabilities;
 import com.google.android.testing.nativedriver.common.AndroidNativeBy;
 import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand;
 import com.google.android.testing.nativedriver.common.FindsByText;
+import com.google.android.testing.nativedriver.common.FindsByUID;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableMap;
@@ -65,7 +68,7 @@ import com.google.common.io.Closeables;
  * @author Kazuhiro Yamada
  */
 public class AndroidNativeDriver
-    extends RemoteWebDriver implements FindsByText, Rotatable, HasInputDevices, TakesScreenshot {
+    extends RemoteWebDriver implements FindsByText, FindsByUID, Rotatable, HasInputDevices, TakesScreenshot, AndroidNativeDriverCommand {
   private class AndroidKeyboard implements Keyboard {
     @Override
     public void sendKeys(CharSequence... keysToSend) {
@@ -89,7 +92,6 @@ public class AndroidNativeDriver
   @Nullable
   private final AdbConnection adbConnection;
   private final AndroidKeyboard androidKeyboard = new AndroidKeyboard();
-  private AdbService adbService;
 
   /**
    * A {@code Navigation} class for native Android applications. Provides
@@ -133,11 +135,11 @@ public class AndroidNativeDriver
     }
   }
 
-  @Deprecated
-  @Override
-  protected RemoteWebElement newRemoteWebElement() {
-    return new AndroidNativeElement(this);
-  }
+//  @Deprecated
+//  @Override
+//  protected RemoteWebElement newRemoteWebElement() {
+//    return new AndroidNativeElement(this);
+//  }
 
   protected AndroidNativeDriver(CommandExecutor executor) {
     this(executor, null);
@@ -167,19 +169,7 @@ public class AndroidNativeDriver
     });
     this.adbConnection = adbConnection;
   }
-  
-  protected AndroidNativeDriver(
-          CommandExecutor executor, @Nullable AdbConnection adbConnection, AdbService adbService) {
-        super(Preconditions.checkNotNull(executor), AndroidCapabilities.get());
-        this.adbService = adbService;
-        setElementConverter(new JsonToWebElementConverter(this) {
-            @Override
-            protected RemoteWebElement newRemoteWebElement() {
-              return new AndroidNativeElement(AndroidNativeDriver.this);
-            }
-        });
-        this.adbConnection = adbConnection;
-      }
+
 
   /**
    * @deprecated use {@link AndroidNativeDriverBuilder}
@@ -259,6 +249,11 @@ public class AndroidNativeDriver
   @Override
   public AndroidNativeElement findElement(By by) {
     return (AndroidNativeElement) super.findElement(by);
+  }
+  
+  @Override
+  public WebElement findElementByUID(String using) {
+    return findElement(USING_UID, using);
   }
 
   @Override
@@ -352,14 +347,9 @@ public class AndroidNativeDriver
    * =======================================
    */
   
-  // If it is not an alphanumeric keyboard mode, you will not be able to enter successfully
   private void setDateDialogEditViewValue(int editViewIndex, int value){
     List<AndroidNativeElement> textEditViews = findAndroidNativeElements(AndroidNativeBy.className(ClassNames.EDIT_TEXT));
-//    textEditViews.get(editViewIndex).click();
-//    textEditViews.get(editViewIndex).clear();
-//    textEditViews.get(editViewIndex).sendKeys(String.valueOf(value));
     textEditViews.get(editViewIndex).setText(String.valueOf(value));
-//    navigate().back();
   }
   
   public void setDateDialogYear(int year){
@@ -388,20 +378,17 @@ public class AndroidNativeDriver
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
-  public void dump() {
-    execute("get", ImmutableMap.of("url", AndroidNativeDriverCommand.DUMP_CURRENT_ACTIVITY + "://-")); 
-
-  }
-//  public void initAppData() {
-//    AdbService adbService = new AdbService(adbPath, packageInfo);
-//    adbService.dropData();
-//  }
   
+
   public void quitWithInit() {
     super.quit();
-    if (adbService != null) {
-        adbService.dropData();    
+    if (adbConnection != null) {
+        adbConnection.dropData();    
     }
   }
-  
+
+//  public void drag(int x1, int y1, int x2, int y2) {
+//    execute("get", ImmutableMap.of("url", "drag://-?x1=" + x1 + "&y1=" + y1 + "&x2=" + x2 + "&y2=" + y2)) ;
+//  }
+
 }

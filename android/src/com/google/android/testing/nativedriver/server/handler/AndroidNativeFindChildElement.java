@@ -22,8 +22,8 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Response;
-import org.openqa.selenium.remote.server.DriverSessions;
 import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebElementHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
@@ -46,8 +46,11 @@ public class AndroidNativeFindChildElement extends WebElementHandler
   private volatile By by;
   private volatile Response response;
 
-  public AndroidNativeFindChildElement(DriverSessions sessions) {
-    super(sessions);
+//  public AndroidNativeFindChildElement(Sessions sessions) {
+//    super(sessions);
+//  }
+  public AndroidNativeFindChildElement(Session session) {
+    super(session);
   }
 
   @Override

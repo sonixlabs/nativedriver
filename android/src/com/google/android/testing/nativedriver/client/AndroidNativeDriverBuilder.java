@@ -17,16 +17,15 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.client;
 
-import com.google.common.base.Preconditions;
-import com.google.common.base.Throwables;
-
-import org.openqa.selenium.remote.CommandExecutor;
-import org.openqa.selenium.remote.HttpCommandExecutor;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.annotation.Nullable;
+
+import org.openqa.selenium.remote.CommandExecutor;
+
+import com.google.common.base.Preconditions;
+import com.google.common.base.Throwables;
 
 /**
  * Configures and creates {@link AndroidNativeDriver} instances.
@@ -36,6 +35,9 @@ import javax.annotation.Nullable;
  */
 public class AndroidNativeDriverBuilder {
   private static final int DEFAULT_SERVER_PORT = 54129;
+  private static final int DEFAULT_LOCAL_PORT = 54129;
+  private static final int DEFAULT_REMOTE_PORT = 54129;
+  private int localPort = DEFAULT_LOCAL_PORT;
 
   /**
    * The URL used to connect to the server when using a constructor that does
@@ -44,20 +46,6 @@ public class AndroidNativeDriverBuilder {
   private static final String DEFAULT_SERVER_URL
       = "http://localhost:" + DEFAULT_SERVER_PORT + "/hub";
 
-  private AdbService adbService;
-  
-  public AndroidNativeDriverBuilder() {
-      this(null, null);
-  };
-  
-  public AndroidNativeDriverBuilder(String adbPath, String packageInfo) {
-      if (adbPath != null && packageInfo != null) {
-          adbService = new AdbService(adbPath, packageInfo);
-          adbService.instrument();
-          adbService.forward();
-      }
-  };
-  
   private static URL defaultServerUrl() {
     try {
       return new URL(DEFAULT_SERVER_URL);
@@ -74,29 +62,45 @@ public class AndroidNativeDriverBuilder {
     this.adbConnection = adbConnection;
     return this;
   }
-
+  
   public AndroidNativeDriverBuilder withDefaultServer() {
     return withServer(defaultServerUrl());
   }
 
   public AndroidNativeDriverBuilder withServer(URL url) {
+    this.localPort = url.getPort();
     this.commandExecutor
-        = new HttpCommandExecutor(Preconditions.checkNotNull(url));
+        = new AndroidNativeHttpCommandExecutor(Preconditions.checkNotNull(url));
     return this;
   }
-
+  
   public AndroidNativeDriverBuilder
       withCommandExecutor(CommandExecutor commandExecutor) {
     this.commandExecutor = Preconditions.checkNotNull(commandExecutor);
     return this;
   }
 
+  private void sleep(int millis) {
+    try {
+      Thread.sleep(millis);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+  
   public AndroidNativeDriver build() {
-      if (adbService == null) {
-          return new AndroidNativeDriver(Preconditions.checkNotNull(commandExecutor), adbConnection);
-      } else {
-          return new AndroidNativeDriver(Preconditions.checkNotNull(commandExecutor), adbConnection, adbService);
-      }
-
+    if (adbConnection != null) {
+      // Connection establishment with NativeDriver
+      this.adbConnection.instrument();
+      this.adbConnection.forward(localPort, DEFAULT_REMOTE_PORT);
+    }
+    try {
+      return new AndroidNativeDriver(
+          Preconditions.checkNotNull(commandExecutor), adbConnection);
+    } catch (RuntimeException e) {
+      this.sleep(3000);
+    }
+    return new AndroidNativeDriver(Preconditions.checkNotNull(commandExecutor),
+        adbConnection);
   }
 }

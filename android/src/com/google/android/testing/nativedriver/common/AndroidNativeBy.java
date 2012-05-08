@@ -90,4 +90,30 @@ public abstract class AndroidNativeBy extends By {
       }
     };
   }
+  
+  /**
+   * Creates an instance of {@code AndroidNativeBy} which matches all elements
+   * whose {@code getText} method return the given value.
+   */
+  public static AndroidNativeBy uid(final String uid) {
+    Preconditions.checkNotNull(uid);
+
+    return new AndroidNativeBy() {
+      @Override
+      public WebElement findElement(SearchContext context) {
+        return ((FindsByUID) context).findElementByUID(uid);
+      }
+      
+      @Override
+      public List<WebElement> findElements(SearchContext paramSearchContext) {
+        return null;
+      }
+
+      @Override
+      public String toString() {
+        return "AndroidNativeBy.uid: " + uid;
+      }
+
+    };
+  }
 }

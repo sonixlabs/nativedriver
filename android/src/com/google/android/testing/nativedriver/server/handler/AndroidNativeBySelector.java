@@ -17,11 +17,12 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.android.testing.nativedriver.common.AndroidNativeBy;
-import com.google.android.testing.nativedriver.common.FindsByText;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.server.handler.BySelector;
+
+import com.google.android.testing.nativedriver.common.AndroidNativeBy;
+import com.google.android.testing.nativedriver.common.FindsByText;
+import com.google.android.testing.nativedriver.common.FindsByUID;
 
 /**
  * A {@code BySelector} which supports Android Native-specific search strategies
@@ -36,6 +37,8 @@ public class AndroidNativeBySelector extends BySelector {
       return AndroidNativeBy.text(selector);
     } else if (FindsByText.USING_PARTIALTEXT.equals(method)) {
       return AndroidNativeBy.partialText(selector);
+    } else if (FindsByUID.USING_UID.equals(method)) {
+      return AndroidNativeBy.uid(selector);
     } else {
       return super.pickFrom(method, selector);
     }

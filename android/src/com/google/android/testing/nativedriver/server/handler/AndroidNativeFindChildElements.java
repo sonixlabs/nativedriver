@@ -17,23 +17,23 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.Response;
+import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
+import org.openqa.selenium.remote.server.handler.WebElementHandler;
+import org.openqa.selenium.remote.server.rest.ResultType;
+
 import com.google.android.testing.nativedriver.server.AndroidKnownElements;
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.Response;
-import org.openqa.selenium.remote.server.DriverSessions;
-import org.openqa.selenium.remote.server.JsonParametersAware;
-import org.openqa.selenium.remote.server.handler.WebElementHandler;
-import org.openqa.selenium.remote.server.rest.ResultType;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 // TODO(matvore): Rewrite this class to extend the corresponding handler in
 // WebDriver, and simply override the newBySelector() method and delete all the
@@ -51,8 +51,8 @@ public class AndroidNativeFindChildElements extends WebElementHandler
   private volatile By by;
   private volatile Response response;
 
-  public AndroidNativeFindChildElements(DriverSessions sessions) {
-    super(sessions);
+  public AndroidNativeFindChildElements(Session session) {
+    super(session);
   }
 
   @Override

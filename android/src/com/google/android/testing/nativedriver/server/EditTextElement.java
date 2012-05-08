@@ -62,7 +62,7 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
     return new Runnable() {
       @Override
       public void run() {
-        getView().setText("");
+          getView().setText("");
       }
     };
   }

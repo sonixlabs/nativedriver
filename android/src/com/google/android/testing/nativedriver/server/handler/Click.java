@@ -17,15 +17,15 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.android.testing.nativedriver.common.HasTouchScreen;
-import com.google.android.testing.nativedriver.common.Touch;
+import java.util.Map;
 
-import org.openqa.selenium.remote.server.DriverSessions;
 import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import java.util.Map;
+import com.google.android.testing.nativedriver.common.HasTouchScreen;
+import com.google.android.testing.nativedriver.common.Touch;
 
 /**
  * Handler of {@code /session/:sessionId/click} for interaction of touch screen
@@ -35,8 +35,11 @@ import java.util.Map;
 public class Click extends WebDriverHandler implements JsonParametersAware {
   volatile boolean isLongClick;
 
-  public Click(DriverSessions sessions) {
-    super(sessions);
+//  public Click(DriverSessions sessions) {
+//    super(sessions);
+//  }
+  public Click(Session session) {
+    super(session);
   }
 
   @Override

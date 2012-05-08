@@ -22,8 +22,8 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.Response;
-import org.openqa.selenium.remote.server.DriverSessions;
 import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
@@ -47,14 +47,16 @@ public class AndroidNativeFindElement
   private volatile By by;
   private volatile Response response;
 
-  public AndroidNativeFindElement(DriverSessions sessions) {
-    super(sessions);
+//  public AndroidNativeFindElement(DriverSessions sessions) {
+//    super(sessions);
+//  }
+  public AndroidNativeFindElement(Session session) {
+    super(session);
   }
 
   @Override
   public ResultType call() throws Exception {
     response = newResponse();
-
     WebElement element = getDriver().findElement(by);
     String elementId = getKnownElements().add(element);
     AndroidKnownElements.add(elementId, by, 0);
@@ -69,6 +71,7 @@ public class AndroidNativeFindElement
     String selector = (String) allParameters.get("value");
 
     by = new AndroidNativeBySelector().pickFrom(method, selector);
+    
   }
 
   public Response getResponse() {

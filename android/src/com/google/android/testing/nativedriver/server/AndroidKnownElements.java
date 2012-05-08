@@ -11,23 +11,15 @@ import org.openqa.selenium.By;
  *
  */
 public class AndroidKnownElements{
-  private static final Map<String, ByAndIndex> elements = new HashMap<String, ByAndIndex>();
+  private static final Map<String, ByWithIndex> elements = new HashMap<String, ByWithIndex>();
 
   public static void add(String elementId, By by, int index)
   {
-    elements.put(elementId, new ByAndIndex(by, index));
+    elements.put(elementId, new ByWithIndex(by, index));
   }
 
-  public static ByAndIndex get(String elementId) {
-    return ((ByAndIndex)elements.get(elementId));
+  public static ByWithIndex get(String elementId) {
+    return ((ByWithIndex)elements.get(elementId));
   }
-  
-  // for Debug
-  public static void dump(){
-    for(Map.Entry<String, ByAndIndex> e : elements.entrySet()) {
-      System.out.println(e.getKey() + " : " + e.getValue());
-    }
-  }
-
 }
 

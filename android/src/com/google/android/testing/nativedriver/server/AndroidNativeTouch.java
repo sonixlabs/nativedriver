@@ -17,19 +17,19 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.android.testing.nativedriver.common.Touch;
-import com.google.common.base.Preconditions;
-
-import android.app.Instrumentation;
-import android.view.MotionEvent;
-import android.view.ViewConfiguration;
+import javax.annotation.Nullable;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.support.ui.Clock;
 
-import javax.annotation.Nullable;
+import android.app.Instrumentation;
+import android.view.MotionEvent;
+import android.view.ViewConfiguration;
+
+import com.google.android.testing.nativedriver.common.Touch;
+import com.google.common.base.Preconditions;
 
 /**
  * {@code Touch} interface implementation.
@@ -170,6 +170,13 @@ public class AndroidNativeTouch implements Touch {
     int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
     touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
     touchUp(x, y);
+  }
+  
+  protected void drag(int x1, int y1, int x2, int y2) {
+    touchDown(x1, y1);
+    //int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
+    touchMove(x2 , y2);
+    touchUp(x2, y2);
   }
 
   protected void longClick(int x, int y) {

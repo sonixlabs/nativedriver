@@ -38,12 +38,24 @@ public class AdbConnectionBuilder {
   @Nullable private Integer adbServerPort;
   @Nullable private Integer emulatorConsolePort;
   @Nullable private Integer emulatorAdbPort;
+  @Nullable private String packagePath;
+  @Nullable private String serialNo;
 
   public AdbConnectionBuilder withAdbPath(String adbPath) {
     this.adbPath = Preconditions.checkNotNull(adbPath);
     return this;
   }
+  
+  public AdbConnectionBuilder withPackagePath(String packagePath) {
+    this.packagePath = Preconditions.checkNotNull(packagePath);
+    return this;
+  }
 
+  public AdbConnectionBuilder withSerialNo(String serialNo) {
+    this.serialNo = Preconditions.checkNotNull(serialNo);
+    return this;
+  }
+  
   /**
    * Attempts to find {@code adb} automatically by reading the SDK path from
    * {@code ANDROID_SDK} environment variable and searching certain
@@ -97,7 +109,7 @@ public class AdbConnectionBuilder {
 
   public AdbConnection build() {
     return new AdbConnection(Preconditions.checkNotNull(adbPath),
-        adbServerPort, emulatorConsolePort, emulatorAdbPort);
+        adbServerPort, emulatorConsolePort, emulatorAdbPort, packagePath, serialNo);
   }
 
   @VisibleForTesting

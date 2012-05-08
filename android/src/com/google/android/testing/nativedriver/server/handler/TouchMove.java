@@ -17,18 +17,18 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.android.testing.nativedriver.common.HasTouchScreen;
-import com.google.android.testing.nativedriver.common.Touch;
+import java.util.Map;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.remote.server.DriverSessions;
 import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
-import java.util.Map;
+import com.google.android.testing.nativedriver.common.HasTouchScreen;
+import com.google.android.testing.nativedriver.common.Touch;
 
 /**
  * Handler of {@code /session/:sessionId/moveto} for interaction of
@@ -46,8 +46,11 @@ public class TouchMove extends WebDriverHandler implements JsonParametersAware {
   private int yOffset = 0;
   private boolean offsetsProvided = false;
 
-  public TouchMove(DriverSessions sessions) {
-    super(sessions);
+//  public TouchMove(DriverSessions sessions) {
+//    super(sessions);
+//  }
+  public TouchMove(Session session) {
+    super(session);
   }
 
   @Override

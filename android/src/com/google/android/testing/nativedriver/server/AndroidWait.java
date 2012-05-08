@@ -20,26 +20,26 @@ package com.google.android.testing.nativedriver.server;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-import java.util.List;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.ui.Clock;
+
+import android.os.Process;
 
 import com.google.common.base.Function;
-
-import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Clock;
-import org.openqa.selenium.support.ui.TimeoutException;
-import org.openqa.selenium.support.ui.Wait;
 
 /**
  * An implementation of the Wait interface that makes use of Android Native
  * WebDriver.
  *
  * @author Tomohiro Kaizu
+ * @author Kazuhiro Yamada
+ * 
  */
 public class AndroidWait { //implements Wait<Void> {
-  private static final long DEFAULT_SLEEP_INTERVAL = 100;
   private static final long DEFAULT_TIMEOUT = 1000;
+  private static final long DEFAULT_SLEEP_INTERVAL = 100;
 
   private final Clock clock;
   private final long sleepIntervalInMillis;
@@ -65,14 +65,22 @@ public class AndroidWait { //implements Wait<Void> {
     this.clock = clock;
     this.sleepIntervalInMillis = sleepIntervalInMillis;
     this.timeoutInMillis = timeoutInMillis;
+    
+    System.out.println("interval:" + sleepIntervalInMillis);
+    System.out.println("timeout :" + timeoutInMillis);
   }
 
   
+  /* 
+   * Process.getElapsedCpuTime()の値が信頼出来ないため、別の方法でsleepを実装
+   * Edit By: Kazuhiro Yamada
+   */
   public <T> T until(Function<Void, T> isTrue) {
-    long end = clock.laterBy(timeoutInMillis);
+    //long end = clock.laterBy(timeoutInMillis);
+    long sleepedMillis = 0;
     NotFoundException lastException = null;
-
-    while (clock.isNowBefore(end)) {
+    //while (clock.isNowBefore(end)) {
+    while (sleepedMillis < timeoutInMillis) {
       try {
         T value = isTrue.apply(null);
 
@@ -85,36 +93,12 @@ public class AndroidWait { //implements Wait<Void> {
         lastException = exception;
       }
       sleep();
+      sleepedMillis += this.sleepIntervalInMillis;
     }
 
     throw new TimeoutException(String.format("Timed out after %d seconds",
         SECONDS.convert(timeoutInMillis, MILLISECONDS)), lastException);
   }
-
-  
-//  @Override
-//  public <T> T until(Function<Void, T> isTrue) {
-//    long end = clock.laterBy(timeoutInMillis);
-//    NotFoundException lastException = null;
-//
-//    while (clock.isNowBefore(end)) {
-//      try {
-//        T value = isTrue.apply(null);
-//
-//        if (value != null && !Boolean.FALSE.equals(value)) {
-//          return value;
-//        }
-//      } catch (NotFoundException exception) {
-//        // Common case in many conditions, so swallow here, but be ready to
-//        // rethrow if it the element never appears.
-//        lastException = exception;
-//      }
-//      sleep();
-//    }
-//
-//    throw new TimeoutException(String.format("Timed out after %d seconds",
-//        SECONDS.convert(timeoutInMillis, MILLISECONDS)), lastException);
-//  }
 
   /**
    * Sleeps for a few milliseconds.

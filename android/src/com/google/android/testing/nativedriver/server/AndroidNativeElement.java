@@ -23,9 +23,9 @@ import javax.annotation.Nullable;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.RenderedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.HasAndroidNativeCommand;
 
 import com.google.common.collect.ImmutableList;
 
@@ -45,7 +45,8 @@ import com.google.common.collect.ImmutableList;
  * @author Dezheng Xu
  */
 public abstract class AndroidNativeElement
-    implements ElementSearchScope, RenderedWebElement, SearchContext {
+    implements ElementSearchScope, WebElement, SearchContext , HasAndroidNativeCommand{
+//    implements ElementSearchScope, RenderedWebElement, SearchContext {
   protected final ElementContext context;
   @Nullable private SearchContext searchContext;
 
@@ -144,6 +145,15 @@ public abstract class AndroidNativeElement
   public void click() {
     // no-op
   }
+  
+  /**
+   * {@inheritDoc}
+   *
+   * This default implementation is a no-op.
+   */
+  public void drag(int x1, int y1, int x2, int y2) {
+    // no-op
+  }
 
   /**
    * {@inheritDoc}
@@ -165,7 +175,8 @@ public abstract class AndroidNativeElement
    */
   @Override
   public String getTagName() {
-    return getClass().getSimpleName();
+      return getClass().getSimpleName();
+      //return getClass().toString();
   }
 
   /**
@@ -273,22 +284,22 @@ public abstract class AndroidNativeElement
     return getSearchContext().findElements(by);
   }
 
-  @Deprecated
-  @Override
-  public void dragAndDropBy(int moveRightBy, int moveDownBy) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Deprecated
-  @Override
-  public void dragAndDropOn(RenderedWebElement element) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public String getValueOfCssProperty(String propertyName) {
-    throw new UnsupportedOperationException();
-  }
+//  @Deprecated
+//  @Override
+//  public void dragAndDropBy(int moveRightBy, int moveDownBy) {
+//    throw new UnsupportedOperationException();
+//  }
+//
+//  @Deprecated
+//  @Override
+//  public void dragAndDropOn(RenderedWebElement element) {
+//    throw new UnsupportedOperationException();
+//  }
+//
+//  @Override
+//  public String getValueOfCssProperty(String propertyName) {
+//    throw new UnsupportedOperationException();
+//  }
   
   public void setText(final CharSequence text) {
 	 // no-op
@@ -297,4 +308,14 @@ public abstract class AndroidNativeElement
   public String getResourceEntryName() {
     return null;
   }
+  
+//  public String getUID() {
+//    return null; 
+//  }
+//  
+//  public void setUID(final String uid) {
+//  }
+
+  
+  
 }

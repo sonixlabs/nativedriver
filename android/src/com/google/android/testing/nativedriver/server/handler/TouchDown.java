@@ -17,12 +17,12 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server.handler;
 
-import com.google.android.testing.nativedriver.common.HasTouchScreen;
-import com.google.android.testing.nativedriver.common.Touch;
-
-import org.openqa.selenium.remote.server.DriverSessions;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
+
+import com.google.android.testing.nativedriver.common.HasTouchScreen;
+import com.google.android.testing.nativedriver.common.Touch;
 
 /**
  * Handler of {@code /session/:sessionId/buttondown} for interaction of
@@ -31,8 +31,11 @@ import org.openqa.selenium.remote.server.rest.ResultType;
  * @author Dezheng Xu
  */
 public class TouchDown extends WebDriverHandler {
-  public TouchDown(DriverSessions sessions) {
-    super(sessions);
+//  public TouchDown(DriverSessions sessions) {
+//    super(sessions);
+//  }
+  public TouchDown(Session session) {
+    super(session);
   }
 
   @Override

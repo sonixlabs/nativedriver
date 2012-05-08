@@ -22,8 +22,10 @@ import com.google.common.collect.Lists;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import java.util.List;
 import java.util.Map;
@@ -48,12 +50,22 @@ public class AdbConnection {
   public static final String IOCTL_RETURNBUFFERHEADER = "return buf: ";
 
   private final String adbPath;
+  @Nullable private String packagePath;
+  @Nullable private String SerialNo;
   @Nullable private final Integer adbServerPort;
   @Nullable private final Integer emulatorConsolePort;
   @Nullable private final Integer emulatorAdbPort;
 
   public String getAdbPath() {
     return adbPath;
+  }
+  
+  public String getPackageInfo() {
+    return packagePath;
+  }
+  
+  public void setPackageInfo(String packageInfo) {
+    this.packagePath = packageInfo;
   }
 
   @Nullable
@@ -268,12 +280,78 @@ public class AdbConnection {
    * @param emulatorAdbPort the port the emulator is listening on for ADB
    *        commands. If {@code null}, the default port (possibly 5555) is used.
    */
-  protected AdbConnection(String adbPath, @Nullable Integer adbServerPort,
+  protected AdbConnection(
+      String adbPath, 
+      @Nullable Integer adbServerPort,
       @Nullable Integer emulatorConsolePort,
-      @Nullable Integer emulatorAdbPort) {
+      @Nullable Integer emulatorAdbPort,
+      @Nullable String packagePath,
+      @Nullable String serialNo ) {
     this.adbPath = Preconditions.checkNotNull(adbPath);
     this.adbServerPort = adbServerPort;
     this.emulatorConsolePort = emulatorConsolePort;
     this.emulatorAdbPort = emulatorAdbPort;
+    this.packagePath = packagePath;
+    this.SerialNo = serialNo;
+  }
+  
+  public String instrument() {
+    if (getPackageInfo() == null) {
+      System.err.println("instrument Failed!!\npackageInfo is null");
+    }
+    StringBuilder command = new StringBuilder();
+    command.append(getAdbPath() + " ");
+    if (this.SerialNo != null) {
+      command.append("-s " + this.SerialNo + " ");
+    }
+    command.append("shell am instrument ");
+    command.append(getPackageInfo());
+    command.append("/com.google.android.testing.nativedriver.server.ServerInstrumentation");
+    String result = exeCommand(command.toString());
+    return result;
+}
+
+  public String forward(int localPort, int RemotePort) {
+    StringBuilder command = new StringBuilder();
+    command.append(getAdbPath() + " ");
+    if (this.SerialNo != null) {
+      command.append("-s " + this.SerialNo + " ");
+    }
+    command.append("forward tcp:" + localPort + " tcp:" + RemotePort);
+    String result = exeCommand(command.toString());
+    return result;
+  }
+
+  public String dropData() {
+    if (getPackageInfo() == null) {
+      System.err.println("dropData Failed!!\npackageInfo is null");
+    }
+    StringBuilder command = new StringBuilder();
+    command.append(getAdbPath() + " ");
+    if (this.SerialNo != null) {
+      command.append("-s " + this.SerialNo + " ");
+    }
+    command.append("shell pm clear ");
+    command.append(getPackageInfo());
+    String result = exeCommand(command.toString());
+    return result;
+  }
+
+  private String exeCommand(String command) {
+    StringBuilder result = new StringBuilder();
+    try {
+      Process process = Runtime.getRuntime().exec(command);
+      process.waitFor();
+      InputStream is = process.getInputStream();
+      BufferedReader br = new BufferedReader(new InputStreamReader(is));
+      String line;
+      while ((line = br.readLine()) != null) {
+        result.append(line);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    System.out.println(command + " : " + result.toString());
+    return result.toString();
   }
 }

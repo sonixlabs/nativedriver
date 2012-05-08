@@ -40,8 +40,11 @@ public class ViewElementFactory {
   private static final ViewElementFactory INSTANCE = new ViewElementFactory(
       EditTextElement.TYPE,
       TextViewElement.TYPE,
+      TabHostElement.TYPE,
+      ListViewElement.TYPE,
       ViewGroupElement.TYPE,
-      ViewElement.TYPE);
+      ViewElement.TYPE
+      );
 
   /**
    * Returns the default instance of {@code ViewElementFactory} that contains

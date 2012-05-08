@@ -22,8 +22,8 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.openqa.selenium.HasInputDevices;
-import org.openqa.selenium.remote.server.DriverSessions;
 import org.openqa.selenium.remote.server.JsonParametersAware;
+import org.openqa.selenium.remote.server.Session;
 import org.openqa.selenium.remote.server.handler.WebDriverHandler;
 import org.openqa.selenium.remote.server.rest.ResultType;
 
@@ -40,8 +40,8 @@ public class AndroidNativeSendKeys extends WebDriverHandler
   private final List<CharSequence> keys
       = new CopyOnWriteArrayList<CharSequence>();
 
-  public AndroidNativeSendKeys(DriverSessions sessions) {
-    super(sessions);
+  public AndroidNativeSendKeys(Session session) {
+    super(session);
   }
 
   @Override

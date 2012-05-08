@@ -17,26 +17,28 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.android.testing.nativedriver.common.FindsByText;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.annotation.Nullable;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.internal.FindsByClassName;
+import org.openqa.selenium.internal.FindsById;
+
+import com.google.android.testing.nativedriver.common.FindsByText;
+import com.google.android.testing.nativedriver.common.FindsByUID;
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.FindsByClassName;
-import org.openqa.selenium.internal.FindsById;
-import org.openqa.selenium.support.ui.TimeoutException;
-
-import java.util.List;
-
-import javax.annotation.Nullable;
 
 /**
  * Encapsulates element search functionality. An instance of this class knows
@@ -191,13 +193,13 @@ public class ElementFinder {
   }
 
   private class SearchContextImpl
-      implements SearchContext, FindsById, FindsByText, FindsByClassName {
+      implements SearchContext, FindsById, FindsByText, FindsByClassName, FindsByUID {
     private final ElementSearchScope scope;
 
     private SearchContextImpl(ElementSearchScope scope) {
       this.scope = scope;
     }
-
+    
     @Override
     public WebElement findElement(final By by) {
       try {
@@ -213,7 +215,7 @@ public class ElementFinder {
         } else {
           throw exception;
         }
-      }
+      } 
     }
 
     @Override
@@ -338,6 +340,35 @@ public class ElementFinder {
       return addElementsFromHierarchy(Lists.<WebElement>newArrayList(),
           scope.getChildren(), new ByClassNameFilterCondition(using),
           Integer.MAX_VALUE /* maxResults */);
+    }
+
+    @Override
+    public WebElement findElementByUID(String using) {
+      System.out.println("===findElementByUID===");
+      System.out.println("uid:" + using);
+      AndroidNativeElement currentActivity = ((RootSearchScope)scope).getCurrentActivityElement();
+      ArrayList<String> listUID = new ArrayList<String>(Arrays.asList(using.substring(1).split("/")));
+      WebElement result = findByUID(currentActivity, listUID);
+      if (result == null) {
+        throw new NoSuchElementException("UID:" + using);
+      }
+      return result;
+    }
+    
+    private WebElement findByUID(AndroidNativeElement element, ArrayList<String> listUID) {
+      Integer i = 0;
+      for (AndroidNativeElement el : element.getChildren()) {
+        if (i.toString().equals(listUID.get(0))){
+          listUID.remove(0);
+          if (listUID.isEmpty()) {
+            return el;
+          } else {
+            return findByUID(el, listUID);
+          }
+        }
+        i++;
+      } 
+      return null;
     }
   }
 

@@ -17,17 +17,17 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.server;
 
-import com.google.common.collect.Lists;
-
-import android.view.View;
-
-import org.openqa.selenium.WebDriverException;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import javax.annotation.Nullable;
+
+import org.openqa.selenium.WebDriverException;
+
+import android.view.View;
+
+import com.google.common.collect.Lists;
 
 /**
  * The root element of Android NativeDriver. This element is the parent of all
@@ -102,5 +102,17 @@ public class RootSearchScope implements ElementSearchScope {
       }
     }
     return null;
+  }
+  
+  /**
+   * Current Activity is Last Element of Roots Children.
+   */
+  public AndroidNativeElement getCurrentActivityElement() {
+    Iterable<? extends AndroidNativeElement> iterable = getChildren();
+    AndroidNativeElement activity = null;
+    for (AndroidNativeElement el : iterable) {
+      activity = el;
+    }
+    return activity;
   }
 }
