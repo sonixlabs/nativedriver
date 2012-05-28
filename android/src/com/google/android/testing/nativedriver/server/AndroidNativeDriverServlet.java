@@ -37,7 +37,6 @@ import com.google.android.testing.nativedriver.server.handler.AndroidNativeSendK
 import com.google.android.testing.nativedriver.server.handler.Click;
 import com.google.android.testing.nativedriver.server.handler.DoubleTap;
 import com.google.android.testing.nativedriver.server.handler.DragElement;
-import com.google.android.testing.nativedriver.server.handler.FlickElement;
 import com.google.android.testing.nativedriver.server.handler.GetJSON;
 import com.google.android.testing.nativedriver.server.handler.TouchDown;
 import com.google.android.testing.nativedriver.server.handler.TouchMove;
@@ -108,9 +107,6 @@ public class AndroidNativeDriverServlet extends DriverServlet {
           .on(ResultType.SUCCESS, newEmptyResult());
       
       addNewPostMapping(SESSION_PATH + "element/:id/dragElement", DragElement.class)
-          .on(ResultType.SUCCESS, newEmptyResult());
-      
-      addNewPostMapping(SESSION_PATH + "element/:id/flickElement",FlickElement.class)
           .on(ResultType.SUCCESS, newEmptyResult());
       
       addNewPostMapping(SESSION_PATH + "json", GetJSON.class)

@@ -21,6 +21,8 @@ import java.net.IDN;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,6 +37,7 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.HasInputDevices;
 import org.openqa.selenium.Keyboard;
 import org.openqa.selenium.Mouse;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Rotatable;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.SearchContext;
@@ -283,8 +286,8 @@ public class AndroidNativeDriver<E>
       andActivity(dest);
     } else if ("setText".equals(dest.getScheme())) {
       setText(params);
-    } else if ("drag".equals(dest.getScheme())) {
-      drag(params);
+    } else if ("flick".equals(dest.getScheme())) {
+      flick(params);
     } else if (!Strings.isNullOrEmpty(dest.getPath())) {
       throw new WebDriverException("Unrecognized scheme in URI: "
           + dest.toString());
@@ -322,22 +325,23 @@ public class AndroidNativeDriver<E>
     el.setText(IDN.toUnicode(params.get("value")));
   }
 
-  private void drag(Map<String, String> params) {
+  private void flick(Map<String, String> params) {
     System.out.println(params.get("x1"));
     System.out.println(params.get("y1"));
     System.out.println(params.get("x2"));
     System.out.println(params.get("y2"));
-    getRootSearchScope().getCurrentActivityElement().drag(
+    AndroidNativeElement currentActivity = getRootSearchScope().getCurrentActivityElement();
+    getRootSearchScope().getCurrentActivityElement().flick(
       Integer.parseInt(params.get("x1")),
       Integer.parseInt(params.get("y1")),
       Integer.parseInt(params.get("x2")),
       Integer.parseInt(params.get("y2")));
     
-    getRootSearchScope().getChildren().iterator().next().drag(
-      Integer.parseInt(params.get("x1")),
-      Integer.parseInt(params.get("y1")),
-      Integer.parseInt(params.get("x2")),
-      Integer.parseInt(params.get("y2")));
+//    getRootSearchScope().getChildren().iterator().next().flick(
+//      Integer.parseInt(params.get("x1")),
+//      Integer.parseInt(params.get("y1")),
+//      Integer.parseInt(params.get("x2")),
+//      Integer.parseInt(params.get("y2")));
   }
 
 

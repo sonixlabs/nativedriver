@@ -16,7 +16,6 @@ public class AndroidNativeHttpCommandExecutor extends HttpCommandExecutor implem
   public Map<String, CommandInfo> getNameToUrlMap() { 
     Map<String, CommandInfo> map = super.getNameToUrlMap();
     map.put(DRAG_ELEMENT, post("/session/:sessionId/element/:id/dragElement"));
-    map.put(FLICK_ELEMENT, post("/session/:sessionId/element/:id/flickElement"));
     return map;
   }
   

@@ -387,8 +387,8 @@ public class AndroidNativeDriver
     }
   }
 
-//  public void drag(int x1, int y1, int x2, int y2) {
-//    execute("get", ImmutableMap.of("url", "drag://-?x1=" + x1 + "&y1=" + y1 + "&x2=" + x2 + "&y2=" + y2)) ;
-//  }
+  public void flick(int x1, int y1, int x2, int y2) {
+    execute("get", ImmutableMap.of("url", "flick://-?x1=" + x1 + "&y1=" + y1 + "&x2=" + x2 + "&y2=" + y2)) ;
+  }
 
 }

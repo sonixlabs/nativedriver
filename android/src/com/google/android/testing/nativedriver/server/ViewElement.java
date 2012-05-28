@@ -223,6 +223,10 @@ public class ViewElement<V extends View>
     scrollIntoScreenIfNeeded();
     AndroidNativeTouch touch = (AndroidNativeTouch)context.getTouch();
     ((AndroidNativeTouch)touch).drag(x1, y1, x2, y2);
+    System.out.println("flick x1:" + x1);
+    System.out.println("flick y1:" + y1);
+    System.out.println("flick x2:" + x2);
+    System.out.println("flick y2:" + y2);
   }
 
 

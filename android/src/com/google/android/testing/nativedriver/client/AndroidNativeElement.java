@@ -77,9 +77,5 @@ public class AndroidNativeElement
     execute(DRAG_ELEMENT, ImmutableMap.of("id", this.getId(), "x", x, "y", y)); 
   }
   
-  public void flick(int x1, int y1, int x2, int y2) {
-    execute(FLICK_ELEMENT, ImmutableMap.of("id", this.getId(), "x1", x1, "y1", y1, "x2", x2, "y2", y2)); 
-  }
-  
   
 }
