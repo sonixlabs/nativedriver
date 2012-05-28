@@ -54,7 +54,6 @@ import com.google.android.testing.nativedriver.common.AndroidNativeDriverCommand
 import com.google.android.testing.nativedriver.common.HasTouchScreen;
 import com.google.android.testing.nativedriver.common.Touch;
 import com.google.android.testing.nativedriver.common.util.URIUtil;
-import com.google.android.testing.nativedriver.server.util.JSONUtil;
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;

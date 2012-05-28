@@ -36,7 +36,6 @@ public class TabHostElement<V extends TabHost> extends ViewElement<V> {
   /**
    * A {@code ViewElementType} that represents this class.
    */
-  @SuppressWarnings("hiding")
   public static final ViewElementType TYPE
       = new ViewElementType(TabHost.class) {
       @Override

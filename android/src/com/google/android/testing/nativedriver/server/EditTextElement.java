@@ -32,7 +32,6 @@ public class EditTextElement<V extends EditText> extends TextViewElement<V> {
   /**
    * A {@code ViewElementType} that represents this class.
    */
-  @SuppressWarnings("hiding")
   public static final ViewElementType TYPE
       = new ViewElementType(EditText.class) {
     @Override

@@ -17,8 +17,6 @@ limitations under the License.
 
 package com.google.android.testing.nativedriver.common;
 
-import static org.openqa.selenium.remote.DriverCommand.CLICK_ELEMENT;
-
 import org.openqa.selenium.remote.DriverCommand;
 
 /**

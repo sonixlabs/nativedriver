@@ -24,6 +24,7 @@ import org.openqa.selenium.WebDriverException;
  *
  * @author Matt DeVore
  */
+@SuppressWarnings("serial")
 public class AdbException extends WebDriverException {
   public AdbException() {
     // nothing to do

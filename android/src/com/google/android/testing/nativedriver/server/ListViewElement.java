@@ -36,7 +36,6 @@ public class ListViewElement<V extends ListView> extends ViewElement<V> {
   /**
    * A {@code ViewElementType} that represents this class.
    */
-  @SuppressWarnings("hiding")
   public static final ViewElementType TYPE
       = new ViewElementType(ListView.class) {
       @Override

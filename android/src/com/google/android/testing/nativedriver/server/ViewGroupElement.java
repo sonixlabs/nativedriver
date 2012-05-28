@@ -39,7 +39,6 @@ public class ViewGroupElement<V extends ViewGroup> extends ViewElement<V> {
   /**
    * A {@code ViewElementType} that represents this class.
    */
-  @SuppressWarnings("hiding")
   public static final ViewElementType TYPE
       = new ViewElementType(ViewGroup.class) {
     @Override

@@ -25,8 +25,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.ui.Clock;
 
-import android.os.Process;
-
 import com.google.common.base.Function;
 
 /**
@@ -41,7 +39,6 @@ public class AndroidWait { //implements Wait<Void> {
   private static final long DEFAULT_TIMEOUT = 1000;
   private static final long DEFAULT_SLEEP_INTERVAL = 100;
 
-  private final Clock clock;
   private final long sleepIntervalInMillis;
 
   private long timeoutInMillis;
@@ -62,7 +59,6 @@ public class AndroidWait { //implements Wait<Void> {
    */
   protected AndroidWait(Clock clock, long sleepIntervalInMillis,
         long timeoutInMillis) {
-    this.clock = clock;
     this.sleepIntervalInMillis = sleepIntervalInMillis;
     this.timeoutInMillis = timeoutInMillis;
     

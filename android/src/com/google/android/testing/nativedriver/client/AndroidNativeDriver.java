@@ -241,7 +241,7 @@ public class AndroidNativeDriver
     return findElements(USING_TEXT, using);
   }
 
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings({ "unchecked", "rawtypes" })
   public List<AndroidNativeElement> findAndroidNativeElements(By by) {
     return (List) findElements(by);
   }
