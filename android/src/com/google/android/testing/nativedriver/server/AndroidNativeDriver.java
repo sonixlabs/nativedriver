@@ -302,8 +302,22 @@ public class AndroidNativeDriver<E>
       throw new WebDriverException(
           "The specified Activity class does not exist: " + dest.getAuthority(),
           exception);
+    } catch (ExceptionInInitializerError exception) {
+      StringBuilder msg = new StringBuilder();
+      msg.append("The specified Activity class can't do Class.forName(): " + dest.getAuthority() + "\n");
+      msg.append("======\n");
+      msg.append("If you use Handler in Activity class(" + dest.getAuthority() + "), You must instantiate the Handler within an method.\n");
+      msg.append("x Bad : private static Handler mHandler = new Handler();\n");
+      msg.append("o Good: private static Handler mHandler;\n");
+      msg.append("        @Override\n");
+      msg.append("        public void onCreate(Bundle savedInstanceState) {\n");
+      msg.append("          mHandler = new Handler();\n");
+      msg.append("        }\n");
+      msg.append("======\n");
+      throw new WebDriverException(
+          msg.toString(),
+          exception);
     }
-
     for (NameValuePair nvp : URLEncodedUtils.parse(dest, "utf8")) {
       if ("id".equals(nvp.getName())) {
         // This is to prevent people from recycling the same URL they got from
@@ -318,7 +332,6 @@ public class AndroidNativeDriver<E>
   }
   
   private void setText(Map<String, String> params) {
-    System.out.println("==SetText==");
     ByWithIndex byWithIdx = AndroidKnownElements.get(params.get("elementId"));
     System.out.println("byAndIdx: " + byWithIdx);
     AndroidNativeElement el = (AndroidNativeElement)getRootSearchContext().findElements(byWithIdx.by).get(byWithIdx.index);
