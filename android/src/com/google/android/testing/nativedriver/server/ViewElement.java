@@ -178,7 +178,12 @@ public class ViewElement<V extends View>
 
   public String getResourceEntryName() {
     int viewId = view.getId();
-    return (viewId == View.NO_ID) ? null : context.getActivities().current().getResources().getResourceEntryName(view.getId());
+    final int MAX_INVALID_ID = 1000;
+    // android.jar uses around 0x1000000 and ADT uses around 0x7f000000 for resourceId.
+    // Minimum resourceId like less than MAX_INVALID_ID causes ResourceNotFoundException.
+    // Therefor return null.
+    // If inconvenient corresponding by try~catch.
+    return (viewId == View.NO_ID || viewId < 1000) ? null : context.getActivities().current().getResources().getResourceEntryName(view.getId());
   }
   
   /**
