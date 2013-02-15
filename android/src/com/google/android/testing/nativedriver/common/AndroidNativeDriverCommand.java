@@ -28,7 +28,8 @@ public interface AndroidNativeDriverCommand extends DriverCommand {
   String SEND_KEYS_TO_SESSION = "sendKeysToElement";
   String SEND_MODIFIER_KEY_TO_SESSION = "sendModifierKeyToActiveElement";
   String SET_TEXT_TO_ELEMENT = "setTextToElement";
-  
+  String DUMP_CURRENT_ACTIVITY = "dumpCurrentActivity";
+  String DUMP = "dump";
   String DRAG_ELEMENT  = "dragElement";
   String FLICK_ELEMENT = "flickElement";
 }

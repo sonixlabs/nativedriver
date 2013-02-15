@@ -77,5 +77,7 @@ public class AndroidNativeElement
     execute(DRAG_ELEMENT, ImmutableMap.of("id", this.getId(), "x", x, "y", y)); 
   }
   
-  
+  public void dump() {
+    execute("get", ImmutableMap.of("url", DUMP + "://?elementId=" + this.getId())); 
+  }
 }

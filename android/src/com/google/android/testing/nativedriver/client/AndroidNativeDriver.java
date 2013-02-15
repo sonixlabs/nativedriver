@@ -378,7 +378,19 @@ public class AndroidNativeDriver
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
+  public void dump() {
+    Response response = execute(DriverCommand.GET_JSON, 
+         ImmutableMap.of("url", DUMP_CURRENT_ACTIVITY + "://-"));
+    String json = JSONUtil.toJSON(response.getValue());
+    System.out.println(json);
+  }
   
+  public String getDump() {
+    Response response = execute(DriverCommand.GET_JSON, 
+         ImmutableMap.of("url", DUMP_CURRENT_ACTIVITY + "://-"));
+    String json = JSONUtil.toJSON(response.getValue());
+    return json;
+  }
 
   public void quitWithInit() {
     super.quit();

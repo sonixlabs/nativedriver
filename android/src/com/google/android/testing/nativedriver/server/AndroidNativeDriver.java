@@ -525,9 +525,11 @@ public class AndroidNativeDriver<E>
       throw new IllegalArgumentException(exception);
     }
     String method = urlObj.getScheme();
-//    System.out.println("Scheme:" + method);
-//    System.out.println("Query :" + urlObj.getQuery());
-    
+    if (DUMP_CURRENT_ACTIVITY.equals(method)) {
+      obj = new ActivityDumper().dumpActivity(getRootSearchScope().getCurrentActivityElement());
+    } else {
+      throw new WebDriverException("Unrecognized method: " + method);
+    }
     return obj;
   }
 }
