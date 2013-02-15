@@ -295,6 +295,15 @@ public class AndroidNativeDriver<E>
   }
   
   private void andActivity(URI dest) {
+    Activity currentActivity = this.getCurrentActivity();
+    if (currentActivity != null) {
+      // return if activity is already opened.
+      String currentActivityFullName = currentActivity.getClass().getPackage().getName() + "." +  currentActivity.getLocalClassName();
+      if (dest.getAuthority().equals(currentActivityFullName)) {
+        return;
+      }
+    }
+    
     Class<?> clazz;
     try {
       clazz = Class.forName(dest.getAuthority());
@@ -347,6 +356,9 @@ public class AndroidNativeDriver<E>
      );
   }
 
+  public Activity getCurrentActivity() {
+    return context.getActivities().current();
+  }
 
   /**
    * Returns a string that looks like a URL that describes the current activity.
@@ -355,7 +367,7 @@ public class AndroidNativeDriver<E>
    */
   @Override
   public String getCurrentUrl() {
-    Activity activity = context.getActivities().current();
+    Activity activity = getCurrentActivity();
     if (activity == null) {
       return null;
     }
