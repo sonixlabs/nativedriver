@@ -1,4 +1,4 @@
-# An extended NativeDriver 
+# NativeDriver by Sonix
 
 ## Function
 
@@ -51,8 +51,7 @@
         Thread.sleep(1000);
 
         // flick
-        driver.flick(x + 310, y + 100, x + 390, y + 100);
-        driver.flick(x + 350, y + 100, x + 350, y + 200);
+        driver.flick(310, 100, 390, 100);
       }
     }
 
