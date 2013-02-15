@@ -1,5 +1,7 @@
 # NativeDriver 
 
+An extended NativeDriver
+
 ## Function
 
 * AndroidNativeDriver#setText(text)
