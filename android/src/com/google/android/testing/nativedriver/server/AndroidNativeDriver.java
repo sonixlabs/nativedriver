@@ -333,28 +333,18 @@ public class AndroidNativeDriver<E>
   
   private void setText(Map<String, String> params) {
     ByWithIndex byWithIdx = AndroidKnownElements.get(params.get("elementId"));
-    System.out.println("byAndIdx: " + byWithIdx);
     AndroidNativeElement el = (AndroidNativeElement)getRootSearchContext().findElements(byWithIdx.by).get(byWithIdx.index);
     el.setText(IDN.toUnicode(params.get("value")));
   }
 
   private void flick(Map<String, String> params) {
-    System.out.println(params.get("x1"));
-    System.out.println(params.get("y1"));
-    System.out.println(params.get("x2"));
-    System.out.println(params.get("y2"));
     AndroidNativeElement currentActivity = getRootSearchScope().getCurrentActivityElement();
     getRootSearchScope().getCurrentActivityElement().flick(
       Integer.parseInt(params.get("x1")),
       Integer.parseInt(params.get("y1")),
       Integer.parseInt(params.get("x2")),
-      Integer.parseInt(params.get("y2")));
-    
-//    getRootSearchScope().getChildren().iterator().next().flick(
-//      Integer.parseInt(params.get("x1")),
-//      Integer.parseInt(params.get("y1")),
-//      Integer.parseInt(params.get("x2")),
-//      Integer.parseInt(params.get("y2")));
+      Integer.parseInt(params.get("y2"))
+     );
   }
 
 

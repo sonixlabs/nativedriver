@@ -68,8 +68,8 @@ public class AndroidWait { //implements Wait<Void> {
 
   
   /* 
-   * Process.getElapsedCpuTime()の値が信頼出来ないため、別の方法でsleepを実装
-   * Edit By: Kazuhiro Yamada
+   * Process.getElapsedCpuTime()の値が信頼出来ないため、別の方法でsleepを実装
+   * by Kazuhiro Yamada
    */
   public <T> T until(Function<Void, T> isTrue) {
     //long end = clock.laterBy(timeoutInMillis);

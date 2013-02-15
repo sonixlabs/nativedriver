@@ -2,3 +2,5 @@
 *.log
 build
 build/*
+android/sample-aut/simplelayouts/server-standalone.jar
+android/test/client-standalone.jar

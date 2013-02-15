@@ -59,6 +59,12 @@ public class ActivitiesReporter {
           activity.finish();
         }
       }
+
+      // Wait until finish all activities.
+      while (current() != null) {
+        current().finish();
+        try{ Thread.sleep(100); }catch(InterruptedException e){}        
+      }
     }
 
     @Override
