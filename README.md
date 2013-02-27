@@ -90,7 +90,14 @@ The repository that will be downloaded is organized in this manner:
 Next use ant to build the NativeDriver libraries:
 
     $ cd nativedriver/android
+    // Buld all
     $ ant
+
+    // Build server only
+    $ ant standalone-server
+
+    // Bulid client only
+    $ ant standalone-client
     
 The libraries are built and stored in the nativedriver/android/build directory:
 

@@ -63,7 +63,7 @@ public class ActivitiesReporter {
       // Wait until finish all activities.
       while (current() != null) {
         current().finish();
-        try{ Thread.sleep(100); }catch(InterruptedException e){}        
+        try{ Thread.sleep(100); }catch(InterruptedException e){}
       }
     }
 
@@ -104,6 +104,13 @@ public class ActivitiesReporter {
         + activity.getClass().getName());
 
     currentActivity = activity;
+  }
+
+  /**
+   * Records the given {@code Activity} as being stopped.
+   */
+  public void wasStopped(Activity activity) {
+    this.wasDestroyed(activity);
   }
 
   /**

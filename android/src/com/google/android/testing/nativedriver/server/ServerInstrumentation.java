@@ -177,6 +177,13 @@ public class ServerInstrumentation extends Instrumentation {
   }
 
   @Override
+  public void callActivityOnStop(Activity activity) {
+    activitiesReporter.wasStopped(activity);
+
+    super.callActivityOnStop(activity);
+  }
+
+  @Override
   public void callActivityOnDestroy(Activity activity) {
     activitiesReporter.wasDestroyed(activity);
 
