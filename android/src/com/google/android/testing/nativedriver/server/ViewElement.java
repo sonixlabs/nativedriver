@@ -218,8 +218,6 @@ public class ViewElement<V extends View>
     AndroidNativeTouch touch = (AndroidNativeTouch)context.getTouch();
     Point p = getCoordinates().getLocationOnScreen();
     ((AndroidNativeTouch)touch).drag(p.x, p.y, p.x + x, p.y + y);
-    System.out.println("drag x:" + p.x);
-    System.out.println("drag y:" + p.y);
   }
 
   @Override
@@ -228,10 +226,6 @@ public class ViewElement<V extends View>
     scrollIntoScreenIfNeeded();
     AndroidNativeTouch touch = (AndroidNativeTouch)context.getTouch();
     ((AndroidNativeTouch)touch).drag(x1, y1, x2, y2);
-    System.out.println("flick x1:" + x1);
-    System.out.println("flick y1:" + y1);
-    System.out.println("flick x2:" + x2);
-    System.out.println("flick y2:" + y2);
   }
 
 
@@ -275,6 +269,12 @@ public class ViewElement<V extends View>
 
   @Override
   public boolean isDisplayed() {
+    // For DEBUG
+    // System.out.println("hasWindowFocus: " + view.hasWindowFocus());
+    // System.out.println("isEnabled     : " + view.isEnabled());
+    // System.out.println("isShown       : " + view.isShown());
+    // System.out.println("width         : " + getViewWidth());
+    // System.out.println("height        : " + getViewHeight());
     return view.hasWindowFocus() && view.isEnabled() && view.isShown()
         && (getViewWidth() > 0) && (getViewHeight() > 0);
   }
@@ -317,8 +317,9 @@ public class ViewElement<V extends View>
         }
       });
     } catch (TimeoutException exception) {
-      throw new ElementNotVisibleException(
-          "You may only do passive read with element not displayed");
+      exception.printStackTrace();
+      //throw new ElementNotVisibleException(
+      //    "You may only do passive read with element not displayed");
     }
   }
 
