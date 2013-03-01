@@ -36,7 +36,7 @@ import com.google.common.base.Function;
  * 
  */
 public class AndroidWait { //implements Wait<Void> {
-  private static final long DEFAULT_TIMEOUT = 1000;
+  private static final long DEFAULT_TIMEOUT = 2000;
   private static final long DEFAULT_SLEEP_INTERVAL = 100;
 
   private final long sleepIntervalInMillis;
