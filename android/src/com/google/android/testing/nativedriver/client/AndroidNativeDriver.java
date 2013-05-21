@@ -46,6 +46,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.remote.Response;
 import org.openqa.selenium.remote.internal.JsonToWebElementConverter;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 
 import com.google.android.testing.nativedriver.client.util.JSONUtil;
 import com.google.android.testing.nativedriver.common.AndroidCapabilities;
@@ -57,6 +58,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Closeables;
+
 
 /**
  * Represents an Android NativeDriver (AND) client used to drive native
@@ -250,7 +252,7 @@ public class AndroidNativeDriver
   public AndroidNativeElement findElement(By by) {
     return (AndroidNativeElement) super.findElement(by);
   }
-  
+
   @Override
   public WebElement findElementByUID(String using) {
     return findElement(USING_UID, using);
@@ -340,30 +342,30 @@ public class AndroidNativeDriver
 
     return target.convertFromBase64Png(base64Png);
   }
-  
+
   /**
    * =======================================
    * Added By Sonix
    * =======================================
    */
-  
+
   private void setDateDialogEditViewValue(int editViewIndex, int value){
     List<AndroidNativeElement> textEditViews = findAndroidNativeElements(AndroidNativeBy.className(ClassNames.EDIT_TEXT));
     textEditViews.get(editViewIndex).setText(String.valueOf(value));
   }
-  
+
   public void setDateDialogYear(int year){
     setDateDialogEditViewValue(0, year);
   }
-  
+
   public void setDateDialogMonth(int month){
     setDateDialogEditViewValue(1, month);
   }
-  
+
   public void setDateDialogDay(int day){
     setDateDialogEditViewValue(2, day);
   }
-  
+
   private static String extractMatchString(String regex, String target) {
     Pattern pattern = Pattern.compile(regex);
     Matcher matcher = pattern.matcher(target);
@@ -373,20 +375,20 @@ public class AndroidNativeDriver
       throw new IllegalStateException("No match found.");
     }
   }
-  
+
   public String getCurrentActivityName() {
     return extractMatchString(".*//(.*)\\?.*", getCurrentUrl());
   }
 
   public void dump() {
-    Response response = execute(DriverCommand.GET_JSON, 
+    Response response = execute(DriverCommand.GET_JSON,
          ImmutableMap.of("url", DUMP_CURRENT_ACTIVITY + "://-"));
     String json = JSONUtil.toJSON(response.getValue());
     System.out.println(json);
   }
-  
+
   public String getDump() {
-    Response response = execute(DriverCommand.GET_JSON, 
+    Response response = execute(DriverCommand.GET_JSON,
          ImmutableMap.of("url", DUMP_CURRENT_ACTIVITY + "://-"));
     String json = JSONUtil.toJSON(response.getValue());
     return json;
@@ -395,12 +397,28 @@ public class AndroidNativeDriver
   public void quitWithInit() {
     super.quit();
     if (adbConnection != null) {
-        adbConnection.dropData();    
+        adbConnection.dropData();
     }
   }
 
   public void flick(int x1, int y1, int x2, int y2) {
     execute("get", ImmutableMap.of("url", "flick://-?x1=" + x1 + "&y1=" + y1 + "&x2=" + x2 + "&y2=" + y2)) ;
+  }
+
+  @Override
+  public void close() {
+    try {
+      super.close();
+    } catch (UnreachableBrowserException ignored) {
+    }
+  }
+
+  @Override
+  public void quit() {
+    try {
+      super.quit();
+    } catch (UnreachableBrowserException ignored) {
+    }
   }
 
 }

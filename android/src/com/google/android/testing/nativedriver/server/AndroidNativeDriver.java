@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+
 import javax.annotation.Nullable;
 
 import org.apache.http.NameValuePair;
@@ -224,7 +225,7 @@ public class AndroidNativeDriver<E>
     }
     return this.rootSearchScope;
   }
-  
+
   protected SearchContext getRootSearchContext() {
     if (rootSearchContext == null) {
       rootSearchContext = context.getElementFinder()
@@ -293,7 +294,7 @@ public class AndroidNativeDriver<E>
           + dest.toString());
     }
   }
-  
+
   private void andActivity(URI dest) {
     Activity currentActivity = this.getCurrentActivity();
     if (currentActivity != null) {
@@ -303,7 +304,7 @@ public class AndroidNativeDriver<E>
         return;
       }
     }
-    
+
     Class<?> clazz;
     try {
       clazz = Class.forName(dest.getAuthority());
@@ -339,7 +340,7 @@ public class AndroidNativeDriver<E>
     }
     startActivity(clazz);
   }
-  
+
   private void setText(Map<String, String> params) {
     ByWithIndex byWithIdx = AndroidKnownElements.get(params.get("elementId"));
     AndroidNativeElement el = (AndroidNativeElement)getRootSearchContext().findElements(byWithIdx.by).get(byWithIdx.index);
@@ -423,7 +424,7 @@ public class AndroidNativeDriver<E>
 
   @Override
   public void quit() {
-    context.getActivities().finishAll();
+    close();
   }
 
   @Override
@@ -512,16 +513,16 @@ public class AndroidNativeDriver<E>
   public Mouse getMouse() {
     return null;
   }
-  
+
 // Delete By Kazuhiro Yamada
 //  /* (non-Javadoc)
 //   * @see org.openqa.selenium.HasInputDevices#actionsBuilder()
 //   */
-////  @Override 
+////  @Override
 //  public ActionChainsGenerator actionsBuilder() {
 //    return new DefaultActionChainsGenerator(this);
 //  }
-  
+
   public ElementContext getContext() {
 	  return this.context;
   }
