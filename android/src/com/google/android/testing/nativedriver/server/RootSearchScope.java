@@ -103,7 +103,7 @@ public class RootSearchScope implements ElementSearchScope {
     }
     return null;
   }
-  
+
   /**
    * Current Activity is Last Element of Roots Children.
    */

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ *
  * @author Kazuhiro Yamada
  *
  */
@@ -17,7 +17,7 @@ public class ActivityDumper {
 
   private Map<String, Integer>idSeqMap = new HashMap<String, Integer>();
   private Map<String, Integer>textSeqMap = new HashMap<String, Integer>();
-  
+
   public List<Map<String, Object>> getElementChildrenMap(
       AndroidNativeElement androidNativeElement, String uid) {
     if (androidNativeElement == null) {
@@ -46,8 +46,12 @@ public class ActivityDumper {
   public Map<String, Object> getElementMap(AndroidNativeElement el,
       String parentTagName, String uid) {
     Map<String, Object> map = new HashMap<String, Object>();
-    String id = el.getResourceEntryName() == null ? "" : el
+    String id = "";
+    try {
+      id = el.getResourceEntryName() == null ? "" : el
         .getResourceEntryName();
+    } catch (Exception ignored) {
+    }
     if (id != "") {
       if (!idSeqMap.containsKey(id)) {
         idSeqMap.put(id, 0);
