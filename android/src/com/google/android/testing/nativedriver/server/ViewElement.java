@@ -33,6 +33,9 @@ import android.view.View;
 
 import com.google.android.testing.nativedriver.common.Touch;
 import com.google.common.base.Function;
+import android.view.Display;
+import android.view.WindowManager;
+import android.content.Context;
 
 /**
  * The default wrapper for Android views. This is extended by all other
@@ -55,6 +58,7 @@ import com.google.common.base.Function;
  *
  * @author Matt DeVore
  * @author Dezheng Xu
+ * @author Yuta Hirakawa
  */
 public class ViewElement<V extends View>
     extends AndroidNativeElement implements Locatable, HasAndroidNativeCommand {
@@ -185,7 +189,7 @@ public class ViewElement<V extends View>
     // If inconvenient corresponding by try~catch.
     return (viewId == View.NO_ID || viewId < 1000) ? null : context.getActivities().current().getResources().getResourceEntryName(view.getId());
   }
-  
+
   /**
    * {@inheritDoc}
    *
@@ -206,11 +210,59 @@ public class ViewElement<V extends View>
     // ViewElement. But the coordinates should be located in the overlap area
     // of current View and the actual View that consumes the click.
     waitUntilIsDisplayed();
-    scrollIntoScreenIfNeeded();
+    Point p = getCoordinates().getLocationOnScreen();
+    boolean isOutside = isScreenOutside(p);
+    if ( isOutside ) {
+      scrollIntoScreenIfNeeded();
+      int count  = 0;
+      while(count != 10) {
+        Point currentPoint = getCoordinates().getLocationOnScreen();
+        if ( currentPoint.getX() != p.getX() || currentPoint.getY() != p.getY() ) {
+          waitStopScroll(currentPoint);
+          break;
+        }
+        sleep(100);
+        count++;
+      }
+    }
     Touch touch = context.getTouch();
     touch.tap(getCoordinates());
   }
-  
+
+  private void waitStopScroll(Point currentPoint){
+    int checkCount = 0;
+    Point checkPoint = currentPoint;
+    while (checkCount != 5) {
+      sleep(50);
+      Point diffCheckPoint = getCoordinates().getLocationOnScreen();
+      if ( diffCheckPoint.getX() == checkPoint.getX() && diffCheckPoint.getY() == checkPoint.getY() ) {
+        break;
+      }
+      checkPoint = diffCheckPoint;
+      checkCount++;
+    }
+  }
+
+  private boolean isScreenOutside() {
+    Point p = getCoordinates().getLocationOnScreen();
+    return isScreenOutside(p);
+  }
+
+  private boolean isScreenOutside(Point p) {
+    Display disp =
+      ((WindowManager)view.getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+    int width  = disp.getWidth();
+    int height = disp.getHeight();
+    return p.getX() > width || p.getY() > height;
+  }
+
+  private void sleep(int ms) {
+    try {
+      Thread.sleep(ms);
+    } catch (InterruptedException ignored) {
+    }
+  }
+
   @Override
   public void drag(int x, int y) {
     waitUntilIsDisplayed();
@@ -407,7 +459,7 @@ public class ViewElement<V extends View>
 //  public String getUID() {
 //    return view.getTag(TAG_UID).toString();
 //  }
-//  
+//
 //  @Override
 //  public void setUID(final String uid) {
 //    view.setTag(TAG_UID, uid);
