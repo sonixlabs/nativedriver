@@ -171,7 +171,7 @@ public class AndroidNativeTouch implements Touch {
     touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
     touchUp(x, y);
   }
-  
+
   protected void drag(int x1, int y1, int x2, int y2) {
     touchDown(x1, y1);
     //int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
@@ -204,7 +204,10 @@ public class AndroidNativeTouch implements Touch {
 
   protected void sendMotionEvent(MotionEvent motionEvent) {
     instrumentation.waitForIdleSync();
-    instrumentation.sendPointerSync(motionEvent);
+    try {
+      instrumentation.sendPointerSync(motionEvent);
+    } catch (Exception ignored) {
+    }
   }
 
   protected boolean isTouchStateReleased() {
