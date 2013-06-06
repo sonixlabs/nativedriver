@@ -54,11 +54,27 @@ public class RootSearchScope implements ElementSearchScope {
     return Class.forName("android.view.WindowManagerImpl");
   }
 
+  protected Class<?> getWindowManagerGlobalClass() throws ClassNotFoundException {
+    return Class.forName("android.view.WindowManagerGlobal");
+  }
+
+  private boolean isWindowManagerGlobalVersion() {
+      return android.os.Build.VERSION.SDK_INT >= 17;
+  }
+
   protected View[] getTopLevelViews() {
     try {
-      Class<?> wmClass = getWindowManagerImplClass();
-      Object wm = wmClass.getDeclaredMethod("getDefault").invoke(null);
-      Field views = wmClass.getDeclaredField("mViews");
+      Object wm;
+      Field views;
+      if ( isWindowManagerGlobalVersion() ) {
+        Class<?> wmgClass = getWindowManagerGlobalClass();
+        wm                = wmgClass.getDeclaredMethod("getInstance").invoke(null);
+        views             = wmgClass.getDeclaredField("mViews");
+      } else {
+        Class<?> wmClass = getWindowManagerImplClass();
+        wm               = wmClass.getDeclaredMethod("getDefault").invoke(null);
+        views            = wmClass.getDeclaredField("mViews");
+      }
       views.setAccessible(true);
       synchronized (wm) {
         return ((View[]) views.get(wm)).clone();
