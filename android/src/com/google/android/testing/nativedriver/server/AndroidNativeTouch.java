@@ -167,8 +167,9 @@ public class AndroidNativeTouch implements Touch {
 
   protected void tap(int x, int y) {
     touchDown(x, y);
-    int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
-    touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
+    // HACK: OS 2.3.x instrumentation.waitForIdleSync(); not return
+    //int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
+    //touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
     touchUp(x, y);
   }
 
@@ -181,8 +182,8 @@ public class AndroidNativeTouch implements Touch {
 
   protected void longClick(int x, int y) {
     touchDown(x, y);
-    int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
-    touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
+    //int scaledTouchSlopAdjustment = getScaledTouchSlopAdjustment();
+    //touchMove(x + scaledTouchSlopAdjustment, y + scaledTouchSlopAdjustment);
     sleep(DURATION_OF_LONG_PRESS);
     touchUp(x, y);
   }
