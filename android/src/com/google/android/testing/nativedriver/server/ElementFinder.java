@@ -199,7 +199,7 @@ public class ElementFinder {
     private SearchContextImpl(ElementSearchScope scope) {
       this.scope = scope;
     }
-    
+
     @Override
     public WebElement findElement(final By by) {
       try {
@@ -215,7 +215,7 @@ public class ElementFinder {
         } else {
           throw exception;
         }
-      } 
+      }
     }
 
     @Override
@@ -270,7 +270,17 @@ public class ElementFinder {
     @Override
     public WebElement findElementById(String using) {
       if (idType(using) == IdType.ANDROID) {
-        return findElementByAndroidId(using);
+        /*
+         * FIX: findElement method cannot get the element inside the DecorView.
+         *      (https://groups.google.com/forum/#!topic/nativedriver-users/OLN4DUVowvw)
+         */
+        // return findElementByAndroidId(using);
+        Integer id = parseAsAndroidId(using);
+        if (id == null) {
+          id = -1;
+        }
+        return findElementFromHierarchy(
+            scope.getChildren(), new ByAndroidIdFilterCondition(using, id));
       } else {
         return findElementFromHierarchy(
             scope.getChildren(), new ByLiteralIdFilterCondition(using));
@@ -354,7 +364,7 @@ public class ElementFinder {
       }
       return result;
     }
-    
+
     private WebElement findByUID(AndroidNativeElement element, ArrayList<String> listUID) {
       Integer i = 0;
       for (AndroidNativeElement el : element.getChildren()) {
@@ -367,7 +377,7 @@ public class ElementFinder {
           }
         }
         i++;
-      } 
+      }
       return null;
     }
   }
