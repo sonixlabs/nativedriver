@@ -2,8 +2,10 @@
 
 ## Function
 
-* AndroidNativeDriver#setText(text)
+* AndroidNativeDriver#setText(text) : Set text directly.
 * AndroidNativeDriver#flick(x1, y1, x2, y2)
+* AndroidNativeDriver#getCurrentActivityName()
+* AndroidNativeDriver#quitWithInit() : quit driver and drop data.
 * etc.
 
 ## Bug Fix
